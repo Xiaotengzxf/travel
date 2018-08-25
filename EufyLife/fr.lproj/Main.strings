@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "SoundCore Boom"; ObjectID = "333-vH-yDb"; */
+"333-vH-yDb.text" = "SoundCore Boom";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DbO-BW-A5S"; */
+"DbO-BW-A5S.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Jqc-8c-DlY"; */
+"Jqc-8c-DlY.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Mzy-jc-0eg"; */
+"Mzy-jc-0eg.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "NgF-jy-qBb"; */
+"NgF-jy-qBb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Firmware Version 1.0"; ObjectID = "Vcu-RS-fgQ"; */
+"Vcu-RS-fgQ.text" = "Firmware Version 1.0";
+
+/* Class = "UILabel"; text = "Menu"; ObjectID = "VgG-vY-4MN"; */
+"VgG-vY-4MN.text" = "Menu";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eOn-WM-GgO"; */
+"eOn-WM-GgO.text" = "Label";
+
+/* Class = "UILabel"; text = "Serial Number SN0012488"; ObjectID = "f6Z-kx-ecE"; */
+"f6Z-kx-ecE.text" = "Serial Number SN0012488";
+
+/* Class = "UILabel"; text = "Update Firmware"; ObjectID = "gB3-lJ-qmm"; */
+"gB3-lJ-qmm.text" = "Update Firmware";
+
+/* Class = "UILabel"; text = "Menu"; ObjectID = "gEt-9z-87m"; */
+"gEt-9z-87m.text" = "Menu";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iN4-fW-KrG"; */
+"iN4-fW-KrG.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "SoundCore Boom"; ObjectID = "uAa-rI-UDn"; */
+"uAa-rI-UDn.text" = "SoundCore Boom";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "xlC-KG-qZe"; */
+"xlC-KG-qZe.normalTitle" = "Cancel";

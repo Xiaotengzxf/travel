@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Font</key>
+	<dict>
+		<key>t1</key>
+		<integer>28</integer>
+		<key>t2</key>
+		<integer>20</integer>
+		<key>t3</key>
+		<integer>18</integer>
+		<key>t4</key>
+		<integer>15</integer>
+		<key>t5</key>
+		<integer>13</integer>
+	</dict>
+	<key>Color</key>
+	<dict>
+		<key>c1</key>
+		<string>14E0D0</string>
+		<key>c2</key>
+		<string>4A4A4A</string>
+		<key>c3</key>
+		<string>80848F</string>
+		<key>c4</key>
+		<string>BBBBBB</string>
+		<key>c6</key>
+		<string>E2E2E2</string>
+		<key>c7</key>
+		<string>F5F6FA</string>
+		<key>c8</key>
+		<string>FFFFFF</string>
+		<key>c9</key>
+		<string>EE7572</string>
+		<key>c_button_normal_left</key>
+		<string>52FBDA</string>
+		<key>c_button_normal_right</key>
+		<string>02C6E5</string>
+		<key>c_button_press_left</key>
+		<string>2B7DA9</string>
+		<key>c_button_press_right</key>
+		<string>36B9A6</string>
+		<key>c_background_top</key>
+		<string>FFFFFF</string>
+		<key>c_background_bottom</key>
+		<string>E9E9E9</string>
+		<key>c_button_shadow</key>
+		<string>2B7DA9</string>
+	</dict>
+</dict>
+</plist>

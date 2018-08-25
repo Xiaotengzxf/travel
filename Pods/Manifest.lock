@@ -1,0 +1,103 @@
+PODS:
+  - Alamofire (4.7.1)
+  - Bugly (2.5.0)
+  - Firebase/Core (5.2.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.0.1)
+  - Firebase/CoreOnly (5.2.0):
+    - FirebaseCore (= 5.0.3)
+  - Firebase/Messaging (5.2.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.0.2)
+  - FirebaseAnalytics (5.0.1):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.0.3):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseInstanceID (3.1.0):
+    - FirebaseCore (~> 5.0)
+  - FirebaseMessaging (3.0.2):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - GoogleAnalytics (3.17.0)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - Kingfisher (4.7.0)
+  - Localize-Swift (2.0.0)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - Protobuf (3.6.0)
+  - SnapKit (4.0.0)
+  - TYAttributedLabel (2.6.6)
+  - XCGLogger (6.0.2):
+    - XCGLogger/Core (= 6.0.2)
+  - XCGLogger/Core (6.0.2):
+    - ObjcExceptionBridging
+
+DEPENDENCIES:
+  - Alamofire
+  - Bugly
+  - Firebase/Core
+  - Firebase/Messaging
+  - GoogleAnalytics
+  - Kingfisher (~> 4.7.0)
+  - Localize-Swift (~> 2.0)
+  - SnapKit (~> 4.0.0)
+  - TYAttributedLabel
+  - XCGLogger
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Bugly
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - GoogleAnalytics
+    - GoogleToolboxForMac
+    - Kingfisher
+    - Localize-Swift
+    - nanopb
+    - ObjcExceptionBridging
+    - Protobuf
+    - SnapKit
+    - TYAttributedLabel
+    - XCGLogger
+
+SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
+  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
+  FirebaseCore: a3c87242451633fff8490183898075ce77d168d2
+  FirebaseInstanceID: 05d779cbb97bd5bd5c51a38a903fc9cfe1b2454a
+  FirebaseMessaging: 6894b8fe0a0cf26c3b13dad729f1131654ae0bdb
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  TYAttributedLabel: cb8fc910d97eb5224936d4f692a78e042af691b2
+  XCGLogger: c9601cae9a8912de34a58666ba931ed3d624dd31
+
+PODFILE CHECKSUM: 50453de03e095fa55244501a04facdb8f8707632
+
+COCOAPODS: 1.5.0
