@@ -1,6 +1,0 @@
-framework module Pods_Jouz {
-  umbrella header "Pods-Jouz-umbrella.h"
-
-  export *
-  module * { export * }
-}
