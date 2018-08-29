@@ -104,7 +104,6 @@
         <!--我的-->
         <scene sceneID="qLw-Z0-viZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3vF-FU-1YU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="3Gh-IA-I2S" customClass="JMineTableViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wfJ-D1-Bvh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
@@ -288,6 +287,7 @@
                         <segue destination="gxi-hy-sqo" kind="show" identifier="Contact" id="mPU-hJ-Ccw"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3vF-FU-1YU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1660" y="1351.5742128935533"/>
         </scene>
@@ -374,6 +374,7 @@
                         <outlet property="logOutButton" destination="bis-Js-smH" id="Ct7-UT-hcl"/>
                         <outlet property="tableView" destination="lse-nV-ZJM" id="qtR-Vo-DvM"/>
                         <segue destination="cVw-Q8-ay9" kind="show" identifier="Feedback" id="Wwe-AC-WMh"/>
+                        <segue destination="piu-eM-0cN" kind="show" id="ck7-1q-NnE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6a9-ZY-Yn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -498,6 +499,96 @@
             </objects>
             <point key="canvasLocation" x="2494" y="1352"/>
         </scene>
+        <!--账号设置-->
+        <scene sceneID="RGk-LR-jox">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="piu-eM-0cN" customClass="JAccountSettingsViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZnP-Lu-16S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eHT-dD-ehi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="KDA-3z-j06">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="11"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="s9R-LE-uNk">
+                                    <rect key="frame" x="0.0" y="101" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="62" id="TZX-PV-SJ9">
+                                        <rect key="frame" x="0.0" y="39" width="375" height="62"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TZX-PV-SJ9" id="2Qh-JV-0Eb">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="61.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1n4-1S-h7i">
+                                                    <rect key="frame" x="289" y="8" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="dLa-hh-qOH"/>
+                                                        <constraint firstAttribute="width" constant="45" id="zAS-wS-Ve7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyk-dX-1h7">
+                                                    <rect key="frame" x="12" y="31" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-8F-dIK">
+                                                    <rect key="frame" x="332" y="31" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1n4-1S-h7i" firstAttribute="centerY" secondItem="2Qh-JV-0Eb" secondAttribute="centerY" id="0rh-wg-4Z7"/>
+                                                <constraint firstItem="Tyk-dX-1h7" firstAttribute="centerY" secondItem="2Qh-JV-0Eb" secondAttribute="centerY" id="1nI-01-aEQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="RAX-8F-dIK" secondAttribute="trailing" constant="10" id="JET-6w-oZr"/>
+                                                <constraint firstItem="RAX-8F-dIK" firstAttribute="centerY" secondItem="2Qh-JV-0Eb" secondAttribute="centerY" id="JhR-Dz-eN5"/>
+                                                <constraint firstAttribute="trailing" secondItem="1n4-1S-h7i" secondAttribute="trailing" constant="8" id="jL6-LX-SgC"/>
+                                                <constraint firstItem="Tyk-dX-1h7" firstAttribute="leading" secondItem="2Qh-JV-0Eb" secondAttribute="leading" constant="12" id="xcQ-Hw-VL7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="piu-eM-0cN" id="ISU-oa-yqf"/>
+                                    <outlet property="delegate" destination="piu-eM-0cN" id="zLM-1M-5rZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eHT-dD-ehi" secondAttribute="trailing" id="FKj-vK-ZNv"/>
+                            <constraint firstItem="eHT-dD-ehi" firstAttribute="top" secondItem="VTc-MF-Gg6" secondAttribute="top" id="Fcg-3Z-jR6"/>
+                            <constraint firstAttribute="bottom" secondItem="eHT-dD-ehi" secondAttribute="bottom" id="lAh-Ip-6o6"/>
+                            <constraint firstItem="eHT-dD-ehi" firstAttribute="leading" secondItem="ZnP-Lu-16S" secondAttribute="leading" id="oyO-lv-hPk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VTc-MF-Gg6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="账号设置" id="nA6-eP-ca7">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="DiY-V9-GfN">
+                            <connections>
+                                <action selector="save:" destination="piu-eM-0cN" id="Mb2-dh-b5c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="eHT-dD-ehi" id="DBv-Yf-ZbI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YNU-uk-z9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3352.8000000000002" y="2102.698650674663"/>
+        </scene>
         <!--我的-->
         <scene sceneID="PDC-xS-iBB">
             <objects>
@@ -518,11 +609,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="01" width="37" height="37"/>
-        <image name="011" width="37" height="37"/>
-        <image name="02" width="37" height="37"/>
-        <image name="021" width="37" height="37"/>
-        <image name="03" width="37" height="37"/>
-        <image name="031" width="37" height="37"/>
+        <image name="01" width="25" height="25"/>
+        <image name="011" width="25" height="25"/>
+        <image name="02" width="25" height="25"/>
+        <image name="021" width="25" height="25"/>
+        <image name="03" width="25" height="25"/>
+        <image name="031" width="25" height="25"/>
     </resources>
 </document>

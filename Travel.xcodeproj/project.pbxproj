@@ -66,7 +66,6 @@
 		9AE82A2A21193E2700B236DD /* Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE82A2721193E2700B236DD /* Medium.otf */; };
 		9AE82A2B21193E2700B236DD /* Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE82A2821193E2700B236DD /* Regular.otf */; };
 		9AE82A2D21193EEA00B236DD /* Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE82A2C21193EEA00B236DD /* Black.ttf */; };
-		9AE82A2F211940F100B236DD /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AE82A2E211940F100B236DD /* default.jpg */; };
 		9AFAEBCB20CA74D0001D8C43 /* JRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFAEBCA20CA74D0001D8C43 /* JRootNavigationController.swift */; };
 		9AFD874D2132BA00005CC188 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AFD874C2132BA00005CC188 /* Main.storyboard */; };
 		9AFD87512132CA85005CC188 /* JTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD87502132CA85005CC188 /* JTabBarController.swift */; };
@@ -74,6 +73,7 @@
 		9AFD87562132DE29005CC188 /* JContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD87552132DE29005CC188 /* JContactViewController.swift */; };
 		9AFD87592132E18C005CC188 /* JSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD87582132E18C005CC188 /* JSettingsViewController.swift */; };
 		9AFD875B2132E5AD005CC188 /* JFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD875A2132E5AD005CC188 /* JFeedbackViewController.swift */; };
+		9AFD879F21350EBA005CC188 /* JAccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD879E21350EBA005CC188 /* JAccountSettingsViewController.swift */; };
 		A3E9C1CA84ADDBC9FF40F6D3 /* Pods_Travel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6EA33924D00CAFCF17DA2E /* Pods_Travel.framework */; };
 		B49AF1BE20AD6C3C00389226 /* JImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49AF1BD20AD6C3C00389226 /* JImagePicker.swift */; };
 		F7096C9C1FFB7DCD0025CA18 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7096C9E1FFB7DCD0025CA18 /* Localizable.strings */; };
@@ -188,7 +188,6 @@
 		9AE82A2721193E2700B236DD /* Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Medium.otf; sourceTree = "<group>"; };
 		9AE82A2821193E2700B236DD /* Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Regular.otf; sourceTree = "<group>"; };
 		9AE82A2C21193EEA00B236DD /* Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Black.ttf; sourceTree = "<group>"; };
-		9AE82A2E211940F100B236DD /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
 		9AFAEBCA20CA74D0001D8C43 /* JRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRootNavigationController.swift; sourceTree = "<group>"; };
 		9AFD874C2132BA00005CC188 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9AFD87502132CA85005CC188 /* JTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTabBarController.swift; sourceTree = "<group>"; };
@@ -196,6 +195,7 @@
 		9AFD87552132DE29005CC188 /* JContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JContactViewController.swift; sourceTree = "<group>"; };
 		9AFD87582132E18C005CC188 /* JSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSettingsViewController.swift; sourceTree = "<group>"; };
 		9AFD875A2132E5AD005CC188 /* JFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JFeedbackViewController.swift; sourceTree = "<group>"; };
+		9AFD879E21350EBA005CC188 /* JAccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAccountSettingsViewController.swift; sourceTree = "<group>"; };
 		AA6EA33924D00CAFCF17DA2E /* Pods_Travel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49AF1BD20AD6C3C00389226 /* JImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JImagePicker.swift; sourceTree = "<group>"; };
 		F798272E200F2A130045FA70 /* UIView+RedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RedPoint.swift"; sourceTree = "<group>"; };
@@ -324,7 +324,6 @@
 				9A1786FF1FDAA7320071E574 /* AppDelegate.swift */,
 				9A1787091FDAA7320071E574 /* Assets.xcassets */,
 				9A4639E120C4316000D5B877 /* LaunchScreen.storyboard */,
-				9AE82A2E211940F100B236DD /* default.jpg */,
 				9A17870E1FDAA7320071E574 /* Info.plist */,
 			);
 			path = Travel;
@@ -611,7 +610,6 @@
 		9AFD874E2132BEDD005CC188 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				9AFD87572132E15F005CC188 /* Settings */,
 				9AFD874F2132CA6D005CC188 /* Tab */,
 				9AFD87522132D9E0005CC188 /* Mine */,
 			);
@@ -631,17 +629,11 @@
 			children = (
 				9AFD87532132D9F3005CC188 /* JMineTableViewController.swift */,
 				9AFD87552132DE29005CC188 /* JContactViewController.swift */,
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		9AFD87572132E15F005CC188 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
 				9AFD87582132E18C005CC188 /* JSettingsViewController.swift */,
+				9AFD879E21350EBA005CC188 /* JAccountSettingsViewController.swift */,
 				9AFD875A2132E5AD005CC188 /* JFeedbackViewController.swift */,
 			);
-			path = Settings;
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		9F4BAEB18050BD27B53B1632 /* Pods */ = {
@@ -811,7 +803,6 @@
 				9AE82A2A21193E2700B236DD /* Medium.otf in Resources */,
 				F7096C9C1FFB7DCD0025CA18 /* Localizable.strings in Resources */,
 				9AE82A2D21193EEA00B236DD /* Black.ttf in Resources */,
-				9AE82A2F211940F100B236DD /* default.jpg in Resources */,
 				9A67ADCC20F31A4100DDF069 /* AreaPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -945,6 +936,7 @@
 				9A9313B7209868BD00CEB1B6 /* JLoginResponseModel.swift in Sources */,
 				9A67ADCA20F31A4100DDF069 /* AreaPickerView.swift in Sources */,
 				9A092A7F205242A0004961C4 /* CGPathProducer.m in Sources */,
+				9AFD879F21350EBA005CC188 /* JAccountSettingsViewController.swift in Sources */,
 				9AFD87562132DE29005CC188 /* JContactViewController.swift in Sources */,
 				9A3E46562088811200A80821 /* JBaseRequestModel.swift in Sources */,
 				9AE7124B1FF282D200E8B329 /* CyclicCardFlowLayout.swift in Sources */,
