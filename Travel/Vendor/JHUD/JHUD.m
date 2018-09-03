@@ -51,7 +51,7 @@
 
 #pragma mark - show method 
 
-- (void)showAtView:(UIView *)view bWait: (BOOL)bWait {
+- (void)showAtView:(UIView *)view {
     if (_timer == nil) {
         if (view != nil) {
             [view addSubview: self];
@@ -60,11 +60,9 @@
             [KLastWindow addSubview: self];
             [KLastWindow bringSubviewToFront:self];
         }
-        if (bWait) {
-            _timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(setupSubViews) userInfo:nil repeats:false];
-        } else {
-            [self setupSubViews];
-        }
+        
+        [self setupSubViews];
+        
     }
 }
 
@@ -78,14 +76,11 @@
     
 }
 
-+ (void)showAtView:(UIView *)view bTransparency: (BOOL)bTransparency bWait:(BOOL)bWait {
++ (void)showAtView:(UIView *)view {
     if ([self showing:view] == NO) {
-        
         JHUD * hud = [[self alloc] initWithFrame: view != nil ? view.bounds : KLastWindow.bounds];
-        if (bTransparency) {
-            [hud.loadingView setBackgroundTransparency];
-        }
-        [hud showAtView: view bWait:bWait];
+        [hud.loadingView setBackgroundTransparency];
+        [hud showAtView: view];
     }
 }
 

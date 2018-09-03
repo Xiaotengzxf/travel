@@ -17,6 +17,8 @@ class JSignUpViewController: SCBaseViewController {
     @IBOutlet weak var confirmTextField: UITextField!
     @IBOutlet weak var contentView: UIView!
     
+    private let modelService = JSignUpModelService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sendCodeButton.layer.borderColor = ZColorManager.sharedInstance.colorWithHexString(hex: "29A1F7").cgColor
@@ -43,8 +45,21 @@ class JSignUpViewController: SCBaseViewController {
     }
     */
     @IBAction func sendCode(_ sender: Any) {
+        if let phone = phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), phone.count > 0 {
+            if phone.validatePhone() {
+                JHUD.show(at: self.view)
+                modelService.getToken(mobilePhone: phone) {[weak self] (result, message) in
+                    JHUD.hide(for: self!.view)
+                }
+            } else {
+                Toast(text: "手机号码有误").show()
+            }
+        } else {
+            Toast(text: "请输入手机号码").show()
+        }
     }
     
     @IBAction func register(_ sender: Any) {
+        
     }
 }

@@ -10,17 +10,15 @@ import UIKit
 
 class JSignUpModelService: NSObject {
     
-    func signUp(email: String, password: String, name: String, isSubscribe: Bool, callback: @escaping (Bool, String?) -> ()) {
-        let request = JRegisterRequestModel(email: email, password: password, nickName: name, isSubscribe: isSubscribe)
+    func signUp(mobilePhone: String, password: String, callback: @escaping (Bool, String?) -> ()) {
+        let request = JRegisterRequestModel(mobilePhone: mobilePhone, password: password)
         let network = ZNetwork()
         network.request(strUrl: request.url(), strMethod: "POST", parameters: request.toBody(), encoding: ZNetwork.Encoding.jsonBody.toUrlEncoding(), headers: request.toHeader()) { (value, error) in
             if let response = value {
                 let data = response.data(using: .utf8)
                 let model = try? JSONDecoder().decode(JLoginResponseModel.self, from: data!)
                 if model?.res_code == 1 {
-                    UserDefaults.standard.set(email, forKey: kEmail)
-                    JUserManager.sharedInstance.user = model?.responseToUser()
-                    JUserManager.sharedInstance.saveUserAccount(complete: false)
+                    UserDefaults.standard.set(mobilePhone, forKey: kPhone)
                     callback(true, model?.message)
                 } else {
                     callback(false, model?.message)
@@ -35,6 +33,14 @@ class JSignUpModelService: NSObject {
                     }
                 }
             }
+        }
+    }
+    
+    func getToken(mobilePhone: String, callback: @escaping (Bool, String?) -> ()) {
+        let request = JTokenRequestModel(mobilePhone: mobilePhone)
+        let network = ZNetwork()
+        network.request(strUrl: request.url(), strMethod: "POST", parameters: request.toBody(), headers: request.toHeader()) { (response, error) in
+            
         }
     }
 }

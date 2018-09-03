@@ -1,31 +1,28 @@
 //
-//  JRegisterRequestModel.swift
-//  Jouz
+//  JTokenRequestModel.swift
+//  Travel
 //
-//  Created by ANKER on 2018/4/28.
+//  Created by ANKER on 2018/9/1.
 //  Copyright © 2018年 team. All rights reserved.
 //
 
 import UIKit
 
-class JRegisterRequestModel: JBaseRequestModel {
+class JTokenRequestModel: JBaseRequestModel {
     private var mobilePhone = ""
-    private var password = ""
     
-    init(mobilePhone: String, password: String) {
+    init(mobilePhone: String) {
         super.init()
         self.mobilePhone = mobilePhone
-        self.password = password
     }
     
     override func url() -> String {
-        return super.url() + "api/user-token"
+        return super.url() + "api/user-verify-code"
     }
     
     override func toBody() -> [String : Any] {
         var dic = super.toBody()
         dic["mobilePhone"] = mobilePhone
-        dic["Password"] = password
         return dic
     }
 }

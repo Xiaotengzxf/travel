@@ -48,7 +48,7 @@ class ZNetwork: NSObject {
     
     func request(strUrl: String, strMethod: String, parameters: [String : Any
         ]?, headers: [String : String]?, queue: QueueType = .main, callback: @escaping (String?, Error?)->()) {
-        self.request(strUrl: strUrl, strMethod: strMethod, parameters: parameters, encoding: Encoding.defaultEncoding.toUrlEncoding(), headers: headers, queue: queue, callback: callback)
+        self.request(strUrl: strUrl, strMethod: strMethod, parameters: parameters, encoding: Encoding.jsonBody.toUrlEncoding(), headers: headers, queue: queue, callback: callback)
     }
     
     func request(strUrl: String, strMethod: String, parameters: [String : Any
@@ -59,7 +59,7 @@ class ZNetwork: NSObject {
         oRequest = manager.request(strUrl, method: HTTPMethod(rawValue: strMethod) ?? .get, parameters: parameters, encoding: encoding, headers: headers).responseData(completionHandler: { (response) in
             if let data = response.result.value {
                 let value = String(data: data, encoding: .utf8)
-                log.info("[\(strUrl)] [\(value)]")
+                log.info("[\(strUrl)] [\(String(describing: value))]")
                 callback(value, response.error)
             } else {
                 callback(nil, response.error)

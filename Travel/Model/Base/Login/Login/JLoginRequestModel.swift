@@ -10,12 +10,12 @@ import UIKit
 
 class JLoginRequestModel: JBaseRequestModel {
     
-    private var email = ""
+    private var mobilePhone = ""
     private var password = ""
     
-    init(email: String, password: String) {
+    init(mobilePhone: String, password: String) {
         super.init()
-        self.email = email
+        self.mobilePhone = mobilePhone
         self.password = password
     }
     
@@ -25,8 +25,8 @@ class JLoginRequestModel: JBaseRequestModel {
     
     override func toBody() -> [String : Any] {
         var dic = super.toBody()
-        dic["email"] = email
-        dic["password"] = password
+        dic["MobilePhone"] = mobilePhone
+        dic["Password"] = password
         return dic
     }
 }

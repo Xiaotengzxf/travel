@@ -74,6 +74,8 @@ extension JSettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
+        case 0:
+            self.performSegue(withIdentifier: "AccountSettings", sender: self)
         case 3:
             self.performSegue(withIdentifier: "Feedback", sender: self)
         default:

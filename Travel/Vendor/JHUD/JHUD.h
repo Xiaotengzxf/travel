@@ -12,7 +12,7 @@
 
 @interface JHUD : UIView
 
-+ (void)showAtView:(UIView *)view bTransparency: (BOOL)bTransparency bWait: (BOOL)bWait;
++ (void)showAtView:(UIView *)view;
 + (void)hideForView:(UIView *)view;
 
 @end

@@ -79,7 +79,7 @@ let kJSideMenuModelServiceNotification = Notification.Name("JSideMenuModelServic
 let udCustomrLanguageCode = "udCustomrLanguageCode"
 let otaKey = "OTA"
 let kApplicationKey = "applicationKey"
-let kEmail = "email"
+let kPhone = "phone"
 
 // MARK: - Other String
 

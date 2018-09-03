@@ -10,30 +10,22 @@ import UIKit
 
 class JBaseRequestModel: NSObject {
     
-    private let timeZone = TimeZone.current.identifier
-    private let country = Locale.current.regionCode ?? ""
-    private let category = "Health"
-    private let clientId = "eufy-app"
-    private let clientSecret = "8FHf22gaTKu7MZXqz5zytw"
+    private let AppId = "travel"
     
     internal func url() -> String {
         #if DEBUG
-            return "https://zhome-dev.eufylife.com/v1/"
+            return "http://120.79.28.173:8080/travel/"
         #else
-            return "https://zhome-dev.eufylife.com/v1/"
+            return "http://120.79.28.173:8080/travel/"
         #endif
     }
     
     internal func toHeader() -> [String : String] {
-        return ["timezone" : timeZone,
-                 "country" : country,
-                "category" : category,
-                "openudid" : "1"]
+        return ["AppId" : AppId]
     }
     
     internal func toBody() -> [String : Any] {
-        return ["client_id" : clientId,
-            "client_secret" : clientSecret]
+        return [:]
     }
     
 }

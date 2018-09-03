@@ -45,6 +45,13 @@
 		9A9313B920993D3E00CEB1B6 /* JUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9313B820993D3E00CEB1B6 /* JUserManager.swift */; };
 		9A9313BB20994F6000CEB1B6 /* JUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9313BA20994F6000CEB1B6 /* JUserModel.swift */; };
 		9A9B23D920A0837000024E18 /* JForgetPWDRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B23D820A0837000024E18 /* JForgetPWDRequestModel.swift */; };
+		9AA6D702213AD62900E7C98F /* JTokenRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D701213AD62900E7C98F /* JTokenRequestModel.swift */; };
+		9AA6D704213B8C5C00E7C98F /* JIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D703213B8C5C00E7C98F /* JIdentificationViewController.swift */; };
+		9AA6D706213B931300E7C98F /* JIdentificationBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D705213B931300E7C98F /* JIdentificationBViewController.swift */; };
+		9AA6D708213C1DFA00E7C98F /* JIdentificationCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D707213C1DFA00E7C98F /* JIdentificationCViewController.swift */; };
+		9AA6D711213C2A3A00E7C98F /* JMessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D710213C2A3A00E7C98F /* JMessageListViewController.swift */; };
+		9AA6D713213C2A4500E7C98F /* JCircleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D712213C2A4500E7C98F /* JCircleListViewController.swift */; };
+		9AA6D715213C2B5000E7C98F /* JMessageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D714213C2B5000E7C98F /* JMessageListTableViewCell.swift */; };
 		9AB367BE200C617E000A7670 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB367BD200C617E000A7670 /* ButtonExtension.swift */; };
 		9AC55A27207F85F30013A581 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC55A26207F85F30013A581 /* Login.storyboard */; };
 		9AC55A2C208046080013A581 /* JLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC55A2B208046080013A581 /* JLoginViewController.swift */; };
@@ -163,6 +170,13 @@
 		9A9313B820993D3E00CEB1B6 /* JUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JUserManager.swift; sourceTree = "<group>"; };
 		9A9313BA20994F6000CEB1B6 /* JUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JUserModel.swift; sourceTree = "<group>"; };
 		9A9B23D820A0837000024E18 /* JForgetPWDRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JForgetPWDRequestModel.swift; sourceTree = "<group>"; };
+		9AA6D701213AD62900E7C98F /* JTokenRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTokenRequestModel.swift; sourceTree = "<group>"; };
+		9AA6D703213B8C5C00E7C98F /* JIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JIdentificationViewController.swift; sourceTree = "<group>"; };
+		9AA6D705213B931300E7C98F /* JIdentificationBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JIdentificationBViewController.swift; sourceTree = "<group>"; };
+		9AA6D707213C1DFA00E7C98F /* JIdentificationCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JIdentificationCViewController.swift; sourceTree = "<group>"; };
+		9AA6D710213C2A3A00E7C98F /* JMessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMessageListViewController.swift; sourceTree = "<group>"; };
+		9AA6D712213C2A4500E7C98F /* JCircleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCircleListViewController.swift; sourceTree = "<group>"; };
+		9AA6D714213C2B5000E7C98F /* JMessageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMessageListTableViewCell.swift; sourceTree = "<group>"; };
 		9AB367BD200C617E000A7670 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		9AC55A26207F85F30013A581 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9AC55A2B208046080013A581 /* JLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLoginViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				9A34D350202810F600C3A955 /* Base */,
+				9AA6D70B213C29DA00E7C98F /* Main */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9313B22094847200CEB1B6 /* JRegisterRequestModel.swift */,
+				9AA6D701213AD62900E7C98F /* JTokenRequestModel.swift */,
 				9A3E464920887AE500A80821 /* JSignUpModelService.swift */,
 			);
 			path = Register;
@@ -526,6 +542,62 @@
 				9A4639D920C286FC00D5B877 /* JRootModelService.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		9AA6D709213C299B00E7C98F /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				9AA6D712213C2A4500E7C98F /* JCircleListViewController.swift */,
+			);
+			path = Circle;
+			sourceTree = "<group>";
+		};
+		9AA6D70A213C299B00E7C98F /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				9AA6D710213C2A3A00E7C98F /* JMessageListViewController.swift */,
+				9AA6D714213C2B5000E7C98F /* JMessageListTableViewCell.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		9AA6D70B213C29DA00E7C98F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9AA6D70C213C29DA00E7C98F /* Message */,
+				9AA6D70D213C29DA00E7C98F /* Tab */,
+				9AA6D70E213C29DA00E7C98F /* Mine */,
+				9AA6D70F213C29DA00E7C98F /* Circle */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9AA6D70C213C29DA00E7C98F /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		9AA6D70D213C29DA00E7C98F /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		9AA6D70E213C29DA00E7C98F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		9AA6D70F213C29DA00E7C98F /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Circle;
 			sourceTree = "<group>";
 		};
 		9AC55A28207F863F0013A581 /* Login */ = {
@@ -610,6 +682,8 @@
 		9AFD874E2132BEDD005CC188 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9AA6D709213C299B00E7C98F /* Circle */,
+				9AA6D70A213C299B00E7C98F /* Message */,
 				9AFD874F2132CA6D005CC188 /* Tab */,
 				9AFD87522132D9E0005CC188 /* Mine */,
 			);
@@ -632,6 +706,9 @@
 				9AFD87582132E18C005CC188 /* JSettingsViewController.swift */,
 				9AFD879E21350EBA005CC188 /* JAccountSettingsViewController.swift */,
 				9AFD875A2132E5AD005CC188 /* JFeedbackViewController.swift */,
+				9AA6D703213B8C5C00E7C98F /* JIdentificationViewController.swift */,
+				9AA6D705213B931300E7C98F /* JIdentificationBViewController.swift */,
+				9AA6D707213C1DFA00E7C98F /* JIdentificationCViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -850,28 +927,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Travel/Pods-Travel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TYAttributedLabel/TYAttributedLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyDataSet_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYAttributedLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -908,16 +975,20 @@
 				9A3E464C20887AF700A80821 /* JForgetPWDModelService.swift in Sources */,
 				9ACC56C81FEBB742004A452F /* ZColorManager.swift in Sources */,
 				9AC55A2C208046080013A581 /* JLoginViewController.swift in Sources */,
+				9AA6D711213C2A3A00E7C98F /* JMessageListViewController.swift in Sources */,
 				9A34D2652027F94700C3A955 /* DispatchQueueExtension.swift in Sources */,
 				9A1787681FE24B400071E574 /* LogManager.swift in Sources */,
 				9A9313B52098688600CEB1B6 /* JBaseResponseModel.swift in Sources */,
 				9AE712121FF0CB9200E8B329 /* ZConstant.swift in Sources */,
 				F7F83173201B13B30033A8CE /* UIImage+gradientColor.swift in Sources */,
 				9AE7124C1FF282D200E8B329 /* CyclicCardCell.swift in Sources */,
+				9AA6D702213AD62900E7C98F /* JTokenRequestModel.swift in Sources */,
 				9A092A8C2052AD40004961C4 /* SCBaseViewController.swift in Sources */,
 				9AE712641FF3470A00E8B329 /* JHUDAnimationView.m in Sources */,
 				B49AF1BE20AD6C3C00389226 /* JImagePicker.swift in Sources */,
 				9AE712201FF11C1300E8B329 /* ViewExtension.swift in Sources */,
+				9AA6D715213C2B5000E7C98F /* JMessageListTableViewCell.swift in Sources */,
+				9AA6D708213C1DFA00E7C98F /* JIdentificationCViewController.swift in Sources */,
 				9AFD87592132E18C005CC188 /* JSettingsViewController.swift in Sources */,
 				9A9313B32094847200CEB1B6 /* JRegisterRequestModel.swift in Sources */,
 				9ACC56C61FEBACE5004A452F /* ZFontManager.swift in Sources */,
@@ -949,12 +1020,15 @@
 				F798272F200F2A130045FA70 /* UIView+RedPoint.swift in Sources */,
 				9A9313B920993D3E00CEB1B6 /* JUserManager.swift in Sources */,
 				9A89907D2005E960001CBC0D /* SGCirle.swift in Sources */,
+				9AA6D706213B931300E7C98F /* JIdentificationBViewController.swift in Sources */,
 				9AFD87542132D9F3005CC188 /* JMineTableViewController.swift in Sources */,
 				9A1AF7FF20120A9100D6E0C4 /* IntExtension.swift in Sources */,
 				9A9B23D920A0837000024E18 /* JForgetPWDRequestModel.swift in Sources */,
 				9AB367BE200C617E000A7670 /* ButtonExtension.swift in Sources */,
 				9A13F1501FEB97450024E2F8 /* ToastWindow.swift in Sources */,
 				9A89907C2005E960001CBC0D /* SGCirleProgress.swift in Sources */,
+				9AA6D704213B8C5C00E7C98F /* JIdentificationViewController.swift in Sources */,
+				9AA6D713213C2A4500E7C98F /* JCircleListViewController.swift in Sources */,
 				9AFD87512132CA85005CC188 /* JTabBarController.swift in Sources */,
 				9AE37A27200F39EA0077680D /* Reachability.swift in Sources */,
 			);
