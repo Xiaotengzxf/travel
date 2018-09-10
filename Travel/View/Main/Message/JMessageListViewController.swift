@@ -17,10 +17,22 @@ class JMessageListViewController: UIViewController {
     @IBOutlet weak var messageALabel: UILabel!
     @IBOutlet weak var messageBLabel: UILabel!
     
+    private let service = JMessageModelService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        searchBar.barTintColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
+        searchBar.tintColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
+        searchBar.backgroundColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
+        searchBar.backgroundImage = UIImage(named: "search_background")
+        searchBar.layer.cornerRadius = 15
+        
+        service.getMessageList(page: 0,
+                               keyboard: nil,
+                               criteria: nil,
+                               orderby: nil) { (result, message) in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {

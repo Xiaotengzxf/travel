@@ -43,7 +43,6 @@
 		9A9313B52098688600CEB1B6 /* JBaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9313B42098688600CEB1B6 /* JBaseResponseModel.swift */; };
 		9A9313B7209868BD00CEB1B6 /* JLoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9313B6209868BD00CEB1B6 /* JLoginResponseModel.swift */; };
 		9A9313B920993D3E00CEB1B6 /* JUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9313B820993D3E00CEB1B6 /* JUserManager.swift */; };
-		9A9313BB20994F6000CEB1B6 /* JUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9313BA20994F6000CEB1B6 /* JUserModel.swift */; };
 		9A9B23D920A0837000024E18 /* JForgetPWDRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B23D820A0837000024E18 /* JForgetPWDRequestModel.swift */; };
 		9AA6D702213AD62900E7C98F /* JTokenRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D701213AD62900E7C98F /* JTokenRequestModel.swift */; };
 		9AA6D704213B8C5C00E7C98F /* JIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D703213B8C5C00E7C98F /* JIdentificationViewController.swift */; };
@@ -59,6 +58,9 @@
 		9AC55A3020804CB70013A581 /* JSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC55A2F20804CB70013A581 /* JSignUpViewController.swift */; };
 		9ACC56C61FEBACE5004A452F /* ZFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC56C51FEBACE5004A452F /* ZFontManager.swift */; };
 		9ACC56C81FEBB742004A452F /* ZColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC56C71FEBB742004A452F /* ZColorManager.swift */; };
+		9AD0C9252143620D00AB17AC /* JMessageModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0C9242143620D00AB17AC /* JMessageModelService.swift */; };
+		9AD0C9272143633800AB17AC /* JMessageListRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0C9262143633800AB17AC /* JMessageListRequestModel.swift */; };
+		9AD0C92921436EED00AB17AC /* JMessageListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0C92821436EED00AB17AC /* JMessageListResponseModel.swift */; };
 		9AE37A27200F39EA0077680D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A25200F39EA0077680D /* Reachability.swift */; };
 		9AE37A28200F39EA0077680D /* ZNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A26200F39EA0077680D /* ZNetwork.swift */; };
 		9AE37A2F200F3E9E0077680D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A2E200F3E9E0077680D /* StringExtension.swift */; };
@@ -168,7 +170,6 @@
 		9A9313B42098688600CEB1B6 /* JBaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBaseResponseModel.swift; sourceTree = "<group>"; };
 		9A9313B6209868BD00CEB1B6 /* JLoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLoginResponseModel.swift; sourceTree = "<group>"; };
 		9A9313B820993D3E00CEB1B6 /* JUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JUserManager.swift; sourceTree = "<group>"; };
-		9A9313BA20994F6000CEB1B6 /* JUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JUserModel.swift; sourceTree = "<group>"; };
 		9A9B23D820A0837000024E18 /* JForgetPWDRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JForgetPWDRequestModel.swift; sourceTree = "<group>"; };
 		9AA6D701213AD62900E7C98F /* JTokenRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTokenRequestModel.swift; sourceTree = "<group>"; };
 		9AA6D703213B8C5C00E7C98F /* JIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JIdentificationViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +185,9 @@
 		9AC55A2F20804CB70013A581 /* JSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSignUpViewController.swift; sourceTree = "<group>"; };
 		9ACC56C51FEBACE5004A452F /* ZFontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZFontManager.swift; sourceTree = "<group>"; };
 		9ACC56C71FEBB742004A452F /* ZColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZColorManager.swift; sourceTree = "<group>"; };
+		9AD0C9242143620D00AB17AC /* JMessageModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMessageModelService.swift; sourceTree = "<group>"; };
+		9AD0C9262143633800AB17AC /* JMessageListRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMessageListRequestModel.swift; sourceTree = "<group>"; };
+		9AD0C92821436EED00AB17AC /* JMessageListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMessageListResponseModel.swift; sourceTree = "<group>"; };
 		9AE37A25200F39EA0077680D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9AE37A26200F39EA0077680D /* ZNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZNetwork.swift; sourceTree = "<group>"; };
 		9AE37A2E200F3E9E0077680D /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -518,7 +522,6 @@
 			isa = PBXGroup;
 			children = (
 				9A9313B820993D3E00CEB1B6 /* JUserManager.swift */,
-				9A9313BA20994F6000CEB1B6 /* JUserModel.swift */,
 				9A9313AE209445B300CEB1B6 /* JLoginRequestModel.swift */,
 				9A9313B6209868BD00CEB1B6 /* JLoginResponseModel.swift */,
 				9A3E46362088786000A80821 /* JLoginModelService.swift */,
@@ -575,6 +578,9 @@
 		9AA6D70C213C29DA00E7C98F /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				9AD0C9242143620D00AB17AC /* JMessageModelService.swift */,
+				9AD0C9262143633800AB17AC /* JMessageListRequestModel.swift */,
+				9AD0C92821436EED00AB17AC /* JMessageListResponseModel.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -928,6 +934,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Travel/Pods-Travel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/TYAttributedLabel/TYAttributedLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
@@ -936,6 +943,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyDataSet_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYAttributedLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
@@ -969,7 +977,6 @@
 				9AE712631FF3470A00E8B329 /* JHUD.m in Sources */,
 				9AE712621FF3470A00E8B329 /* UIView+JHUD.m in Sources */,
 				9AC55A2E208049610013A581 /* JForgetPWDViewController.swift in Sources */,
-				9A9313BB20994F6000CEB1B6 /* JUserModel.swift in Sources */,
 				9A9313AF209445B300CEB1B6 /* JLoginRequestModel.swift in Sources */,
 				9A8C3E8F212EA330006B0D2E /* JDeviceUtil.m in Sources */,
 				9A3E464C20887AF700A80821 /* JForgetPWDModelService.swift in Sources */,
@@ -979,6 +986,7 @@
 				9A34D2652027F94700C3A955 /* DispatchQueueExtension.swift in Sources */,
 				9A1787681FE24B400071E574 /* LogManager.swift in Sources */,
 				9A9313B52098688600CEB1B6 /* JBaseResponseModel.swift in Sources */,
+				9AD0C92921436EED00AB17AC /* JMessageListResponseModel.swift in Sources */,
 				9AE712121FF0CB9200E8B329 /* ZConstant.swift in Sources */,
 				F7F83173201B13B30033A8CE /* UIImage+gradientColor.swift in Sources */,
 				9AE7124C1FF282D200E8B329 /* CyclicCardCell.swift in Sources */,
@@ -1007,6 +1015,7 @@
 				9A9313B7209868BD00CEB1B6 /* JLoginResponseModel.swift in Sources */,
 				9A67ADCA20F31A4100DDF069 /* AreaPickerView.swift in Sources */,
 				9A092A7F205242A0004961C4 /* CGPathProducer.m in Sources */,
+				9AD0C9272143633800AB17AC /* JMessageListRequestModel.swift in Sources */,
 				9AFD879F21350EBA005CC188 /* JAccountSettingsViewController.swift in Sources */,
 				9AFD87562132DE29005CC188 /* JContactViewController.swift in Sources */,
 				9A3E46562088811200A80821 /* JBaseRequestModel.swift in Sources */,
@@ -1020,6 +1029,7 @@
 				F798272F200F2A130045FA70 /* UIView+RedPoint.swift in Sources */,
 				9A9313B920993D3E00CEB1B6 /* JUserManager.swift in Sources */,
 				9A89907D2005E960001CBC0D /* SGCirle.swift in Sources */,
+				9AD0C9252143620D00AB17AC /* JMessageModelService.swift in Sources */,
 				9AA6D706213B931300E7C98F /* JIdentificationBViewController.swift in Sources */,
 				9AFD87542132D9F3005CC188 /* JMineTableViewController.swift in Sources */,
 				9A1AF7FF20120A9100D6E0C4 /* IntExtension.swift in Sources */,

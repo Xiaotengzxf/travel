@@ -11,7 +11,7 @@ import UIKit
 class JUserManager: NSObject {
     
     static let sharedInstance = JUserManager()
-    var user: JUserModel?
+    var user: UserInfo?
     
     override init() {
         super.init()
@@ -36,12 +36,11 @@ class JUserManager: NSObject {
     // MARK: Private
     
     private func decodeUserAccount() {
-        user = NSKeyedUnarchiver.unarchiveObject(withFile: filePathForUserAccountData()) as? JUserModel
+        user = NSKeyedUnarchiver.unarchiveObject(withFile: filePathForUserAccountData()) as? UserInfo
     }
     
     private func encodeUserAccount() {
         if user != nil {
-            user!.expires_in! += Int(Date().timeIntervalSince1970)
             NSKeyedArchiver.archiveRootObject(user!, toFile: filePathForUserAccountData())
         }
     }

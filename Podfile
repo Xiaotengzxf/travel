@@ -4,11 +4,12 @@ use_frameworks!
 
 target 'Travel' do
 
+source 'https://github.com/CocoaPods/Specs.git'
 pod 'Alamofire'
 pod 'XCGLogger'
 pod 'Bugly'
-source 'https://github.com/CocoaPods/Specs.git'
 pod 'TYAttributedLabel'
 pod 'EmptyDataSet-Swift', '~> 4.0.5'
+pod 'MJRefresh'
 
 end

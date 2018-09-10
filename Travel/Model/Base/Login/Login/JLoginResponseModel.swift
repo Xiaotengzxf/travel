@@ -10,87 +10,58 @@ import UIKit
 
 class JLoginResponseModel: Codable {
     
-    var res_code : Int?
-    var message : String?
-    var access_token : String?
-    var email : String?
-    var expires_in : Int?
-    var refresh_token : String?
-    var token_type : String?
-    var user_id : String?
-    var avatar: String?
-    var user_info: UserInfo?
-    var customers: [Customer]?
-    var devices: [Device]?
+    var errCode : Int?
+    var errMsg : String?
+    var data: UserInfo?
 }
 
-class UserInfo: Codable {
-    var id: String?
-    var nick_name: String?
-    var email: String?
-    var timezone: String?
-    var avatar: String?
-}
-
-class Customer: Codable {
-    var avatar : String?
-    var birthday = 0
-    var customer_no = 0
-    var defaultValue = true
-    var height = 0
-    var id : String?
-    var index = 0
-    var name : String?
-    var sex: String?
-    var target_weight = 0
+class UserInfo: NSObject, Codable, NSCoding {
+    var userId: String?
+    var userIcon: String?
+    var type: String?
+    var token: String?
+    var roleId: String?
+    var roleResourceStr: String?
+    var userName: String?
+    var authRefresh: String?
+    var organizationId: String?
+    var organizationName: String?
+    var wxAccessToken: String?
+    var openId: String?
+    var mobilePhone: String?
     
-    enum CodingKeys: String, CodingKey {
-        case avatar
-        case birthday
-        case customer_no
-        case defaultValue = "default"
-        case height
-        case id
-        case index
-        case name
-        case sex
-        case target_weight
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        userId = aDecoder.decodeObject(forKey: "userId") as? String
+        userIcon = aDecoder.decodeObject(forKey: "userIcon") as? String
+        type = aDecoder.decodeObject(forKey: "type") as? String
+        token = aDecoder.decodeObject(forKey: "token") as? String
+        roleId = aDecoder.decodeObject(forKey: "roleId") as? String
+        roleResourceStr = aDecoder.decodeObject(forKey: "roleResourceStr") as? String
+        userName = aDecoder.decodeObject(forKey: "userName") as? String
+        authRefresh = aDecoder.decodeObject(forKey: "authRefresh") as? String
+        organizationId = aDecoder.decodeObject(forKey: "organizationId") as? String
+        organizationName = aDecoder.decodeObject(forKey: "organizationName") as? String
+        wxAccessToken = aDecoder.decodeObject(forKey: "wxAccessToken") as? String
+        openId = aDecoder.decodeObject(forKey: "openId") as? String
+        mobilePhone = aDecoder.decodeObject(forKey: "mobilePhone") as? String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(userId, forKey: "userId")
+        aCoder.encode(userIcon, forKey: "userIcon")
+        aCoder.encode(type, forKey: "type")
+        aCoder.encode(token, forKey: "token")
+        aCoder.encode(roleId, forKey: "roleId")
+        aCoder.encode(roleResourceStr, forKey: "roleResourceStr")
+        aCoder.encode(userName, forKey: "userName")
+        aCoder.encode(authRefresh, forKey: "authRefresh")
+        aCoder.encode(organizationId, forKey: "organizationId")
+        aCoder.encode(organizationName, forKey: "organizationName")
+        aCoder.encode(organizationName, forKey: "wxAccessToken")
+        aCoder.encode(organizationName, forKey: "openId")
+        aCoder.encode(organizationName, forKey: "mobilePhone")
     }
 }
 
-class Device: Codable {
-    var alias_name: String?
-    var connect_type = 0
-    var create_time = 0
-    var device_key: String?
-    var id: String?
-    var index = 0
-    var name: String?
-    var user_id: String?
-    var sn: String?
-    var bluetooth: BlueTooth?
-    var software_version: String?
-}
 
-class BlueTooth: Codable {
-    var ble_mac: String?
-    var name: String?
-    var std_mac: String?
-}
-
-
-extension JLoginResponseModel {
-    func responseToUser() -> JUserModel? {
-        let user = JUserModel()
-        user.access_token = access_token ?? ""
-        user.email = email ?? ""
-        user.expires_in = expires_in ?? 0
-        user.refresh_token = refresh_token ?? ""
-        user.token_type = token_type ?? ""
-        user.user_id = user_id ?? ""
-        user.avatar = avatar ?? ""
-        user.nick_name = user_info?.nick_name ?? ""
-        user.customer_count = customers?.count ?? 0
-        return user
-    }
-}

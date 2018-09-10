@@ -149,14 +149,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="113"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <searchBar contentMode="redraw" placeholder="出去玩吧" translatesAutoresizingMaskIntoConstraints="NO" id="VsY-kR-MrG">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aha-jY-hPD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                            <subviews>
+                                                <searchBar contentMode="redraw" placeholder="出去玩吧" translatesAutoresizingMaskIntoConstraints="NO" id="VsY-kR-MrG">
+                                                    <rect key="frame" x="11" y="7" width="353" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="DkL-Bv-TKX"/>
+                                                    </constraints>
+                                                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </searchBar>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="46" id="DkL-Bv-TKX"/>
+                                                <constraint firstItem="VsY-kR-MrG" firstAttribute="leading" secondItem="aha-jY-hPD" secondAttribute="leading" constant="11" id="Dsx-y7-x5S"/>
+                                                <constraint firstAttribute="height" constant="46" id="MZD-CG-oXh"/>
+                                                <constraint firstAttribute="bottom" secondItem="VsY-kR-MrG" secondAttribute="bottom" constant="7" id="Vc3-iw-gqN"/>
+                                                <constraint firstItem="VsY-kR-MrG" firstAttribute="top" secondItem="aha-jY-hPD" secondAttribute="top" constant="7" id="lsH-dF-Zpb"/>
+                                                <constraint firstAttribute="trailing" secondItem="VsY-kR-MrG" secondAttribute="trailing" constant="11" id="nCr-q8-74l"/>
                                             </constraints>
-                                            <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </searchBar>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyo-zY-oJW">
                                             <rect key="frame" x="0.0" y="46" width="375" height="55"/>
                                             <subviews>
@@ -204,12 +217,12 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="VsY-kR-MrG" firstAttribute="top" secondItem="Udj-AK-cAa" secondAttribute="top" id="9IO-qb-Qsz"/>
+                                        <constraint firstItem="aha-jY-hPD" firstAttribute="top" secondItem="Udj-AK-cAa" secondAttribute="top" id="0zm-r7-EoE"/>
+                                        <constraint firstItem="aha-jY-hPD" firstAttribute="leading" secondItem="Udj-AK-cAa" secondAttribute="leading" id="8QU-1A-qit"/>
                                         <constraint firstItem="vyo-zY-oJW" firstAttribute="leading" secondItem="Udj-AK-cAa" secondAttribute="leading" id="K5H-3w-HRT"/>
-                                        <constraint firstItem="vyo-zY-oJW" firstAttribute="top" secondItem="VsY-kR-MrG" secondAttribute="bottom" id="QCG-9Q-LBg"/>
+                                        <constraint firstAttribute="trailing" secondItem="aha-jY-hPD" secondAttribute="trailing" id="LnG-eZ-mDg"/>
                                         <constraint firstAttribute="trailing" secondItem="vyo-zY-oJW" secondAttribute="trailing" id="Zpd-CS-a8c"/>
-                                        <constraint firstAttribute="trailing" secondItem="VsY-kR-MrG" secondAttribute="trailing" id="o1Y-Ac-hhh"/>
-                                        <constraint firstItem="VsY-kR-MrG" firstAttribute="leading" secondItem="Udj-AK-cAa" secondAttribute="leading" id="vkw-lg-Gj7"/>
+                                        <constraint firstItem="vyo-zY-oJW" firstAttribute="top" secondItem="aha-jY-hPD" secondAttribute="bottom" id="aje-wY-cuZ"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -384,7 +397,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="du5-wr-eGg">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="du5-wr-eGg">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -531,7 +544,7 @@
                                 <constraint firstItem="PtF-1B-XhD" firstAttribute="top" secondItem="du5-wr-eGg" secondAttribute="top" id="au5-p0-Raq"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="wls-Br-XeR">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="wls-Br-XeR">
                             <rect key="frame" x="0.0" y="346" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>

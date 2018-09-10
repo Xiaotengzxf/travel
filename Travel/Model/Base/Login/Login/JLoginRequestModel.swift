@@ -20,13 +20,14 @@ class JLoginRequestModel: JBaseRequestModel {
     }
     
     override func url() -> String {
-        return super.url() + "user/v2/email/login"
+        return super.url() + "api/user-token"
     }
     
     override func toBody() -> [String : Any] {
         var dic = super.toBody()
-        dic["MobilePhone"] = mobilePhone
-        dic["Password"] = password
+        dic["mobilePhone"] = mobilePhone
+        dic["password"] = password
+        dic["userName"] = mobilePhone
         return dic
     }
 }

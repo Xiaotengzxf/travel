@@ -49,12 +49,17 @@ class JLoginViewController: SCBaseViewController {
         let phone = phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let pwd = pwdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         if phone.count == 11 && pwd.count > 0 && pwd.count <= 20 {
-            
-        }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "JTabBarController") as? JTabBarController {
-            view.window?.rootViewController = vc
-            navigationController?.viewControllers = []
+            JHUD.show(at: self.view)
+            service.login(mobilePhone: phone, password: pwd) {[weak self] (result, message) in
+                JHUD.hide(for: self!.view)
+                if result {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    if let vc = storyboard.instantiateViewController(withIdentifier: "JTabBarController") as? JTabBarController {
+                        self?.view.window?.rootViewController = vc
+                        self?.navigationController?.viewControllers = []
+                    }
+                }
+            }
         }
     }
 

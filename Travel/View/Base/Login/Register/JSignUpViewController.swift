@@ -60,6 +60,32 @@ class JSignUpViewController: SCBaseViewController {
     }
     
     @IBAction func register(_ sender: Any) {
-        
+        if let phone = phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), phone.count > 0 {
+            if phone.validatePhone() {
+                if let pwd = pwdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), pwd.count > 0 {
+                    if let repwd = confirmTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), repwd.count > 0 && pwd == repwd {
+                        JHUD.show(at: self.view)
+                        modelService.signUp(mobilePhone: phone, password: pwd) {[weak self] (reslut, message) in
+                            JHUD.hide(for: self!.view)
+                        }
+                    } else {
+                        Toast(text: "二次密码输入不一致").show()
+                    }
+                } else {
+                    Toast(text: "请输入密码").show()
+                }
+            } else {
+                Toast(text: "手机号码有误").show()
+            }
+        } else {
+            Toast(text: "请输入手机号码").show()
+        }
+    }
+}
+
+extension JSignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

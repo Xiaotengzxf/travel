@@ -17,11 +17,11 @@ class JSignUpModelService: NSObject {
             if let response = value {
                 let data = response.data(using: .utf8)
                 let model = try? JSONDecoder().decode(JLoginResponseModel.self, from: data!)
-                if model?.res_code == 1 {
+                if model?.errCode == 1 {
                     UserDefaults.standard.set(mobilePhone, forKey: kPhone)
-                    callback(true, model?.message)
+                    callback(true, model?.errMsg)
                 } else {
-                    callback(false, model?.message)
+                    callback(false, model?.errMsg)
                 }
             } else {
                 if error != nil {

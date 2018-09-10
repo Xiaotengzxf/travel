@@ -10,32 +10,31 @@ import UIKit
 
 class JLoginModelService: NSObject {
     
-    func login(mobilePhone: String, password: String, callback: @escaping (Bool, String?, Bool) -> ()) {
+    func login(mobilePhone: String, password: String, callback: @escaping (Bool, String?) -> ()) {
         let request = JLoginRequestModel(mobilePhone: mobilePhone, password: password)
         let network = ZNetwork()
-        network.request(strUrl: request.url(), strMethod: "POST", parameters: request.toBody(), encoding: ZNetwork.Encoding.jsonBody.toUrlEncoding(), headers: request.toHeader()) {[weak self] (value, error) in
+        network.request(strUrl: request.url(), strMethod: "POST", parameters: request.toBody(), encoding: ZNetwork.Encoding.jsonBody.toUrlEncoding(), headers: request.toHeader()) { (value, error) in
             if let response = value?.replacingOccurrences(of: "\n", with: "") {
                 if let data = response.data(using: .utf8) {
                     let model = try? JSONDecoder().decode(JLoginResponseModel.self, from: data)
-                    if model?.res_code == 1 {
+                    if model?.errCode == 0 {
                         UserDefaults.standard.set(mobilePhone, forKey: kPhone)
-//                        JUserManager.sharedInstance.user = model?.responseToUser()
-//                        let complete = model?.customers?.count ?? 0 > 0
-//                        JUserManager.sharedInstance.saveUserAccount(complete: complete)
-                        callback(true, nil, true)
+                        JUserManager.sharedInstance.user = model?.data
+                        JUserManager.sharedInstance.saveUserAccount(complete: true)
+                        callback(true, nil)
                     } else {
-                        callback(false, model?.message, false)
+                        callback(false, model?.errMsg)
                     }
                 } else {
-                    print("登录时，服务器有异常")
+                    callback(false, "服务器异常，请稍后重试")
                 }
             } else {
                 if error != nil {
                     let err = error! as NSError
                     if err.code == kErrorNetworkOffline {
-                        callback(false, "\(kErrorNetworkOffline)", false)
+                        callback(false, "网络异常，请检查网络")
                     } else {
-                        callback(false, nil, false)
+                        callback(false, "服务器异常，请稍后重试")
                     }
                 }
             }

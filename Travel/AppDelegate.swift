@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LogManager.sharedInstance.setupLog() // 设置Log
         setupBugly() // 设置Bugly
         setupBase() // 设置一些基础属性
+        setRootViewController()
         return true
     }
 
@@ -55,6 +56,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance()
+    }
+    
+    private func setRootViewController() {
+        if let phone = UserDefaults.standard.object(forKey: kPhone) as? String, phone.count > 0 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "JTabBarController") as? JTabBarController {
+                window?.rootViewController = vc
+            }
+        }
     }
 
 }

@@ -19,13 +19,14 @@ class JRegisterRequestModel: JBaseRequestModel {
     }
     
     override func url() -> String {
-        return super.url() + "api/user-token"
+        return super.url() + "api/user"
     }
     
     override func toBody() -> [String : Any] {
         var dic = super.toBody()
         dic["mobilePhone"] = mobilePhone
-        dic["Password"] = password
+        dic["password"] = password
+        dic["userName"] = mobilePhone
         return dic
     }
 }
