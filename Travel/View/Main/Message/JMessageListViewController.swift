@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 class JMessageListViewController: UIViewController {
 
@@ -21,11 +22,18 @@ class JMessageListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.barTintColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
-        searchBar.tintColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
-        searchBar.backgroundColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
-        searchBar.backgroundImage = UIImage(named: "search_background")
-        searchBar.layer.cornerRadius = 15
+        if let array = searchBar.subviews.last?.subviews {
+            for view in array {
+                if let textfield = view as? UITextField {
+                    textfield.backgroundColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
+                    textfield.layer.cornerRadius = 20
+                    textfield.clipsToBounds = true
+                }
+            }
+        }
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         service.getMessageList(page: 0,
                                keyboard: nil,
@@ -68,4 +76,8 @@ extension JMessageListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension JMessageListViewController: EmptyDataSetSource, EmptyDataSetDelegate {
+    
 }
