@@ -265,8 +265,8 @@ public class EmptyDataSetView: UIView {
                 button.isHidden = false
                 subviewStrings.append("button")
                 views[subviewStrings.last!] = button
-                
-                contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(padding)-[button(>=0)]-(padding)-|", options: [], metrics: metrics, views: views))
+                let width = UIScreen.main.bounds.size.width
+                contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(padding)-[button]-(padding)-|", options: [], metrics: ["padding" : (width - 119) / 2], views: views))
             } else {
                 button.isHidden = true
             }

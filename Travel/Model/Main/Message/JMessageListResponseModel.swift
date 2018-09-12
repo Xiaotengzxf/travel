@@ -28,5 +28,5 @@ class Message: Codable {
     var atUserName: String?
     var title: String?
     var content: String?
-    var createTime: String?
+    var createTime: TimeInterval?
 }

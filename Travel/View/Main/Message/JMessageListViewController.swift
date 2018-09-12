@@ -8,6 +8,7 @@
 
 import UIKit
 import EmptyDataSet_Swift
+import MJRefresh
 
 class JMessageListViewController: UIViewController {
 
@@ -19,6 +20,12 @@ class JMessageListViewController: UIViewController {
     @IBOutlet weak var messageBLabel: UILabel!
     
     private let service = JMessageModelService()
+    private var page = 1
+    private var keyboard : String?
+    private var criteria : String?
+    private var orderby: String?
+    private var arrData: [Message] = []
+    private var emptyShow = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +33,7 @@ class JMessageListViewController: UIViewController {
             for view in array {
                 if let textfield = view as? UITextField {
                     textfield.backgroundColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
-                    textfield.layer.cornerRadius = 20
+                    textfield.layer.cornerRadius = 18
                     textfield.clipsToBounds = true
                 }
             }
@@ -35,12 +42,22 @@ class JMessageListViewController: UIViewController {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         
-        service.getMessageList(page: 0,
-                               keyboard: nil,
-                               criteria: nil,
-                               orderby: nil) { (result, message) in
-            
-        }
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            [weak self] in
+            self?.page = 1
+            self?.downloadData()
+        })
+        tableView.mj_footer = MJRefreshBackFooter(refreshingBlock: {
+            [weak self] in
+            self?.page += 1
+            self?.downloadData()
+        })
+        tableView.mj_header.beginRefreshing()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //searchBar.subviews.last?.subviews.forEach{print($0.frame)}
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,18 +75,60 @@ class JMessageListViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func downloadData() {
+        service.getMessageList(page: page,
+                               keyboard: keyboard,
+                               criteria: criteria,
+                               orderby: orderby) {[weak self] (result, message) in
+            self?.tableView.mj_header.endRefreshing()
+            self?.tableView.mj_footer.endRefreshing()
+            if let arr = result {
+                self?.emptyShow = 0
+                if arr.count > 0 {
+                    if self!.page == 1 {
+                        self?.arrData.removeAll()
+                    }
+                    self?.arrData += arr
+                    self?.tableView.reloadData()
+                } else {
+                    if self!.page == 1 {
+                        self?.arrData.removeAll()
+                        self?.emptyShow = 2
+                    }
+                    self?.tableView.reloadData()
+                }
+            } else {
+                if let msg = message {
+                    if msg == "\(kErrorNetworkOffline)" {
+                        if self?.arrData.count == 0 {
+                            self?.emptyShow = 1
+                            self?.tableView.reloadData()
+                        } else {
+                            Toast(text: "网络故障，请检查网络").show()
+                        }
+                    } else {
+                        Toast(text: msg).show()
+                    }
+                }
+            }
+        }
+    }
 
 }
 
 extension JMessageListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return arrData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kCell, for: indexPath) as! JMessageListTableViewCell
-        
+        let item = arrData[indexPath.row]
+        cell.iconImageView.backgroundColor = UIColor.red
+        cell.titleLabel.text = item.title
+        cell.messageLabel.text = item.content
         return cell
     }
     
@@ -79,5 +138,31 @@ extension JMessageListViewController: UITableViewDataSource, UITableViewDelegate
 }
 
 extension JMessageListViewController: EmptyDataSetSource, EmptyDataSetDelegate {
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
+        return emptyShow > 0
+    }
     
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return UIImage(named: "404")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "网页丢失，再刷新试试~", attributes: [.font: UIFont.systemFont(ofSize: 13), .foregroundColor: ZColorManager.sharedInstance.colorWithHexString(hex: "999999")])
+    }
+    
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
+        return ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView, for state: UIControlState) -> NSAttributedString? {
+        return NSAttributedString(string: "刷新", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: ZColorManager.sharedInstance.colorWithHexString(hex: "29A1F7")])
+    }
+    
+    func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView, for state: UIControlState) -> UIImage? {
+        return UIImage(named: "button_bg")
+    }
+    
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
+        return -50
+    }
 }
