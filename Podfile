@@ -11,5 +11,7 @@ pod 'Bugly'
 pod 'TYAttributedLabel'
 pod 'EmptyDataSet-Swift', '~> 4.0.5'
 pod 'MJRefresh'
+pod 'Kingfisher', '~> 4.7.0'
+pod 'ALCameraViewController'
 
 end

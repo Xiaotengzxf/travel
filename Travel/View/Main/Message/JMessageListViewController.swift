@@ -38,6 +38,7 @@ class JMessageListViewController: UIViewController {
                 }
             }
         }
+        searchBar.setBackgroundImage(UIColor.creatImageWithColor(color: UIColor.white), for: .any, barMetrics: .default)
         
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
@@ -47,11 +48,12 @@ class JMessageListViewController: UIViewController {
             self?.page = 1
             self?.downloadData()
         })
-        tableView.mj_footer = MJRefreshBackFooter(refreshingBlock: {
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
             [weak self] in
             self?.page += 1
             self?.downloadData()
         })
+        tableView.mj_footer.isHidden = true
         tableView.mj_header.beginRefreshing()
     }
     
@@ -88,6 +90,7 @@ class JMessageListViewController: UIViewController {
                 if arr.count > 0 {
                     if self!.page == 1 {
                         self?.arrData.removeAll()
+                        self?.tableView.mj_footer.isHidden = arr.count >= 20
                     }
                     self?.arrData += arr
                     self?.tableView.reloadData()
@@ -143,11 +146,11 @@ extension JMessageListViewController: EmptyDataSetSource, EmptyDataSetDelegate {
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
-        return UIImage(named: "404")
+        return UIImage(named: emptyShow == 1 ? "404" : "404_2")
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return NSAttributedString(string: "网页丢失，再刷新试试~", attributes: [.font: UIFont.systemFont(ofSize: 13), .foregroundColor: ZColorManager.sharedInstance.colorWithHexString(hex: "999999")])
+        return NSAttributedString(string: emptyShow == 1 ? "网页丢失，再刷新试试~" : "阿哦，什么东西都没有耶~", attributes: [.font: UIFont.systemFont(ofSize: 13), .foregroundColor: ZColorManager.sharedInstance.colorWithHexString(hex: "999999")])
     }
     
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
@@ -155,14 +158,14 @@ extension JMessageListViewController: EmptyDataSetSource, EmptyDataSetDelegate {
     }
     
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView, for state: UIControlState) -> NSAttributedString? {
-        return NSAttributedString(string: "刷新", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: ZColorManager.sharedInstance.colorWithHexString(hex: "29A1F7")])
+        return emptyShow == 1 ? NSAttributedString(string: "刷新", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: ZColorManager.sharedInstance.colorWithHexString(hex: "29A1F7")]) : nil
     }
     
     func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView, for state: UIControlState) -> UIImage? {
-        return UIImage(named: "button_bg")
+        return emptyShow == 1 ? UIImage(named: "button_bg") : nil
     }
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
-        return -50
+        return emptyShow == 1 ? -50 : -30
     }
 }

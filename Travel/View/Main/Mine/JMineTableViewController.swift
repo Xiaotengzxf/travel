@@ -7,14 +7,28 @@
 //
 
 import UIKit
+import Kingfisher
 
 class JMineTableViewController: UITableViewController {
+    
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var attentionNumLabel: UILabel!
+    @IBOutlet weak var fansNumLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var signLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
     
     private let titles = ["我的订单", "我的相册", "我的收藏", "保险", "联系客服"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        if let icon = JUserManager.sharedInstance.user?.userIcon, icon.count > 0 {
+            iconImageView.kf.setImage(with: URL(string: icon)!)
+        }
+        nameLabel.text = JUserManager.sharedInstance.user?.userName
+        signLabel.text = JUserManager.sharedInstance.user?.introduce
+        idLabel.text = "ID: \(JUserManager.sharedInstance.user?.userId ?? "")"
     }
 
     override func didReceiveMemoryWarning() {

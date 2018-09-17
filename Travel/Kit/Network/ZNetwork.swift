@@ -67,9 +67,16 @@ class ZNetwork: NSObject {
         })
     }
     
-    func upload(data: Data, url: URLConvertible, queue: DispatchQueue?) {
+    func upload(data: Data, url: URLConvertible, queue: DispatchQueue?, callback: @escaping (Bool, String?) -> ()) {
         oRequest = Alamofire.upload(data, to: url).responseData(queue: queue) { (response) in
-            
+            if response.error != nil {
+                callback(false, nil)
+            } else {
+                if let data = response.result.value {
+                    let value = String(data: data, encoding: .utf8)
+                    callback(true, value)
+                }
+            }
         }
     }
     

@@ -29,6 +29,7 @@ class UserInfo: NSObject, Codable, NSCoding {
     var wxAccessToken: String?
     var openId: String?
     var mobilePhone: String?
+    var introduce: String?
     
     required init?(coder aDecoder: NSCoder) {
         super.init()
@@ -45,6 +46,7 @@ class UserInfo: NSObject, Codable, NSCoding {
         wxAccessToken = aDecoder.decodeObject(forKey: "wxAccessToken") as? String
         openId = aDecoder.decodeObject(forKey: "openId") as? String
         mobilePhone = aDecoder.decodeObject(forKey: "mobilePhone") as? String
+        introduce = aDecoder.decodeObject(forKey: "introduce") as? String
     }
     
     func encode(with aCoder: NSCoder) {
@@ -61,6 +63,7 @@ class UserInfo: NSObject, Codable, NSCoding {
         aCoder.encode(organizationName, forKey: "wxAccessToken")
         aCoder.encode(organizationName, forKey: "openId")
         aCoder.encode(organizationName, forKey: "mobilePhone")
+        aCoder.encode(introduce, forKey: "introduce")
     }
 }
 

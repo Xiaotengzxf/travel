@@ -21,7 +21,6 @@
 		9A1787231FDAA7320071E574 /* SoundCoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1787221FDAA7320071E574 /* SoundCoreUITests.swift */; };
 		9A1787621FE249360071E574 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1787611FE249360071E574 /* Log.swift */; };
 		9A1787681FE24B400071E574 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1787671FE24B400071E574 /* LogManager.swift */; };
-		9A1AF7FF20120A9100D6E0C4 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1AF7FE20120A9100D6E0C4 /* IntExtension.swift */; };
 		9A1AF80920157E9800D6E0C4 /* ZFileMD5Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1AF80820157E9800D6E0C4 /* ZFileMD5Value.swift */; };
 		9A34D262202323C100C3A955 /* CyclicCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A34D261202323C100C3A955 /* CyclicCardCell.xib */; };
 		9A34D2652027F94700C3A955 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A34D2642027F94700C3A955 /* DispatchQueueExtension.swift */; };
@@ -32,6 +31,14 @@
 		9A4639DA20C286FC00D5B877 /* JRootModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4639D920C286FC00D5B877 /* JRootModelService.swift */; };
 		9A4639DC20C2870C00D5B877 /* JRootModelServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4639DB20C2870C00D5B877 /* JRootModelServiceDelegate.swift */; };
 		9A4639E220C4316000D5B877 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4639E120C4316000D5B877 /* LaunchScreen.storyboard */; };
+		9A47250C214F4A0D00989EEA /* JCircleModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47250B214F4A0D00989EEA /* JCircleModelService.swift */; };
+		9A47250E214F4A2500989EEA /* JCircleListRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47250D214F4A2500989EEA /* JCircleListRequestModel.swift */; };
+		9A472510214F4A3600989EEA /* JCircleListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47250F214F4A3600989EEA /* JCircleListResponseModel.swift */; };
+		9A472512214F5B4000989EEA /* JAccountSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A472511214F5B4000989EEA /* JAccountSettingsTableViewCell.swift */; };
+		9A472514214F761300989EEA /* JEditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A472513214F761300989EEA /* JEditAccountViewController.swift */; };
+		9A472516214FC6F100989EEA /* JAccountSettingsModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A472515214FC6F100989EEA /* JAccountSettingsModelService.swift */; };
+		9A472518214FC73200989EEA /* JAccountSettingsRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A472517214FC73200989EEA /* JAccountSettingsRequestModel.swift */; };
+		9A47251A214FD06500989EEA /* JIconUploadRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A472519214FD06500989EEA /* JIconUploadRequestModel.swift */; };
 		9A67ADCA20F31A4100DDF069 /* AreaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A67ADC620F31A4000DDF069 /* AreaPickerView.swift */; };
 		9A67ADCC20F31A4100DDF069 /* AreaPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A67ADC820F31A4000DDF069 /* AreaPicker.xib */; };
 		9A89907C2005E960001CBC0D /* SGCirleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89907A2005E960001CBC0D /* SGCirleProgress.swift */; };
@@ -51,7 +58,6 @@
 		9AA6D711213C2A3A00E7C98F /* JMessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D710213C2A3A00E7C98F /* JMessageListViewController.swift */; };
 		9AA6D713213C2A4500E7C98F /* JCircleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D712213C2A4500E7C98F /* JCircleListViewController.swift */; };
 		9AA6D715213C2B5000E7C98F /* JMessageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6D714213C2B5000E7C98F /* JMessageListTableViewCell.swift */; };
-		9AB367BE200C617E000A7670 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB367BD200C617E000A7670 /* ButtonExtension.swift */; };
 		9AC55A27207F85F30013A581 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC55A26207F85F30013A581 /* Login.storyboard */; };
 		9AC55A2C208046080013A581 /* JLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC55A2B208046080013A581 /* JLoginViewController.swift */; };
 		9AC55A2E208049610013A581 /* JForgetPWDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC55A2D208049610013A581 /* JForgetPWDViewController.swift */; };
@@ -63,9 +69,9 @@
 		9AD0C92921436EED00AB17AC /* JMessageListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0C92821436EED00AB17AC /* JMessageListResponseModel.swift */; };
 		9AE37A27200F39EA0077680D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A25200F39EA0077680D /* Reachability.swift */; };
 		9AE37A28200F39EA0077680D /* ZNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A26200F39EA0077680D /* ZNetwork.swift */; };
-		9AE37A2F200F3E9E0077680D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A2E200F3E9E0077680D /* StringExtension.swift */; };
+		9AE37A2F200F3E9E0077680D /* FoundationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A2E200F3E9E0077680D /* FoundationExtension.swift */; };
 		9AE712121FF0CB9200E8B329 /* ZConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE712111FF0CB9200E8B329 /* ZConstant.swift */; };
-		9AE712201FF11C1300E8B329 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7121F1FF11C1200E8B329 /* ViewExtension.swift */; };
+		9AE712201FF11C1300E8B329 /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7121F1FF11C1200E8B329 /* UIKitExtension.swift */; };
 		9AE7124B1FF282D200E8B329 /* CyclicCardFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE712491FF282D200E8B329 /* CyclicCardFlowLayout.swift */; };
 		9AE7124C1FF282D200E8B329 /* CyclicCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7124A1FF282D200E8B329 /* CyclicCardCell.swift */; };
 		9AE712621FF3470A00E8B329 /* UIView+JHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7125C1FF3470A00E8B329 /* UIView+JHUD.m */; };
@@ -147,7 +153,6 @@
 		9A1787241FDAA7320071E574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A1787611FE249360071E574 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		9A1787671FE24B400071E574 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
-		9A1AF7FE20120A9100D6E0C4 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		9A1AF80820157E9800D6E0C4 /* ZFileMD5Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZFileMD5Value.swift; sourceTree = "<group>"; };
 		9A34D261202323C100C3A955 /* CyclicCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CyclicCardCell.xib; sourceTree = "<group>"; };
 		9A34D2642027F94700C3A955 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
@@ -158,6 +163,14 @@
 		9A4639D920C286FC00D5B877 /* JRootModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRootModelService.swift; sourceTree = "<group>"; };
 		9A4639DB20C2870C00D5B877 /* JRootModelServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRootModelServiceDelegate.swift; sourceTree = "<group>"; };
 		9A4639E120C4316000D5B877 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A47250B214F4A0D00989EEA /* JCircleModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCircleModelService.swift; sourceTree = "<group>"; };
+		9A47250D214F4A2500989EEA /* JCircleListRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCircleListRequestModel.swift; sourceTree = "<group>"; };
+		9A47250F214F4A3600989EEA /* JCircleListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCircleListResponseModel.swift; sourceTree = "<group>"; };
+		9A472511214F5B4000989EEA /* JAccountSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAccountSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		9A472513214F761300989EEA /* JEditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JEditAccountViewController.swift; sourceTree = "<group>"; };
+		9A472515214FC6F100989EEA /* JAccountSettingsModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAccountSettingsModelService.swift; sourceTree = "<group>"; };
+		9A472517214FC73200989EEA /* JAccountSettingsRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAccountSettingsRequestModel.swift; sourceTree = "<group>"; };
+		9A472519214FD06500989EEA /* JIconUploadRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JIconUploadRequestModel.swift; sourceTree = "<group>"; };
 		9A67ADC620F31A4000DDF069 /* AreaPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaPickerView.swift; sourceTree = "<group>"; };
 		9A67ADC820F31A4000DDF069 /* AreaPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaPicker.xib; sourceTree = "<group>"; };
 		9A89907A2005E960001CBC0D /* SGCirleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCirleProgress.swift; sourceTree = "<group>"; };
@@ -178,7 +191,6 @@
 		9AA6D710213C2A3A00E7C98F /* JMessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMessageListViewController.swift; sourceTree = "<group>"; };
 		9AA6D712213C2A4500E7C98F /* JCircleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCircleListViewController.swift; sourceTree = "<group>"; };
 		9AA6D714213C2B5000E7C98F /* JMessageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMessageListTableViewCell.swift; sourceTree = "<group>"; };
-		9AB367BD200C617E000A7670 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		9AC55A26207F85F30013A581 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9AC55A2B208046080013A581 /* JLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLoginViewController.swift; sourceTree = "<group>"; };
 		9AC55A2D208049610013A581 /* JForgetPWDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JForgetPWDViewController.swift; sourceTree = "<group>"; };
@@ -190,9 +202,9 @@
 		9AD0C92821436EED00AB17AC /* JMessageListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMessageListResponseModel.swift; sourceTree = "<group>"; };
 		9AE37A25200F39EA0077680D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9AE37A26200F39EA0077680D /* ZNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZNetwork.swift; sourceTree = "<group>"; };
-		9AE37A2E200F3E9E0077680D /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		9AE37A2E200F3E9E0077680D /* FoundationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtension.swift; sourceTree = "<group>"; };
 		9AE712111FF0CB9200E8B329 /* ZConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZConstant.swift; sourceTree = "<group>"; };
-		9AE7121F1FF11C1200E8B329 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		9AE7121F1FF11C1200E8B329 /* UIKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
 		9AE712491FF282D200E8B329 /* CyclicCardFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclicCardFlowLayout.swift; sourceTree = "<group>"; };
 		9AE7124A1FF282D200E8B329 /* CyclicCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclicCardCell.swift; sourceTree = "<group>"; };
 		9AE7125C1FF3470A00E8B329 /* UIView+JHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JHUD.m"; sourceTree = "<group>"; };
@@ -595,6 +607,9 @@
 		9AA6D70E213C29DA00E7C98F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				9A472515214FC6F100989EEA /* JAccountSettingsModelService.swift */,
+				9A472517214FC73200989EEA /* JAccountSettingsRequestModel.swift */,
+				9A472519214FD06500989EEA /* JIconUploadRequestModel.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -602,6 +617,9 @@
 		9AA6D70F213C29DA00E7C98F /* Circle */ = {
 			isa = PBXGroup;
 			children = (
+				9A47250B214F4A0D00989EEA /* JCircleModelService.swift */,
+				9A47250D214F4A2500989EEA /* JCircleListRequestModel.swift */,
+				9A47250F214F4A3600989EEA /* JCircleListResponseModel.swift */,
 			);
 			path = Circle;
 			sourceTree = "<group>";
@@ -632,10 +650,8 @@
 		9ACC56CA1FEBC7D6004A452F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9AE37A2E200F3E9E0077680D /* StringExtension.swift */,
-				9AE7121F1FF11C1200E8B329 /* ViewExtension.swift */,
-				9AB367BD200C617E000A7670 /* ButtonExtension.swift */,
-				9A1AF7FE20120A9100D6E0C4 /* IntExtension.swift */,
+				9AE37A2E200F3E9E0077680D /* FoundationExtension.swift */,
+				9AE7121F1FF11C1200E8B329 /* UIKitExtension.swift */,
 				9A34D2642027F94700C3A955 /* DispatchQueueExtension.swift */,
 			);
 			path = Extension;
@@ -711,10 +727,12 @@
 				9AFD87552132DE29005CC188 /* JContactViewController.swift */,
 				9AFD87582132E18C005CC188 /* JSettingsViewController.swift */,
 				9AFD879E21350EBA005CC188 /* JAccountSettingsViewController.swift */,
+				9A472511214F5B4000989EEA /* JAccountSettingsTableViewCell.swift */,
 				9AFD875A2132E5AD005CC188 /* JFeedbackViewController.swift */,
 				9AA6D703213B8C5C00E7C98F /* JIdentificationViewController.swift */,
 				9AA6D705213B931300E7C98F /* JIdentificationBViewController.swift */,
 				9AA6D707213C1DFA00E7C98F /* JIdentificationCViewController.swift */,
+				9A472513214F761300989EEA /* JEditAccountViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -932,8 +950,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Travel/Pods-Travel-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/TYAttributedLabel/TYAttributedLabel.framework",
@@ -941,8 +961,10 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALCameraViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyDataSet_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYAttributedLabel.framework",
@@ -973,6 +995,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A47250E214F4A2500989EEA /* JCircleListRequestModel.swift in Sources */,
 				9A4639DC20C2870C00D5B877 /* JRootModelServiceDelegate.swift in Sources */,
 				9AE712631FF3470A00E8B329 /* JHUD.m in Sources */,
 				9AE712621FF3470A00E8B329 /* UIView+JHUD.m in Sources */,
@@ -989,13 +1012,16 @@
 				9AD0C92921436EED00AB17AC /* JMessageListResponseModel.swift in Sources */,
 				9AE712121FF0CB9200E8B329 /* ZConstant.swift in Sources */,
 				F7F83173201B13B30033A8CE /* UIImage+gradientColor.swift in Sources */,
+				9A47250C214F4A0D00989EEA /* JCircleModelService.swift in Sources */,
 				9AE7124C1FF282D200E8B329 /* CyclicCardCell.swift in Sources */,
+				9A472516214FC6F100989EEA /* JAccountSettingsModelService.swift in Sources */,
 				9AA6D702213AD62900E7C98F /* JTokenRequestModel.swift in Sources */,
 				9A092A8C2052AD40004961C4 /* SCBaseViewController.swift in Sources */,
 				9AE712641FF3470A00E8B329 /* JHUDAnimationView.m in Sources */,
 				B49AF1BE20AD6C3C00389226 /* JImagePicker.swift in Sources */,
-				9AE712201FF11C1300E8B329 /* ViewExtension.swift in Sources */,
+				9AE712201FF11C1300E8B329 /* UIKitExtension.swift in Sources */,
 				9AA6D715213C2B5000E7C98F /* JMessageListTableViewCell.swift in Sources */,
+				9A47251A214FD06500989EEA /* JIconUploadRequestModel.swift in Sources */,
 				9AA6D708213C1DFA00E7C98F /* JIdentificationCViewController.swift in Sources */,
 				9AFD87592132E18C005CC188 /* JSettingsViewController.swift in Sources */,
 				9A9313B32094847200CEB1B6 /* JRegisterRequestModel.swift in Sources */,
@@ -1005,6 +1031,7 @@
 				F7F83174201B13B30033A8CE /* UIImage+Gradient.m in Sources */,
 				9A13F14D1FEB97450024E2F8 /* Toast.swift in Sources */,
 				9A13F14E1FEB97450024E2F8 /* ToastCenter.swift in Sources */,
+				9A472510214F4A3600989EEA /* JCircleListResponseModel.swift in Sources */,
 				9AFD875B2132E5AD005CC188 /* JFeedbackViewController.swift in Sources */,
 				9A3E46372088786000A80821 /* JLoginModelService.swift in Sources */,
 				9A4639DA20C286FC00D5B877 /* JRootModelService.swift in Sources */,
@@ -1020,9 +1047,10 @@
 				9AFD87562132DE29005CC188 /* JContactViewController.swift in Sources */,
 				9A3E46562088811200A80821 /* JBaseRequestModel.swift in Sources */,
 				9AE7124B1FF282D200E8B329 /* CyclicCardFlowLayout.swift in Sources */,
-				9AE37A2F200F3E9E0077680D /* StringExtension.swift in Sources */,
+				9AE37A2F200F3E9E0077680D /* FoundationExtension.swift in Sources */,
 				9AC55A3020804CB70013A581 /* JSignUpViewController.swift in Sources */,
 				9AE37A28200F39EA0077680D /* ZNetwork.swift in Sources */,
+				9A472518214FC73200989EEA /* JAccountSettingsRequestModel.swift in Sources */,
 				9A1AF80920157E9800D6E0C4 /* ZFileMD5Value.swift in Sources */,
 				9A8C3E77212D305E006B0D2E /* JEnumManager.swift in Sources */,
 				9AFAEBCB20CA74D0001D8C43 /* JRootNavigationController.swift in Sources */,
@@ -1032,13 +1060,13 @@
 				9AD0C9252143620D00AB17AC /* JMessageModelService.swift in Sources */,
 				9AA6D706213B931300E7C98F /* JIdentificationBViewController.swift in Sources */,
 				9AFD87542132D9F3005CC188 /* JMineTableViewController.swift in Sources */,
-				9A1AF7FF20120A9100D6E0C4 /* IntExtension.swift in Sources */,
 				9A9B23D920A0837000024E18 /* JForgetPWDRequestModel.swift in Sources */,
-				9AB367BE200C617E000A7670 /* ButtonExtension.swift in Sources */,
 				9A13F1501FEB97450024E2F8 /* ToastWindow.swift in Sources */,
+				9A472514214F761300989EEA /* JEditAccountViewController.swift in Sources */,
 				9A89907C2005E960001CBC0D /* SGCirleProgress.swift in Sources */,
 				9AA6D704213B8C5C00E7C98F /* JIdentificationViewController.swift in Sources */,
 				9AA6D713213C2A4500E7C98F /* JCircleListViewController.swift in Sources */,
+				9A472512214F5B4000989EEA /* JAccountSettingsTableViewCell.swift in Sources */,
 				9AFD87512132CA85005CC188 /* JTabBarController.swift in Sources */,
 				9AE37A27200F39EA0077680D /* Reachability.swift in Sources */,
 			);
