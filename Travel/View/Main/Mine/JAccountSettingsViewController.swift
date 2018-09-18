@@ -17,7 +17,10 @@ class JAccountSettingsViewController: SCBaseViewController {
     private var row = 0
     private var value : String?
     private let titles = ["我的头像", "我的名称", "个人简介", "手机号码", "实名认证"]
-    
+    private var imageUrl: String?
+    private var phone: String?
+    private var userName: String?
+    private var introduce: String?
     private let service = JAccountSettingsModelService()
     
     override func viewDidLoad() {
@@ -42,7 +45,10 @@ class JAccountSettingsViewController: SCBaseViewController {
     }
 
     @IBAction func save(_ sender: Any) {
-        
+        JHUD.show(at: self.view)
+        service.updateAccount(icon: imageUrl, userName: userName, phone: phone, introduce: introduce) {[weak self] (result, message) in
+            JHUD.hide(for: self!.view)
+        }
     }
 }
 
@@ -83,10 +89,12 @@ extension JAccountSettingsViewController: UITableViewDataSource, UITableViewDele
                 let cell = self?.tableView.cellForRow(at: indexPath) as! JAccountSettingsTableViewCell
                 cell.iconImageView.image = image
                 if image != nil {
-                    self?.service.uploadHeaderIcon(imageData: UIImageJPEGRepresentation(image!, 1)!)
+                    self?.service.uploadHeaderIcon(imageData: UIImageJPEGRepresentation(image!, 1)!){
+                        (result, url) in
+                        
+                    }
                 }
-                self?.dismiss(animated: true, completion: nil)
-                }
+            }
 
             present(cameraViewController, animated: true, completion: nil)
         case 4:
@@ -110,7 +118,22 @@ extension JAccountSettingsViewController: UITableViewDataSource, UITableViewDele
 extension JAccountSettingsViewController: JEditAccountViewControllerDelegate {
     func refreshData(value: String) {
         let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as! JAccountSettingsTableViewCell
-        cell.valueLabel.text = value
+        if row == 3 {
+            let start = value.index(value.startIndex, offsetBy: 4)
+            let end = value.index(value.startIndex, offsetBy: 8)
+            let phone = value.replacingCharacters(in: start..<end, with: "****")
+            cell.valueLabel.text = phone
+        } else {
+            cell.valueLabel.text = value
+        }
+        switch row {
+        case 1:
+            userName = value
+        case 2:
+            introduce = value
+        default:
+            phone = value
+        }
     }
     
     

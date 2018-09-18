@@ -18,7 +18,10 @@ class JEditAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if isPhone {
+            textField.keyboardType = .numberPad
+        }
+        textField.text = value
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +51,10 @@ class JEditAccountViewController: UIViewController {
 
     @IBAction func save(_ sender: Any) {
         if let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), text.count > 0 {
+            if isPhone && !text.validatePhone() {
+                Toast(text: "手机号码输入有误").show()
+                return
+            }
             delegate?.refreshData(value: text)
         }
         self.navigationController?.popViewController(animated: true)
@@ -55,7 +62,12 @@ class JEditAccountViewController: UIViewController {
 }
 
 extension JEditAccountViewController: UITextFieldDelegate {
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.text?.count ?? 0 > 11 && range.length == 0 {
+            return false
+        }
+        return true
+    }
 }
 
 protocol JEditAccountViewControllerDelegate: NSObjectProtocol {

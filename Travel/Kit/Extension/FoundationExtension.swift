@@ -10,11 +10,6 @@ import UIKit
 
 extension String {
     
-    // TODO: - other country's mobile is not same to chinese
-    func validateMobile() -> Bool {
-        return false
-    }
-    
     func md5() -> String {
         let str = self.cString(using: .utf8)
         let strLen = CC_LONG(self.lengthOfBytes(using: .utf8))

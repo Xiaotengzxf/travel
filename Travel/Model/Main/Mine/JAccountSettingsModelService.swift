@@ -17,12 +17,12 @@ class JAccountSettingsModelService: NSObject {
         }
     }
     
-    func uploadHeaderIcon(imageData: Data) {
+    func uploadHeaderIcon(imageData: Data, callback: @escaping (Bool, String?) -> ()) {
         let request = JIconUploadRequestModel()
         let network = ZNetwork()
-        network.upload(data: imageData, url: request.url(), queue: DispatchQueue.global()){
+        network.upload(data: imageData, url: request.url(), queue: DispatchQueue.global()) {
             (result, url) in
-            
+            callback(result, url)
         }
     }
 }
