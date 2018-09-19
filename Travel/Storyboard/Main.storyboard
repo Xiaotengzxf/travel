@@ -597,7 +597,8 @@
                         <outlet property="nameLabel" destination="Iz2-vw-WF3" id="TGp-4t-Q9T"/>
                         <outlet property="signLabel" destination="9uI-ys-RKq" id="CdV-1D-d5c"/>
                         <segue destination="gxi-hy-sqo" kind="show" identifier="Contact" id="mPU-hJ-Ccw"/>
-                        <segue destination="Tkq-Xt-qgZ" kind="show" id="iMg-P7-RQW"/>
+                        <segue destination="Tkq-Xt-qgZ" kind="show" identifier="MyPhoto" id="iMg-P7-RQW"/>
+                        <segue destination="NKn-hh-qz5" kind="show" id="rA3-bO-0zy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vF-FU-1YU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -811,6 +812,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2P-WP-4an" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2494" y="1352"/>
+        </scene>
+        <!--My Order View Controller-->
+        <scene sceneID="Tsj-D1-VOy">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="NKn-hh-qz5" customClass="JMyOrderViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RZP-2z-k0a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fep-cm-PfI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SdK-LT-eyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3363" y="1350"/>
         </scene>
         <!--账号设置-->
         <scene sceneID="RGk-LR-jox">

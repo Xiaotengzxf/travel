@@ -40,6 +40,9 @@
 		9A472516214FC6F100989EEA /* JAccountSettingsModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A472515214FC6F100989EEA /* JAccountSettingsModelService.swift */; };
 		9A472518214FC73200989EEA /* JAccountSettingsRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A472517214FC73200989EEA /* JAccountSettingsRequestModel.swift */; };
 		9A47251A214FD06500989EEA /* JIconUploadRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A472519214FD06500989EEA /* JIconUploadRequestModel.swift */; };
+		9A4725AF2152975300989EEA /* JMyPhotoModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4725AE2152975300989EEA /* JMyPhotoModelService.swift */; };
+		9A4725B12152977700989EEA /* JMyPhotoRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4725B02152977700989EEA /* JMyPhotoRequestModel.swift */; };
+		9A4725B32152A6E400989EEA /* JMyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4725B22152A6E400989EEA /* JMyOrderViewController.swift */; };
 		9A67ADCA20F31A4100DDF069 /* AreaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A67ADC620F31A4000DDF069 /* AreaPickerView.swift */; };
 		9A67ADCC20F31A4100DDF069 /* AreaPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A67ADC820F31A4000DDF069 /* AreaPicker.xib */; };
 		9A89907C2005E960001CBC0D /* SGCirleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89907A2005E960001CBC0D /* SGCirleProgress.swift */; };
@@ -173,6 +176,9 @@
 		9A472515214FC6F100989EEA /* JAccountSettingsModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAccountSettingsModelService.swift; sourceTree = "<group>"; };
 		9A472517214FC73200989EEA /* JAccountSettingsRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAccountSettingsRequestModel.swift; sourceTree = "<group>"; };
 		9A472519214FD06500989EEA /* JIconUploadRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JIconUploadRequestModel.swift; sourceTree = "<group>"; };
+		9A4725AE2152975300989EEA /* JMyPhotoModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyPhotoModelService.swift; sourceTree = "<group>"; };
+		9A4725B02152977700989EEA /* JMyPhotoRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyPhotoRequestModel.swift; sourceTree = "<group>"; };
+		9A4725B22152A6E400989EEA /* JMyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyOrderViewController.swift; sourceTree = "<group>"; };
 		9A67ADC620F31A4000DDF069 /* AreaPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaPickerView.swift; sourceTree = "<group>"; };
 		9A67ADC820F31A4000DDF069 /* AreaPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaPicker.xib; sourceTree = "<group>"; };
 		9A89907A2005E960001CBC0D /* SGCirleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCirleProgress.swift; sourceTree = "<group>"; };
@@ -612,6 +618,8 @@
 				9A472515214FC6F100989EEA /* JAccountSettingsModelService.swift */,
 				9A472517214FC73200989EEA /* JAccountSettingsRequestModel.swift */,
 				9A472519214FD06500989EEA /* JIconUploadRequestModel.swift */,
+				9A4725B02152977700989EEA /* JMyPhotoRequestModel.swift */,
+				9A4725AE2152975300989EEA /* JMyPhotoModelService.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -736,6 +744,7 @@
 				9AA6D707213C1DFA00E7C98F /* JIdentificationCViewController.swift */,
 				9A472513214F761300989EEA /* JEditAccountViewController.swift */,
 				8930E6F02151CC4C00294ED6 /* JMyPhotoViewController.swift */,
+				9A4725B22152A6E400989EEA /* JMyOrderViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1012,8 +1021,10 @@
 				9A34D2652027F94700C3A955 /* DispatchQueueExtension.swift in Sources */,
 				9A1787681FE24B400071E574 /* LogManager.swift in Sources */,
 				9A9313B52098688600CEB1B6 /* JBaseResponseModel.swift in Sources */,
+				9A4725B32152A6E400989EEA /* JMyOrderViewController.swift in Sources */,
 				9AD0C92921436EED00AB17AC /* JMessageListResponseModel.swift in Sources */,
 				9AE712121FF0CB9200E8B329 /* ZConstant.swift in Sources */,
+				9A4725B12152977700989EEA /* JMyPhotoRequestModel.swift in Sources */,
 				F7F83173201B13B30033A8CE /* UIImage+gradientColor.swift in Sources */,
 				9A47250C214F4A0D00989EEA /* JCircleModelService.swift in Sources */,
 				9AE7124C1FF282D200E8B329 /* CyclicCardCell.swift in Sources */,
@@ -1043,6 +1054,7 @@
 				9A092A7C20524253004961C4 /* XTBezierPathProducer.m in Sources */,
 				9A3E464A20887AE500A80821 /* JSignUpModelService.swift in Sources */,
 				9A9313B7209868BD00CEB1B6 /* JLoginResponseModel.swift in Sources */,
+				9A4725AF2152975300989EEA /* JMyPhotoModelService.swift in Sources */,
 				9A67ADCA20F31A4100DDF069 /* AreaPickerView.swift in Sources */,
 				9A092A7F205242A0004961C4 /* CGPathProducer.m in Sources */,
 				9AD0C9272143633800AB17AC /* JMessageListRequestModel.swift in Sources */,

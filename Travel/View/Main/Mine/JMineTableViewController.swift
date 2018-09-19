@@ -59,6 +59,8 @@ class JMineTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
+        case 1:
+            self.performSegue(withIdentifier: "MyPhoto", sender: self)
         case 4:
             self.performSegue(withIdentifier: "Contact", sender: self)
         default:

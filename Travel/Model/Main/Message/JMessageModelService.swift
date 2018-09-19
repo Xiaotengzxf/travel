@@ -9,20 +9,10 @@
 import UIKit
 
 class JMessageModelService: NSObject {
-    func getMessageList(page: Int,
-                        keyboard: String?,
-                        criteria: String?,
-                        orderby: String?,
-                        callback: @escaping ([Message]?, String?)->()) {
-        let request = JMessageListRequestModel(pageNum: page,
-                                               criteria: criteria ?? "",
-                                               keyword: keyboard ?? "",
-                                               orderBy: orderby ?? "")
+    func getMessageList(page: Int, keyboard: String?, criteria: String?, orderby: String?, callback: @escaping ([Message]?, String?)->()) {
+        let request = JMessageListRequestModel(pageNum: page, criteria: criteria ?? "", keyword: keyboard ?? "", orderBy: orderby ?? "")
         let network = ZNetwork()
-        network.request(strUrl: request.url(),
-                        strMethod: "GET",
-                        parameters: request.toBody(),
-                        headers: request.toHeader()) {
+        network.request(strUrl: request.url(), strMethod: "GET", parameters: request.toBody(), headers: request.toHeader()) {
             (value, error) in
             if let response = value?.replacingOccurrences(of: "null", with: "\"\"") {
                 if let data = response.data(using: .utf8) {
