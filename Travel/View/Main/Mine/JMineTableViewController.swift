@@ -36,6 +36,12 @@ class JMineTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func showAttention(_ sender: Any) {
+    }
+    
+    @IBAction func showFan(_ sender: Any) {
+        self.performSegue(withIdentifier: "MyFan", sender: self)
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,6 +65,8 @@ class JMineTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
+        case 0:
+            self.performSegue(withIdentifier: "MyOrder", sender: self)
         case 1:
             self.performSegue(withIdentifier: "MyPhoto", sender: self)
         case 4:

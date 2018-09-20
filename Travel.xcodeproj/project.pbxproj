@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8930E6F12151CC4C00294ED6 /* JMyPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E6F02151CC4C00294ED6 /* JMyPhotoViewController.swift */; };
+		8930E6F32153E41300294ED6 /* JMyOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E6F22153E41300294ED6 /* JMyOrderTableViewCell.swift */; };
+		8930E6F52153F02300294ED6 /* JMyFanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E6F42153F02300294ED6 /* JMyFanViewController.swift */; };
+		8930E6F72153F03800294ED6 /* JMyFanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E6F62153F03800294ED6 /* JMyFanTableViewCell.swift */; };
+		8930E6F92153F56500294ED6 /* JMyCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E6F82153F56500294ED6 /* JMyCollectViewController.swift */; };
+		8930E6FB2153F58900294ED6 /* JMyCollectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E6FA2153F58900294ED6 /* JMyCollectTableViewCell.swift */; };
 		9A092A7C20524253004961C4 /* XTBezierPathProducer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A092A7B20524253004961C4 /* XTBezierPathProducer.m */; };
 		9A092A7F205242A0004961C4 /* CGPathProducer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A092A7D205242A0004961C4 /* CGPathProducer.m */; };
 		9A092A8C2052AD40004961C4 /* SCBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A092A852052AD40004961C4 /* SCBaseViewController.swift */; };
@@ -135,6 +140,11 @@
 /* Begin PBXFileReference section */
 		5AA5176BADE2A61CFAF7F24A /* Pods-Travel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel/Pods-Travel.debug.xcconfig"; sourceTree = "<group>"; };
 		8930E6F02151CC4C00294ED6 /* JMyPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyPhotoViewController.swift; sourceTree = "<group>"; };
+		8930E6F22153E41300294ED6 /* JMyOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyOrderTableViewCell.swift; sourceTree = "<group>"; };
+		8930E6F42153F02300294ED6 /* JMyFanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyFanViewController.swift; sourceTree = "<group>"; };
+		8930E6F62153F03800294ED6 /* JMyFanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyFanTableViewCell.swift; sourceTree = "<group>"; };
+		8930E6F82153F56500294ED6 /* JMyCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyCollectViewController.swift; sourceTree = "<group>"; };
+		8930E6FA2153F58900294ED6 /* JMyCollectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyCollectTableViewCell.swift; sourceTree = "<group>"; };
 		9A092A7A20524253004961C4 /* XTBezierPathProducer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTBezierPathProducer.h; sourceTree = "<group>"; };
 		9A092A7B20524253004961C4 /* XTBezierPathProducer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTBezierPathProducer.m; sourceTree = "<group>"; };
 		9A092A7D205242A0004961C4 /* CGPathProducer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPathProducer.m; sourceTree = "<group>"; };
@@ -745,6 +755,11 @@
 				9A472513214F761300989EEA /* JEditAccountViewController.swift */,
 				8930E6F02151CC4C00294ED6 /* JMyPhotoViewController.swift */,
 				9A4725B22152A6E400989EEA /* JMyOrderViewController.swift */,
+				8930E6F22153E41300294ED6 /* JMyOrderTableViewCell.swift */,
+				8930E6F42153F02300294ED6 /* JMyFanViewController.swift */,
+				8930E6F62153F03800294ED6 /* JMyFanTableViewCell.swift */,
+				8930E6F82153F56500294ED6 /* JMyCollectViewController.swift */,
+				8930E6FA2153F58900294ED6 /* JMyCollectTableViewCell.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1016,6 +1031,7 @@
 				9A8C3E8F212EA330006B0D2E /* JDeviceUtil.m in Sources */,
 				9A3E464C20887AF700A80821 /* JForgetPWDModelService.swift in Sources */,
 				9ACC56C81FEBB742004A452F /* ZColorManager.swift in Sources */,
+				8930E6F52153F02300294ED6 /* JMyFanViewController.swift in Sources */,
 				9AC55A2C208046080013A581 /* JLoginViewController.swift in Sources */,
 				9AA6D711213C2A3A00E7C98F /* JMessageListViewController.swift in Sources */,
 				9A34D2652027F94700C3A955 /* DispatchQueueExtension.swift in Sources */,
@@ -1030,6 +1046,7 @@
 				9AE7124C1FF282D200E8B329 /* CyclicCardCell.swift in Sources */,
 				9A472516214FC6F100989EEA /* JAccountSettingsModelService.swift in Sources */,
 				9AA6D702213AD62900E7C98F /* JTokenRequestModel.swift in Sources */,
+				8930E6F92153F56500294ED6 /* JMyCollectViewController.swift in Sources */,
 				9A092A8C2052AD40004961C4 /* SCBaseViewController.swift in Sources */,
 				9AE712641FF3470A00E8B329 /* JHUDAnimationView.m in Sources */,
 				B49AF1BE20AD6C3C00389226 /* JImagePicker.swift in Sources */,
@@ -1040,6 +1057,7 @@
 				9AFD87592132E18C005CC188 /* JSettingsViewController.swift in Sources */,
 				9A9313B32094847200CEB1B6 /* JRegisterRequestModel.swift in Sources */,
 				9ACC56C61FEBACE5004A452F /* ZFontManager.swift in Sources */,
+				8930E6FB2153F58900294ED6 /* JMyCollectTableViewCell.swift in Sources */,
 				9A1787621FE249360071E574 /* Log.swift in Sources */,
 				9A13F14F1FEB97450024E2F8 /* ToastView.swift in Sources */,
 				F7F83174201B13B30033A8CE /* UIImage+Gradient.m in Sources */,
@@ -1077,6 +1095,8 @@
 				9AA6D706213B931300E7C98F /* JIdentificationBViewController.swift in Sources */,
 				9AFD87542132D9F3005CC188 /* JMineTableViewController.swift in Sources */,
 				9A9B23D920A0837000024E18 /* JForgetPWDRequestModel.swift in Sources */,
+				8930E6F32153E41300294ED6 /* JMyOrderTableViewCell.swift in Sources */,
+				8930E6F72153F03800294ED6 /* JMyFanTableViewCell.swift in Sources */,
 				9A13F1501FEB97450024E2F8 /* ToastWindow.swift in Sources */,
 				9A472514214F761300989EEA /* JEditAccountViewController.swift in Sources */,
 				9A89907C2005E960001CBC0D /* SGCirleProgress.swift in Sources */,
