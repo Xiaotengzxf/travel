@@ -10,10 +10,20 @@ import UIKit
 
 class JMyCollectViewController: UIViewController {
 
+    @IBOutlet weak var editBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var deleteBttuon: UIButton!
+    @IBOutlet weak var tableViewBottomLConstraint: NSLayoutConstraint!
+    
+    private let service = JMyCollectionModelService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        deleteBttuon.isHidden = true
+        
+        service.getFavorite(page: 0, keyboard: nil, criteria: nil, orderby: nil) { (result, message) in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +42,39 @@ class JMyCollectViewController: UIViewController {
     }
     */
 
+    @IBAction func editCollection(_ sender: Any) {
+        if editBarButtonItem.title == "编辑" {
+            editBarButtonItem.title = "完成"
+            deleteBttuon.isHidden = false
+            tableViewBottomLConstraint.constant = -50
+        } else {
+            editBarButtonItem.title = "编辑"
+            deleteBttuon.isHidden = true
+            tableViewBottomLConstraint.constant = 0
+        }
+        
+        tableView.reloadData()
+    }
+    
+    @IBAction func deleteCollection(_ sender: Any) {
+        
+    }
+}
+
+extension JMyCollectViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: kCell, for: indexPath) as! JMyCollectTableViewCell
+        cell.showLeftView(value: editBarButtonItem.title == "完成")
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
 }

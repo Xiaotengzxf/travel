@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SafariServices
 
 class JMineTableViewController: UITableViewController {
     
@@ -19,6 +20,7 @@ class JMineTableViewController: UITableViewController {
     @IBOutlet weak var idLabel: UILabel!
     
     private let titles = ["我的订单", "我的相册", "我的收藏", "保险", "联系客服"]
+    private let service = JMineModelService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,12 @@ class JMineTableViewController: UITableViewController {
         nameLabel.text = JUserManager.sharedInstance.user?.userName
         signLabel.text = JUserManager.sharedInstance.user?.introduce
         idLabel.text = "ID: \(JUserManager.sharedInstance.user?.userId ?? "")"
+        
+        service.getFocus(page: 0, keyboard: nil, criteria: nil, orderby: nil) { (result, message) in
+            
+        }
+        
+        tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 240)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +45,21 @@ class JMineTableViewController: UITableViewController {
     }
 
     @IBAction func showAttention(_ sender: Any) {
+        
     }
     
     @IBAction func showFan(_ sender: Any) {
         self.performSegue(withIdentifier: "MyFan", sender: self)
     }
+    
+    private func showInsurace() {
+        let url = URL(string: "https://www.baidu.com")
+        let safariVC = SFSafariViewController(url: url!)
+        self.navigationController?.tabBarController?.present(safariVC, animated: true, completion: {
+            
+        })
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,6 +87,10 @@ class JMineTableViewController: UITableViewController {
             self.performSegue(withIdentifier: "MyOrder", sender: self)
         case 1:
             self.performSegue(withIdentifier: "MyPhoto", sender: self)
+        case 2:
+            self.performSegue(withIdentifier: "MyCollection", sender: self)
+        case 3:
+            showInsurace()
         case 4:
             self.performSegue(withIdentifier: "Contact", sender: self)
         default:

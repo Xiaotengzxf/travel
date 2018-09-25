@@ -129,7 +129,6 @@ extension JMessageListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kCell, for: indexPath) as! JMessageListTableViewCell
         let item = arrData[indexPath.row]
-        cell.iconImageView.backgroundColor = UIColor.red
         cell.titleLabel.text = item.title
         cell.messageLabel.text = item.content
         return cell

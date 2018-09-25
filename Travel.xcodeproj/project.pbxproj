@@ -48,8 +48,22 @@
 		9A4725AF2152975300989EEA /* JMyPhotoModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4725AE2152975300989EEA /* JMyPhotoModelService.swift */; };
 		9A4725B12152977700989EEA /* JMyPhotoRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4725B02152977700989EEA /* JMyPhotoRequestModel.swift */; };
 		9A4725B32152A6E400989EEA /* JMyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4725B22152A6E400989EEA /* JMyOrderViewController.swift */; };
+		9A4A104E2157189D001D1C1C /* JMyFavoriteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A104D2157189D001D1C1C /* JMyFavoriteRequestModel.swift */; };
+		9A4A1050215718DA001D1C1C /* JMyFocusRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A104F215718DA001D1C1C /* JMyFocusRequestModel.swift */; };
+		9A4A105221571995001D1C1C /* JMineModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A105121571995001D1C1C /* JMineModelService.swift */; };
+		9A4A1054215767B1001D1C1C /* JMyOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A1053215767B1001D1C1C /* JMyOrderDetailViewController.swift */; };
+		9A4A105621576AB5001D1C1C /* JUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A105521576AB5001D1C1C /* JUserInfoView.swift */; };
+		9A4A105821576AC1001D1C1C /* JUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4A105721576AC1001D1C1C /* JUserInfoView.xib */; };
+		9A4A105A21576C98001D1C1C /* JOrderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A105921576C98001D1C1C /* JOrderInfoView.swift */; };
+		9A4A105C21576CA5001D1C1C /* JOrderInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4A105B21576CA5001D1C1C /* JOrderInfoView.xib */; };
 		9A67ADCA20F31A4100DDF069 /* AreaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A67ADC620F31A4000DDF069 /* AreaPickerView.swift */; };
 		9A67ADCC20F31A4100DDF069 /* AreaPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A67ADC820F31A4000DDF069 /* AreaPicker.xib */; };
+		9A6D8DD7215799D40004E706 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D8DD3215799D40004E706 /* PopViewController.swift */; };
+		9A6D8DD8215799D40004E706 /* CommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D8DD4215799D40004E706 /* CommonTool.swift */; };
+		9A6D8DD9215799D40004E706 /* PopoverAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D8DD5215799D40004E706 /* PopoverAnimation.swift */; };
+		9A6D8DDA215799D40004E706 /* PopverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D8DD6215799D40004E706 /* PopverPresentationController.swift */; };
+		9A6D8DDC21579DCC0004E706 /* JMyCollectionModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D8DDB21579DCC0004E706 /* JMyCollectionModelService.swift */; };
+		9A6D8DDE2157A0520004E706 /* JPublishCircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D8DDD2157A0520004E706 /* JPublishCircleViewController.swift */; };
 		9A89907C2005E960001CBC0D /* SGCirleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89907A2005E960001CBC0D /* SGCirleProgress.swift */; };
 		9A89907D2005E960001CBC0D /* SGCirle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89907B2005E960001CBC0D /* SGCirle.swift */; };
 		9A8C3E77212D305E006B0D2E /* JEnumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8C3E76212D305E006B0D2E /* JEnumManager.swift */; };
@@ -189,8 +203,22 @@
 		9A4725AE2152975300989EEA /* JMyPhotoModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyPhotoModelService.swift; sourceTree = "<group>"; };
 		9A4725B02152977700989EEA /* JMyPhotoRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyPhotoRequestModel.swift; sourceTree = "<group>"; };
 		9A4725B22152A6E400989EEA /* JMyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyOrderViewController.swift; sourceTree = "<group>"; };
+		9A4A104D2157189D001D1C1C /* JMyFavoriteRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyFavoriteRequestModel.swift; sourceTree = "<group>"; };
+		9A4A104F215718DA001D1C1C /* JMyFocusRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyFocusRequestModel.swift; sourceTree = "<group>"; };
+		9A4A105121571995001D1C1C /* JMineModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMineModelService.swift; sourceTree = "<group>"; };
+		9A4A1053215767B1001D1C1C /* JMyOrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyOrderDetailViewController.swift; sourceTree = "<group>"; };
+		9A4A105521576AB5001D1C1C /* JUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JUserInfoView.swift; sourceTree = "<group>"; };
+		9A4A105721576AC1001D1C1C /* JUserInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JUserInfoView.xib; sourceTree = "<group>"; };
+		9A4A105921576C98001D1C1C /* JOrderInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JOrderInfoView.swift; sourceTree = "<group>"; };
+		9A4A105B21576CA5001D1C1C /* JOrderInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JOrderInfoView.xib; sourceTree = "<group>"; };
 		9A67ADC620F31A4000DDF069 /* AreaPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaPickerView.swift; sourceTree = "<group>"; };
 		9A67ADC820F31A4000DDF069 /* AreaPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaPicker.xib; sourceTree = "<group>"; };
+		9A6D8DD3215799D40004E706 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
+		9A6D8DD4215799D40004E706 /* CommonTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTool.swift; sourceTree = "<group>"; };
+		9A6D8DD5215799D40004E706 /* PopoverAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimation.swift; sourceTree = "<group>"; };
+		9A6D8DD6215799D40004E706 /* PopverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopverPresentationController.swift; sourceTree = "<group>"; };
+		9A6D8DDB21579DCC0004E706 /* JMyCollectionModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyCollectionModelService.swift; sourceTree = "<group>"; };
+		9A6D8DDD2157A0520004E706 /* JPublishCircleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPublishCircleViewController.swift; sourceTree = "<group>"; };
 		9A89907A2005E960001CBC0D /* SGCirleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCirleProgress.swift; sourceTree = "<group>"; };
 		9A89907B2005E960001CBC0D /* SGCirle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCirle.swift; sourceTree = "<group>"; };
 		9A8C3E76212D305E006B0D2E /* JEnumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JEnumManager.swift; sourceTree = "<group>"; };
@@ -304,6 +332,10 @@
 			children = (
 				9A67ADC620F31A4000DDF069 /* AreaPickerView.swift */,
 				9A67ADC820F31A4000DDF069 /* AreaPicker.xib */,
+				9A4A105521576AB5001D1C1C /* JUserInfoView.swift */,
+				9A4A105721576AC1001D1C1C /* JUserInfoView.xib */,
+				9A4A105921576C98001D1C1C /* JOrderInfoView.swift */,
+				9A4A105B21576CA5001D1C1C /* JOrderInfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,6 +444,7 @@
 		9A1787431FDAAE0C0071E574 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				9A6D8DD2215799D40004E706 /* PopView */,
 				9A092A7920524244004961C4 /* CGPath */,
 				F7F8316D201B13B30033A8CE /* GradientColorImage */,
 				F798272D200F2A130045FA70 /* RedPoint */,
@@ -505,6 +538,17 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		9A6D8DD2215799D40004E706 /* PopView */ = {
+			isa = PBXGroup;
+			children = (
+				9A6D8DD3215799D40004E706 /* PopViewController.swift */,
+				9A6D8DD4215799D40004E706 /* CommonTool.swift */,
+				9A6D8DD5215799D40004E706 /* PopoverAnimation.swift */,
+				9A6D8DD6215799D40004E706 /* PopverPresentationController.swift */,
+			);
+			path = PopView;
+			sourceTree = "<group>";
+		};
 		9A8C3E57212575DC006B0D2E /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				9AA6D712213C2A4500E7C98F /* JCircleListViewController.swift */,
+				9A6D8DDD2157A0520004E706 /* JPublishCircleViewController.swift */,
 			);
 			path = Circle;
 			sourceTree = "<group>";
@@ -629,7 +674,11 @@
 				9A472517214FC73200989EEA /* JAccountSettingsRequestModel.swift */,
 				9A472519214FD06500989EEA /* JIconUploadRequestModel.swift */,
 				9A4725B02152977700989EEA /* JMyPhotoRequestModel.swift */,
+				9A4A104D2157189D001D1C1C /* JMyFavoriteRequestModel.swift */,
+				9A4A104F215718DA001D1C1C /* JMyFocusRequestModel.swift */,
 				9A4725AE2152975300989EEA /* JMyPhotoModelService.swift */,
+				9A4A105121571995001D1C1C /* JMineModelService.swift */,
+				9A6D8DDB21579DCC0004E706 /* JMyCollectionModelService.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -756,6 +805,7 @@
 				8930E6F02151CC4C00294ED6 /* JMyPhotoViewController.swift */,
 				9A4725B22152A6E400989EEA /* JMyOrderViewController.swift */,
 				8930E6F22153E41300294ED6 /* JMyOrderTableViewCell.swift */,
+				9A4A1053215767B1001D1C1C /* JMyOrderDetailViewController.swift */,
 				8930E6F42153F02300294ED6 /* JMyFanViewController.swift */,
 				8930E6F62153F03800294ED6 /* JMyFanTableViewCell.swift */,
 				8930E6F82153F56500294ED6 /* JMyCollectViewController.swift */,
@@ -922,6 +972,7 @@
 			files = (
 				9A15145A1FFB7C4C0040F68C /* CommonValue.plist in Resources */,
 				9AC55A27207F85F30013A581 /* Login.storyboard in Resources */,
+				9A4A105C21576CA5001D1C1C /* JOrderInfoView.xib in Resources */,
 				9AE82A2921193E2700B236DD /* Bold.otf in Resources */,
 				9AE82A2B21193E2700B236DD /* Regular.otf in Resources */,
 				9A17870A1FDAA7320071E574 /* Assets.xcassets in Resources */,
@@ -932,6 +983,7 @@
 				F7096C9C1FFB7DCD0025CA18 /* Localizable.strings in Resources */,
 				9AE82A2D21193EEA00B236DD /* Black.ttf in Resources */,
 				9A67ADCC20F31A4100DDF069 /* AreaPicker.xib in Resources */,
+				9A4A105821576AC1001D1C1C /* JUserInfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1024,12 +1076,14 @@
 			files = (
 				9A47250E214F4A2500989EEA /* JCircleListRequestModel.swift in Sources */,
 				9A4639DC20C2870C00D5B877 /* JRootModelServiceDelegate.swift in Sources */,
+				9A6D8DD7215799D40004E706 /* PopViewController.swift in Sources */,
 				9AE712631FF3470A00E8B329 /* JHUD.m in Sources */,
 				9AE712621FF3470A00E8B329 /* UIView+JHUD.m in Sources */,
 				9AC55A2E208049610013A581 /* JForgetPWDViewController.swift in Sources */,
 				9A9313AF209445B300CEB1B6 /* JLoginRequestModel.swift in Sources */,
 				9A8C3E8F212EA330006B0D2E /* JDeviceUtil.m in Sources */,
 				9A3E464C20887AF700A80821 /* JForgetPWDModelService.swift in Sources */,
+				9A4A1050215718DA001D1C1C /* JMyFocusRequestModel.swift in Sources */,
 				9ACC56C81FEBB742004A452F /* ZColorManager.swift in Sources */,
 				8930E6F52153F02300294ED6 /* JMyFanViewController.swift in Sources */,
 				9AC55A2C208046080013A581 /* JLoginViewController.swift in Sources */,
@@ -1043,6 +1097,7 @@
 				9A4725B12152977700989EEA /* JMyPhotoRequestModel.swift in Sources */,
 				F7F83173201B13B30033A8CE /* UIImage+gradientColor.swift in Sources */,
 				9A47250C214F4A0D00989EEA /* JCircleModelService.swift in Sources */,
+				9A4A1054215767B1001D1C1C /* JMyOrderDetailViewController.swift in Sources */,
 				9AE7124C1FF282D200E8B329 /* CyclicCardCell.swift in Sources */,
 				9A472516214FC6F100989EEA /* JAccountSettingsModelService.swift in Sources */,
 				9AA6D702213AD62900E7C98F /* JTokenRequestModel.swift in Sources */,
@@ -1050,6 +1105,7 @@
 				9A092A8C2052AD40004961C4 /* SCBaseViewController.swift in Sources */,
 				9AE712641FF3470A00E8B329 /* JHUDAnimationView.m in Sources */,
 				B49AF1BE20AD6C3C00389226 /* JImagePicker.swift in Sources */,
+				9A4A105221571995001D1C1C /* JMineModelService.swift in Sources */,
 				9AE712201FF11C1300E8B329 /* UIKitExtension.swift in Sources */,
 				9AA6D715213C2B5000E7C98F /* JMessageListTableViewCell.swift in Sources */,
 				9A47251A214FD06500989EEA /* JIconUploadRequestModel.swift in Sources */,
@@ -1060,10 +1116,12 @@
 				8930E6FB2153F58900294ED6 /* JMyCollectTableViewCell.swift in Sources */,
 				9A1787621FE249360071E574 /* Log.swift in Sources */,
 				9A13F14F1FEB97450024E2F8 /* ToastView.swift in Sources */,
+				9A4A104E2157189D001D1C1C /* JMyFavoriteRequestModel.swift in Sources */,
 				F7F83174201B13B30033A8CE /* UIImage+Gradient.m in Sources */,
 				9A13F14D1FEB97450024E2F8 /* Toast.swift in Sources */,
 				9A13F14E1FEB97450024E2F8 /* ToastCenter.swift in Sources */,
 				9A472510214F4A3600989EEA /* JCircleListResponseModel.swift in Sources */,
+				9A6D8DDE2157A0520004E706 /* JPublishCircleViewController.swift in Sources */,
 				9AFD875B2132E5AD005CC188 /* JFeedbackViewController.swift in Sources */,
 				9A3E46372088786000A80821 /* JLoginModelService.swift in Sources */,
 				9A4639DA20C286FC00D5B877 /* JRootModelService.swift in Sources */,
@@ -1081,22 +1139,28 @@
 				9A3E46562088811200A80821 /* JBaseRequestModel.swift in Sources */,
 				9AE7124B1FF282D200E8B329 /* CyclicCardFlowLayout.swift in Sources */,
 				9AE37A2F200F3E9E0077680D /* FoundationExtension.swift in Sources */,
+				9A6D8DDC21579DCC0004E706 /* JMyCollectionModelService.swift in Sources */,
 				9AC55A3020804CB70013A581 /* JSignUpViewController.swift in Sources */,
 				9AE37A28200F39EA0077680D /* ZNetwork.swift in Sources */,
 				9A472518214FC73200989EEA /* JAccountSettingsRequestModel.swift in Sources */,
 				9A1AF80920157E9800D6E0C4 /* ZFileMD5Value.swift in Sources */,
 				9A8C3E77212D305E006B0D2E /* JEnumManager.swift in Sources */,
+				9A4A105A21576C98001D1C1C /* JOrderInfoView.swift in Sources */,
 				8930E6F12151CC4C00294ED6 /* JMyPhotoViewController.swift in Sources */,
 				9AFAEBCB20CA74D0001D8C43 /* JRootNavigationController.swift in Sources */,
+				9A6D8DD9215799D40004E706 /* PopoverAnimation.swift in Sources */,
+				9A4A105621576AB5001D1C1C /* JUserInfoView.swift in Sources */,
 				F798272F200F2A130045FA70 /* UIView+RedPoint.swift in Sources */,
 				9A9313B920993D3E00CEB1B6 /* JUserManager.swift in Sources */,
 				9A89907D2005E960001CBC0D /* SGCirle.swift in Sources */,
 				9AD0C9252143620D00AB17AC /* JMessageModelService.swift in Sources */,
+				9A6D8DDA215799D40004E706 /* PopverPresentationController.swift in Sources */,
 				9AA6D706213B931300E7C98F /* JIdentificationBViewController.swift in Sources */,
 				9AFD87542132D9F3005CC188 /* JMineTableViewController.swift in Sources */,
 				9A9B23D920A0837000024E18 /* JForgetPWDRequestModel.swift in Sources */,
 				8930E6F32153E41300294ED6 /* JMyOrderTableViewCell.swift in Sources */,
 				8930E6F72153F03800294ED6 /* JMyFanTableViewCell.swift in Sources */,
+				9A6D8DD8215799D40004E706 /* CommonTool.swift in Sources */,
 				9A13F1501FEB97450024E2F8 /* ToastWindow.swift in Sources */,
 				9A472514214F761300989EEA /* JEditAccountViewController.swift in Sources */,
 				9A89907C2005E960001CBC0D /* SGCirleProgress.swift in Sources */,
@@ -1268,7 +1332,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = YQ94G6GXWQ;
+				DEVELOPMENT_TEAM = DVHGAMT4X8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Jouz/Vendor/OTA",
@@ -1293,7 +1357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ94G6GXWQ;
+				DEVELOPMENT_TEAM = DVHGAMT4X8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Jouz/Vendor/OTA",

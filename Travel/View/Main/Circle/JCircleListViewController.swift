@@ -23,6 +23,7 @@ class JCircleListViewController: UIViewController {
     private var orderby: String?
     private var arrData: [Circle] = []
     private var emptyShow = 0
+    private var popVc: PopViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,45 +72,59 @@ class JCircleListViewController: UIViewController {
     */
     
     private func downloadData() {
-        service.getCircleList(page: page,
-                               keyboard: keyboard,
-                               criteria: criteria,
-                               orderby: orderby) {[weak self] (result, message) in
-                                self?.tableView.mj_header.endRefreshing()
-                                self?.tableView.mj_footer.endRefreshing()
-                                if let arr = result {
-                                    self?.emptyShow = 0
-                                    if arr.count > 0 {
-                                        if self!.page == 1 {
-                                            self?.arrData.removeAll()
-                                            self?.tableView.mj_footer.isHidden = arr.count >= 20
-                                        }
-                                        self?.arrData += arr
-                                        self?.tableView.reloadData()
-                                    } else {
-                                        if self!.page == 1 {
-                                            self?.arrData.removeAll()
-                                            self?.emptyShow = 2
-                                        }
-                                        self?.tableView.reloadData()
-                                    }
-                                } else {
-                                    if let msg = message {
-                                        if msg == "\(kErrorNetworkOffline)" {
-                                            if self?.arrData.count == 0 {
-                                                self?.emptyShow = 1
-                                                self?.tableView.reloadData()
-                                            } else {
-                                                Toast(text: "网络故障，请检查网络").show()
-                                            }
-                                        } else {
-                                            Toast(text: msg).show()
-                                        }
-                                    }
-                                }
+        service.getCircleList(page: page, keyboard: keyboard, criteria: criteria, orderby: orderby) {
+            [weak self] (result, message) in
+            self?.tableView.mj_header.endRefreshing()
+            self?.tableView.mj_footer.endRefreshing()
+            if let arr = result {
+                self?.emptyShow = 0
+                if arr.count > 0 {
+                    if self!.page == 1 {
+                        self?.arrData.removeAll()
+                        self?.tableView.mj_footer.isHidden = arr.count >= 20
+                    }
+                    self?.arrData += arr
+                    self?.tableView.reloadData()
+                } else {
+                    if self!.page == 1 {
+                        self?.arrData.removeAll()
+                        self?.emptyShow = 2
+                    }
+                    self?.tableView.reloadData()
+                }
+            } else {
+                if let msg = message {
+                    if msg == "\(kErrorNetworkOffline)" {
+                        if self?.arrData.count == 0 {
+                            self?.emptyShow = 1
+                            self?.tableView.reloadData()
+                        } else {
+                            Toast(text: "网络故障，请检查网络").show()
+                        }
+                    } else {
+                    Toast(text: msg).show()
+                    }
+                }
+            }
         }
     }
-
+    
+    private func modalPopView(type: PopViewType) {
+        let animationDelegate = PopoverAnimation()
+        popVc = PopViewController()
+        popVc.popType = type
+        popVc.transitioningDelegate = animationDelegate
+        popVc.modalPresentationStyle = .custom
+        popVc.selectDelegate = self
+        animationDelegate.popViewType = type
+        present(popVc, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func addCircle(_ sender: Any) {
+        modalPopView(type: .right)
+    }
+    
 }
 
 extension JCircleListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -121,7 +136,6 @@ extension JCircleListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kCell, for: indexPath) as! JMessageListTableViewCell
         let circle = arrData[indexPath.row]
-        cell.iconImageView.backgroundColor = UIColor.red
         cell.titleLabel.text = circle.name
         cell.messageLabel.text = circle.description
         return cell
@@ -160,4 +174,13 @@ extension JCircleListViewController: EmptyDataSetSource, EmptyDataSetDelegate {
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
         return emptyShow == 1 ? -50 : -30
     }
+}
+
+extension JCircleListViewController: DidSelectPopViewCellDelegate {
+    func didSelectRowAtIndexPath(_ indexPath: IndexPath) {
+        popVc?.dismiss(animated: true, completion: {
+            
+        })
+    }
+    
 }

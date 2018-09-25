@@ -15,6 +15,7 @@ class JMyOrderViewController: UIViewController {
     @IBOutlet weak var lineWidthLConstraint: NSLayoutConstraint!
     @IBOutlet weak var lineLeadingLConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottomLConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,7 @@ extension JMyOrderViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: "MyOrderDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
