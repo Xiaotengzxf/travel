@@ -46,3 +46,18 @@ class JMyPhotoRequestModel: JBaseRequestModel {
         return body
     }
 }
+
+class JMyPhotoResponseModel: Codable {
+    //var 
+}
+
+class MyPhotoModel: Codable {
+    var createTime: TimeInterval?
+    var id: String?
+    var imageUrl: String?
+    var remark: String?
+    var status: String?
+    var type: String?
+    var userId: String?
+    var userName: String?
+}

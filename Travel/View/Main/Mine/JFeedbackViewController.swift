@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Toaster
 
 class JFeedbackViewController: SCBaseViewController {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    
+    private let service = JFeedbackModelService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,5 +50,42 @@ class JFeedbackViewController: SCBaseViewController {
     */
 
     @IBAction func submitSuggestion(_ sender: Any) {
+        let content = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if content.count == 0 {
+            Toast(text: "请输入内容").show()
+            return
+        }
+        if let mobilePhone = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), mobilePhone.count == 11 {
+            JHUD.show(at: self.view)
+            service.feedback(content: content, mobilePhone: mobilePhone) {[weak self] (result, message) in
+                if self != nil {
+                    JHUD.hide(for: self!.view)
+                }
+                if result {
+                    Toast(text: "提交成功").show()
+                    self?.navigationController?.popViewController(animated: true)
+                }
+                if message != nil {
+                    Toast(text: message!).show()
+                }
+            }
+        } else {
+            Toast(text: "手机号码为空或有误").show()
+        }
+    }
+}
+
+extension JFeedbackViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "输入您的反馈意见" {
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
+            textView.text = "输入您的反馈意见"
+        }
     }
 }

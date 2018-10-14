@@ -25,11 +25,13 @@ class JUserManager: NSObject {
     }
 
     func logout() {
+        user = nil
         removeUserAccountFile()
        
     }
     
     func deleteUserAccount() {
+        user = nil
         removeUserAccountFile()
     }
     

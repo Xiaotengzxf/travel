@@ -100,10 +100,13 @@ let kValue = "value"
 let kA = "a"
 let kB = "b"
 let kC = "c"
+let kD = "d"
 
 // MARK: - Error
 
 let kErrorNetworkOffline = -1009
+
+let kDEBUGUrl = "http://120.79.28.173:8080/travel/"
 
 
 

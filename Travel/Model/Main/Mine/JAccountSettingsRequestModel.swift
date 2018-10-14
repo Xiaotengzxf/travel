@@ -30,13 +30,20 @@ class JAccountSettingsRequestModel: JBaseRequestModel {
         return super.url() + "api/user/\(JUserManager.sharedInstance.user?.userId ?? "")"
     }
     
+    override func toHeader() -> [String : String] {
+        let header = super.toHeader()
+        
+        
+        return header
+    }
+    
     override func toBody() -> [String : Any] {
         var body : [String : Any] = [:]
         if imageUrl.count > 0 {
             body["icon"] = imageUrl
         }
         if mobilePhone.count > 0 {
-            body["criteria"] = mobilePhone
+            body["mobilePhone"] = mobilePhone
         }
         if userName.count > 0 {
             body["userName"] = userName
@@ -44,6 +51,24 @@ class JAccountSettingsRequestModel: JBaseRequestModel {
         if introduce.count > 0 {
             body["introduce"] = introduce
         }
+        body["realName"] = ""
         return body
     }
+}
+
+class JRPBasicRequestModel: JBaseRequestModel {
+    override func url() -> String {
+        return super.url() + "api/RP-basic"
+    }
+}
+
+class JRPBasicResponseModel: Codable {
+    var errCode: Int?
+    var errMsg: String?
+    var data: JRPBasic?
+}
+
+class JRPBasic: Codable {
+    var ticketId: String?
+    var token: String?
 }

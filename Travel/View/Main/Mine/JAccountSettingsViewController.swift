@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import ALCameraViewController
+import Toaster
 
 class JAccountSettingsViewController: SCBaseViewController {
 
@@ -48,6 +49,14 @@ class JAccountSettingsViewController: SCBaseViewController {
         JHUD.show(at: self.view)
         service.updateAccount(icon: imageUrl, userName: userName, phone: phone, introduce: introduce) {[weak self] (result, message) in
             JHUD.hide(for: self!.view)
+            if result {
+                Toast(text: "修改成功").show()
+                self?.navigationController?.popViewController(animated: true)
+            } else {
+                if message != nil {
+                    Toast(text: message!).show()
+                }
+            }
         }
     }
 }
@@ -65,14 +74,54 @@ extension JAccountSettingsViewController: UITableViewDataSource, UITableViewDele
         cell.valueLabel.isHidden = indexPath.row == 0
         switch indexPath.row {
         case 1:
-            cell.valueLabel.text = JUserManager.sharedInstance.user?.userName
+            if let userName = JUserManager.sharedInstance.user?.userName {
+                cell.valueLabel.text = userName
+                self.userName = userName
+            } else {
+                cell.valueLabel.text = nil
+            }
+            cell.valueLabel.textColor = ZColorManager.sharedInstance.colorWithHexString(hex: "333333")
         case 2:
-            cell.valueLabel.text = JUserManager.sharedInstance.user?.introduce
+            let userInfo = UserDefaults.standard.object(forKey: "loginUserInfo") as? String ?? ""
+            if userInfo.count > 0 {
+                if let data = userInfo.data(using: .utf8) {
+                    let model = try? JSONDecoder().decode(LoginUserInfoModel.self, from: data as Data)
+                    if let introduce = model?.data?.introduce {
+                        cell.valueLabel.text = introduce
+                        self.introduce = introduce
+                    } else {
+                        cell.valueLabel.text = nil
+                    }
+                }
+            } else {
+                cell.valueLabel.text = nil
+            }
+            cell.valueLabel.textColor = ZColorManager.sharedInstance.colorWithHexString(hex: "333333")
         case 3:
-            cell.valueLabel.text = JUserManager.sharedInstance.user?.mobilePhone
+            let userInfo = UserDefaults.standard.object(forKey: "loginUserInfo") as? String ?? ""
+            if userInfo.count > 0 {
+                if let data = userInfo.data(using: .utf8) {
+                    let model = try? JSONDecoder().decode(LoginUserInfoModel.self, from: data as Data)
+                    if let mobilePhone = model?.data?.mobilePhone {
+                        cell.valueLabel.text = mobilePhone
+                        phone = mobilePhone
+                    } else {
+                        cell.valueLabel.text = nil
+                    }
+                }
+            } else {
+                cell.valueLabel.text = nil
+            }
+            cell.valueLabel.textColor = ZColorManager.sharedInstance.colorWithHexString(hex: "333333")
+        case 4:
+            cell.valueLabel.text = "请进行实名认证"
+            cell.valueLabel.textColor = ZColorManager.sharedInstance.colorWithHexString(hex: "666666")
         default:
             if let icon = JUserManager.sharedInstance.user?.userIcon, icon.count > 0 {
                 cell.iconImageView.kf.setImage(with: URL(string: icon)!)
+                imageUrl = icon
+            }else {
+                cell.iconImageView.image = UIImage(named: "icon_2")
             }
         }
         return cell
@@ -87,18 +136,56 @@ extension JAccountSettingsViewController: UITableViewDataSource, UITableViewDele
             let cameraViewController = CameraViewController(croppingParameters: cropping, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: false){ [weak self] image, asset in
                 // Do something with your image here.
                 let cell = self?.tableView.cellForRow(at: indexPath) as! JAccountSettingsTableViewCell
-                cell.iconImageView.image = image
                 if image != nil {
-                    self?.service.uploadHeaderIcon(imageData: UIImageJPEGRepresentation(image!, 1)!){
+                    JHUD.show(at: self!.view)
+                    self?.service.uploadHeaderIcon(imageData: UIImageJPEGRepresentation(image!, 0.1)!){
                         (result, url) in
-                        
+                        DispatchQueue.main.async {
+                            [weak self] in
+                            JHUD.hide(for: self!.view)
+                            if result {
+                                cell.iconImageView.image = image
+                                if let jsonStr = url, jsonStr.count > 0 {
+                                    if let data = jsonStr.data(using: .utf8) {
+                                        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
+                                            self?.imageUrl = json?["data"] as? String
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
+                self?.dismiss(animated: true, completion: nil)
             }
 
             present(cameraViewController, animated: true, completion: nil)
-        case 4:
-            self.performSegue(withIdentifier: "Identification", sender: self)
+        case 4: // 
+            //self.performSegue(withIdentifier: "Identification", sender: self)
+            JHUD.show(at: view)
+            service.rpbasic {[weak self] (result, message) in
+                if self != nil {
+                    JHUD.hide(for: self!.view)
+                }
+                if result != nil {
+                    RPSDK.start(result?.token ?? "", rpCompleted: { (state) in
+                        if state == AUDIT.PASS {
+                            Toast(text: "认证通过").show()
+                        } else if state == AUDIT.FAIL {
+                            Toast(text: "认证不通过").show()
+                        } else if state == AUDIT.IN_AUDIT {
+                            Toast(text: "认证中").show()
+                        } else if state == AUDIT.NOT {
+                            Toast(text: "未认证，用户取消").show()
+                        } else if state == AUDIT.EXCEPTION {
+                            Toast(text: "系统异常").show()
+                        }
+                    }, withVC: self!.navigationController!)
+                }
+                if message != nil {
+                    Toast(text: message!).show()
+                }
+            }
         default:
             let cell = tableView.cellForRow(at: indexPath) as! JAccountSettingsTableViewCell
             value = cell.valueLabel.text
@@ -135,6 +222,4 @@ extension JAccountSettingsViewController: JEditAccountViewControllerDelegate {
             phone = value
         }
     }
-    
-    
 }

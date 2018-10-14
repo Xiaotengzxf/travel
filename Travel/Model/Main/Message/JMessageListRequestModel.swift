@@ -28,7 +28,13 @@ class JMessageListRequestModel: JBaseRequestModel {
     }
     
     override func url() -> String {
-        return super.url() + "api/message"
+        return super.url() + "api/message-last-page"
+    }
+    
+    override func toHeader() -> [String : String] {
+        var header = super.toHeader()
+        header["Authorization"] = JUserManager.sharedInstance.user?.token ?? ""
+        return header
     }
     
     override func toBody() -> [String : Any] {

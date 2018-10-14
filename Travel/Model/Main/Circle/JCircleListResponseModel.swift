@@ -28,4 +28,23 @@ class Circle: Codable {
     var ownerUserId : String?
     var createTime : TimeInterval?
     var activityId : String?
+    var chatGroupId : String?
+    var activityName : String?
+    var ownerUserName : String?
+    var createUserName : String?
+    var circleUserList : [CircleUser]?
+}
+
+class CircleUser: Codable {
+    var circleId : String?
+    var circleName : String?
+    var createTime : TimeInterval?
+    var id : String?
+    var isManager : Bool?
+    var nickName : String?
+    var status : String?
+    var type : String?
+    var user: User?
+    var userId : String?
+    var userName : String?
 }

@@ -28,10 +28,34 @@
 				<string>prefs</string>
 			</array>
 		</dict>
-		<dict/>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxaee2b9ceea16f729</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>alipay</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.kilobee.travel.2019</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>alipay</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -39,12 +63,20 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Please turn on Bluetooth to use the device.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>I want to use your camera</string>
+	<string>请授权使用相机功能</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>请授权使用定位功能</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>请授权使用定位功能</string>
+	<key>NSLocationUsageDescription</key>
+	<string>请授权使用定位功能</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>请授权使用定位功能</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>请授权使用麦克风功能</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>I want to use your phto library</string>
+	<string>请授权使用相册功能</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Black.ttf</string>
@@ -71,8 +103,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

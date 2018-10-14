@@ -8,6 +8,14 @@
 
 import UIKit
 
+class JJoinedCircleListRequestModel: JBaseRequestModel {
+    
+    override func url() -> String {
+        return super.url() + "api/my-join-circle"
+    }
+    
+}
+
 class JCircleListRequestModel: JBaseRequestModel {
     private var pageNum = 0
     private let pageSize = 20

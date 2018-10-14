@@ -10,7 +10,7 @@ import UIKit
 
 class JBaseResponseModel: Codable {
     
-    var res_code : Int?
-    var message : String?
+    var errCode : Int?
+    var errMsg : String?
     
 }

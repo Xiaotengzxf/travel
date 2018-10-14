@@ -21,34 +21,53 @@ class JMineTableViewController: UITableViewController {
     
     private let titles = ["我的订单", "我的相册", "我的收藏", "保险", "联系客服"]
     private let service = JMineModelService()
+    private var flag = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        if let icon = JUserManager.sharedInstance.user?.userIcon, icon.count > 0 {
-            iconImageView.kf.setImage(with: URL(string: icon)!)
-        }
-        nameLabel.text = JUserManager.sharedInstance.user?.userName
-        signLabel.text = JUserManager.sharedInstance.user?.introduce
-        idLabel.text = "ID: \(JUserManager.sharedInstance.user?.userId ?? "")"
-        
-        service.getFocus(page: 0, keyboard: nil, criteria: nil, orderby: nil) { (result, message) in
-            
-        }
-        
         tableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 240)
+        
+        service.getUserInfo {[weak self] (result, message) in
+            if result {
+                self?.refreshUserInfo()
+            }
+        }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    private func refreshUserInfo() {
+        let userInfo = UserDefaults.standard.object(forKey: "loginUserInfo") as? String ?? ""
+        if let data = userInfo.data(using: .utf8) {
+            let model = try? JSONDecoder().decode(LoginUserInfoModel.self, from: data as Data)
+            nameLabel.text = model?.data?.userName
+            idLabel.text = "ID\(model?.data?.id ?? "")"
+            signLabel.text = model?.data?.introduce
+            attentionNumLabel.text = "\(model?.data?.focusNumber ?? 0)"
+            fansNumLabel.text = "\(model?.data?.fansNumber ?? 0)"
+            if let icon = model?.data?.icon, icon.count > 0 {
+                iconImageView.kf.setImage(with: URL(string: icon)!)
+            }
+        }
+    }
 
     @IBAction func showAttention(_ sender: Any) {
-        
+        flag = 0
+        self.performSegue(withIdentifier: "MyFan", sender: self)
     }
     
     @IBAction func showFan(_ sender: Any) {
+        flag = 1
         self.performSegue(withIdentifier: "MyFan", sender: self)
     }
     
@@ -98,14 +117,13 @@ class JMineTableViewController: UITableViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? JMyFanViewController {
+            vc.intent(flag: flag)
+        }
     }
-    */
 
 }

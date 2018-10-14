@@ -65,6 +65,107 @@ extension Int {
             return "\(NSString(format: "%.2fM", CGFloat(self) / CGFloat(1024 * 1024)))"
         }
     }
+    
+    func toDate() -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let str = dateFormatter.string(from: date)
+        if str.count >= 19 {
+            let start = str.index(str.startIndex, offsetBy: 0)
+            let end = str.index(str.startIndex, offsetBy: 10)
+            return String(str[start...end])
+        }
+        return ""
+    }
+    
+    func toDateB() -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let str = dateFormatter.string(from: date)
+        if str.count >= 19 {
+            let start = str.index(str.startIndex, offsetBy: 0)
+            let end = str.index(str.startIndex, offsetBy: 15)
+            return String(str[start...end])
+        }
+        return ""
+    }
+    
+    func toDay() -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let str = dateFormatter.string(from: date)
+        if str.count >= 19 {
+            let start = str.index(str.startIndex, offsetBy: 5)
+            let end = str.index(str.startIndex, offsetBy: 10)
+            return String(str[start...end])
+        }
+        return ""
+    }
+    
+    func toTime() -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let str = dateFormatter.string(from: date)
+        if str.count >= 19 {
+            let start = str.index(str.startIndex, offsetBy: 11)
+            let end = str.index(str.startIndex, offsetBy: 15)
+            return String(str[start...end])
+        }
+        return ""
+    }
+    
+    func toDateAndTime() -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let str = dateFormatter.string(from: date)
+        if str.count >= 19 {
+            let start = str.index(str.startIndex, offsetBy: 5)
+            let end = str.index(str.startIndex, offsetBy: 15)
+            return String(str[start...end])
+        }
+        return ""
+    }
+    
+    func weekday() -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        let weekdays:NSArray = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+        var calendar = Calendar.init(identifier: .gregorian)
+        let timeZone = TimeZone.init(identifier: "Asia/Shanghai")
+        calendar.timeZone = timeZone!
+        let theComponents = calendar.dateComponents([.weekday], from: date)
+        var index = theComponents.weekday! - 1
+        if index < 0 {
+            index = 0
+        } else if index > 6 {
+            index = 6
+        }
+        let week = weekdays[index]
+        return week as! String
+    }
+    
+    func dayAndweekday() -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        let weekdays:NSArray = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+        var calendar = Calendar.init(identifier: .gregorian)
+        let timeZone = TimeZone.init(identifier: "Asia/Shanghai")
+        calendar.timeZone = timeZone!
+        let theComponents = calendar.dateComponents([.weekday, .month, .day], from: date)
+        var index = theComponents.weekday! - 1
+        if index < 0 {
+            index = 0
+        } else if index > 6 {
+            index = 6
+        }
+        let week = weekdays[index]
+        let month = theComponents.month!
+        let day = theComponents.day!
+        return "\(month)/\(day) \(week)"
+    }
 }
 
 

@@ -46,6 +46,12 @@ class ZNetwork: NSObject {
     }
     private var oRequest : Request?
     
+    static let sharedSessionManager: Alamofire.SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 20
+        return Alamofire.SessionManager(configuration: configuration)
+    }()
+    
     func request(strUrl: String, strMethod: String, parameters: [String : Any
         ]?, headers: [String : String]?, queue: QueueType = .main, callback: @escaping (String?, Error?)->()) {
         self.request(strUrl: strUrl, strMethod: strMethod, parameters: parameters, encoding: Encoding.jsonBody.toUrlEncoding(), headers: headers, queue: queue, callback: callback)
@@ -54,12 +60,16 @@ class ZNetwork: NSObject {
     func request(strUrl: String, strMethod: String, parameters: [String : Any
         ]?,encoding: ParameterEncoding, headers: [String : String]?, queue: QueueType = .main, callback: @escaping (String?, Error?)->()) {
         log.info("[\(strUrl)] [\(String(describing: headers))] [\(String(describing: parameters))]")
-        let manager = Alamofire.SessionManager.default
-        manager.session.configuration.timeoutIntervalForRequest = 20
-        oRequest = manager.request(strUrl, method: HTTPMethod(rawValue: strMethod) ?? .get, parameters: parameters, encoding: encoding, headers: headers).responseData(completionHandler: { (response) in
+
+        oRequest = ZNetwork.sharedSessionManager.request(strUrl, method: HTTPMethod(rawValue: strMethod) ?? .get, parameters: parameters, encoding: encoding, headers: headers).responseData(completionHandler: { (response) in
             if let data = response.result.value {
                 let value = String(data: data, encoding: .utf8)
-                log.info("[\(strUrl)] [\(String(describing: value))]")
+                if let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) {
+                    log.info("[\(strUrl)] [\(json)]")
+                } else {
+                    log.info("[\(strUrl)] [\(value)]")
+                }
+                
                 callback(value, response.error)
             } else {
                 callback(nil, response.error)
@@ -68,16 +78,28 @@ class ZNetwork: NSObject {
     }
     
     func upload(data: Data, url: URLConvertible, queue: DispatchQueue?, callback: @escaping (Bool, String?) -> ()) {
-        oRequest = Alamofire.upload(data, to: url).responseData(queue: queue) { (response) in
-            if response.error != nil {
-                callback(false, nil)
-            } else {
-                if let data = response.result.value {
-                    let value = String(data: data, encoding: .utf8)
-                    callback(true, value)
+        Alamofire.upload(multipartFormData: { (mData) in
+            mData.append(data, withName: "file", fileName: String(Date().timeIntervalSince1970) + ".png", mimeType: "image/png")
+            mData.append("article".data(using: .utf8)!, withName: "type")
+            mData.append("travel".data(using: .utf8)!, withName: "AppId")
+        }, to: url, headers: ["AppId" : "travel", "type" : "article"], encodingCompletion: { (result) in
+            switch result {
+            case .success(let request, _, _):
+                request.responseData(queue: queue) { (response) in
+                    if response.error != nil {
+                        print(response.error?.localizedDescription ?? "")
+                        callback(false, nil)
+                    } else {
+                        if let data = response.result.value {
+                            let value = String(data: data, encoding: .utf8)
+                            callback(true, value)
+                        }
+                    }
                 }
+            case .failure(let error):
+                print(error)
             }
-        }
+        })
     }
     
     func download(strUrl: String, callback: @escaping (CGFloat?, Error?) -> ()) {

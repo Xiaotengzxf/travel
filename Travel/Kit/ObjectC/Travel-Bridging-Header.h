@@ -7,3 +7,12 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "CGPathProducer.h"
 #import "JDeviceUtil.h"
+#import <RPSDK/RPSDK.h>
+#import <Hyphenate/Hyphenate.h>
+#import "EaseUI.h"
+#import "WXApi.h"
+#import "WXApiManager.h"
+#import <AlipaySDK/AlipaySDK.h>
+
+
+

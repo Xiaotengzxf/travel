@@ -9,30 +9,30 @@
 import UIKit
 
 class JMineModelService: NSObject {
-    
-    func getFocus(page: Int, keyboard: String?, criteria: String?, orderby: String?, callback: @escaping ([Message]?, String?)->())  {
-        let request = JMyFocusRequestModel(pageNum: page, criteria: criteria ?? "", keyword: keyboard ?? "", orderBy: orderby ?? "")
+    func getUserInfo(callback: @escaping (Bool, String?) -> ()) {
+        let request = JLoginUserInfoRequestModel()
         let network = ZNetwork()
-        network.request(strUrl: request.url(), strMethod: "GET", parameters: request.toBody(), headers: request.toHeader()) {
-            (value, error) in
-            if let response = value?.replacingOccurrences(of: "null", with: "\"\"") {
-                if let data = response.data(using: .utf8) {
-                    //                    let model = try? JSONDecoder().decode(JMessageListResponseModel.self, from: data)
-                    //                    if model?.errCode == 0 {
-                    //                        callback(model?.data, nil)
-                    //                    } else {
-                    //                        callback(nil, model?.errMsg)
-                    //                    }
+        network.request(strUrl: request.url(), strMethod: "GET", parameters: nil, headers: request.toHeader()) {(response, error) in
+            if let value = response?.replacingOccurrences(of: "\n", with: "") {
+                if let data = value.data(using: .utf8) {
+                    let model = try? JSONDecoder().decode(LoginUserInfoModel.self, from: data)
+                    UserDefaults.standard.set(value, forKey: "loginUserInfo")
+                    UserDefaults.standard.synchronize()
+                    if model?.errCode == 0 {
+                        callback(true, nil)
+                    } else {
+                        callback(false, model?.errMsg)
+                    }
                 } else {
-                    callback(nil, "服务器异常，请稍后重试")
+                    callback(false, "服务器异常，请稍后重试")
                 }
             } else {
                 if error != nil {
                     let err = error! as NSError
                     if err.code == kErrorNetworkOffline {
-                        callback(nil, "\(kErrorNetworkOffline)")
+                        callback(false, "网络异常，请检查网络")
                     } else {
-                        callback(nil, "服务器异常，请稍后重试")
+                        callback(false, "服务器异常，请稍后重试")
                     }
                 }
             }

@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import Toaster
 
 class JContactViewController: SCBaseViewController {
 
+    @IBOutlet weak var contactButton: UIButton!
+    private let service = JContactModelService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        service.contact {[weak self] (result, message) in
+            if result != nil {
+                self?.contactButton.setTitle("联系电话：\(result!)", for: .normal)
+            }
+            if message != nil {
+                Toast(text: message!).show()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +43,6 @@ class JContactViewController: SCBaseViewController {
     }
     */
 
+    @IBAction func contact(_ sender: Any) {
+    }
 }

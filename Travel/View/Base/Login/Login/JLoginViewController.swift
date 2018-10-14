@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class JLoginViewController: SCBaseViewController {
 
@@ -50,7 +51,7 @@ class JLoginViewController: SCBaseViewController {
         let pwd = pwdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         if phone.count == 11 && pwd.count > 0 && pwd.count <= 20 {
             JHUD.show(at: self.view)
-            service.login(mobilePhone: phone, password: pwd) {[weak self] (result, message) in
+            service.login(mobilePhone: phone, password: pwd.md5()) {[weak self] (result, message) in
                 JHUD.hide(for: self!.view)
                 if result {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -58,6 +59,9 @@ class JLoginViewController: SCBaseViewController {
                         self?.view.window?.rootViewController = vc
                         self?.navigationController?.viewControllers = []
                     }
+                }
+                if message != nil {
+                    Toast(text: message!).show()
                 }
             }
         }

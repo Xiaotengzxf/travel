@@ -9,6 +9,8 @@
 import UIKit
 import EmptyDataSet_Swift
 import MJRefresh
+import Toaster
+import SDWebImage
 
 class JCircleListViewController: UIViewController {
 
@@ -17,13 +19,13 @@ class JCircleListViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     private let service = JCircleModelService()
-    private var page = 1
     private var keyboard : String?
     private var criteria : String?
     private var orderby: String?
     private var arrData: [Circle] = []
     private var emptyShow = 0
     private var popVc: PopViewController!
+    private var circleId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,20 +40,23 @@ class JCircleListViewController: UIViewController {
         }
         searchBar.setBackgroundImage(UIColor.creatImageWithColor(color: UIColor.white), for: .any, barMetrics: .default)
         
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
-        
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             [weak self] in
-            self?.page = 1
+            //self?.page = 0
             self?.downloadData()
         })
-        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
-            [weak self] in
-            self?.page += 1
-            self?.downloadData()
-        })
-        tableView.mj_footer.isHidden = true
+//        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+//            [weak self] in
+//            self?.page += 1
+//            self?.downloadData()
+//        })
+//        tableView.mj_footer.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(notification:)), name: Notification.Name("JCircleListViewController"), object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tableView.mj_header.beginRefreshing()
     }
 
@@ -60,6 +65,25 @@ class JCircleListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func handleNotification(notification: Notification) {
+        if let obj = notification.object as? String {
+            if obj == kA {
+                if let viewController = storyboard?.instantiateViewController(withIdentifier: "JCircleDetailViewController") as? JCircleDetailViewController {
+                    viewController.intent(id: circleId)
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+            } else if obj == kB {
+                if let viewController = storyboard?.instantiateViewController(withIdentifier: "JMyCollectViewController") as? JMyCollectViewController {
+                    viewController.intent(id: circleId)
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -71,25 +95,34 @@ class JCircleListViewController: UIViewController {
     }
     */
     
+    /// 初始化，添加圈子通知
+    private func initialTableData() {
+        let circle = Circle()
+        circle.id = "0"
+        arrData = [circle]
+    }
+    
     private func downloadData() {
-        service.getCircleList(page: page, keyboard: keyboard, criteria: criteria, orderby: orderby) {
+        service.getCircleList() {
             [weak self] (result, message) in
             self?.tableView.mj_header.endRefreshing()
-            self?.tableView.mj_footer.endRefreshing()
+            //self?.tableView.mj_footer.endRefreshing()
             if let arr = result {
                 self?.emptyShow = 0
                 if arr.count > 0 {
-                    if self!.page == 1 {
-                        self?.arrData.removeAll()
-                        self?.tableView.mj_footer.isHidden = arr.count >= 20
-                    }
+                    //if self!.page == 0 {
+                        self?.initialTableData()
+//                        if arr.count < 20 {
+//                            self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+//                        }
+                    //}
                     self?.arrData += arr
                     self?.tableView.reloadData()
                 } else {
-                    if self!.page == 1 {
-                        self?.arrData.removeAll()
-                        self?.emptyShow = 2
-                    }
+                    //if self!.page == 0 {
+                        self?.initialTableData()
+                        //self?.emptyShow = 2
+                    //}
                     self?.tableView.reloadData()
                 }
             } else {
@@ -135,14 +168,54 @@ extension JCircleListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kCell, for: indexPath) as! JMessageListTableViewCell
-        let circle = arrData[indexPath.row]
-        cell.titleLabel.text = circle.name
-        cell.messageLabel.text = circle.description
+        if indexPath.row == 0 {
+            cell.iconImageView.image = UIImage(named: "icon")
+            cell.titleLabel.text = "圈子通知"
+            cell.messageLabel.text = nil
+        } else {
+            let circle = arrData[indexPath.row]
+            cell.titleLabel.text = circle.name
+            cell.messageLabel.text = circle.description
+            if let url = circle.imageUrl, url.count > 0 {
+                cell.iconImageView?.sd_setImage(with: URL(string: url))
+            } else {
+                cell.iconImageView?.image = UIImage(named: "icon_2")
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0 {
+            if let viewController = storyboard?.instantiateViewController(withIdentifier: "JCircleNotificationViewController") as? JCircleNotificationViewController {
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+        } else {
+            let circle = arrData[indexPath.row]
+            if let id = circle.chatGroupId, id.count > 0 {
+                let userId = JUserManager.sharedInstance.user?.userId ?? ""
+                if circle.type == "audit" && circle.ownerUserId != userId {
+                    service.circelJoin(circleId: id) {[weak self] (result, message) in
+                        if result {
+                            let conversation = EaseMessageViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
+                            conversation?.serverId = circle.id
+                            self?.circleId = circle.id ?? ""
+                            conversation?.hidesBottomBarWhenPushed = true
+                            conversation?.title = circle.name ?? "聊天"
+                            self?.navigationController?.pushViewController(conversation!, animated: true)
+                        }
+                    }
+                } else {
+                    let conversation = EaseMessageViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
+                    conversation?.serverId = circle.id
+                    self.circleId = circle.id ?? ""
+                    conversation?.hidesBottomBarWhenPushed = true
+                    conversation?.title = circle.name ?? "聊天"
+                    self.navigationController?.pushViewController(conversation!, animated: true)
+                }
+            }
+        }
     }
 }
 
@@ -181,6 +254,11 @@ extension JCircleListViewController: DidSelectPopViewCellDelegate {
         popVc?.dismiss(animated: true, completion: {
             
         })
+        if indexPath.row == 0 {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "JCCreateCircleViewController") as? JCCreateCircleViewController {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
 }

@@ -27,7 +27,6 @@ class JLoginRequestModel: JBaseRequestModel {
         var dic = super.toBody()
         dic["mobilePhone"] = mobilePhone
         dic["password"] = password
-        dic["userName"] = mobilePhone
         return dic
     }
 }

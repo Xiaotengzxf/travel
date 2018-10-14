@@ -27,6 +27,8 @@ class JMyOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var circleButton: UIButton!
     @IBOutlet weak var bottomHeightLConstraint: NSLayoutConstraint!
     
+    weak var delegate: JMyOrderTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -46,9 +48,19 @@ class JMyOrderTableViewCell: UITableViewCell {
     }
 
     @IBAction func payOrder(_ sender: Any) {
+        delegate?.payOrder(tag: tag)
     }
+    
     @IBAction func cancelOrder(_ sender: Any) {
+        delegate?.cancelOrder(tag: tag)
     }
+    
     @IBAction func joinCircle(_ sender: Any) {
+        
     }
+}
+
+protocol JMyOrderTableViewCellDelegate: NSObjectProtocol {
+    func payOrder(tag: Int)
+    func cancelOrder(tag: Int)
 }

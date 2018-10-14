@@ -10,14 +10,26 @@ import UIKit
 
 class JForgetPWDRequestModel: JBaseRequestModel {
     
-    private var email = ""
+    private var password = ""
+    private var phone = ""
+    private var code = ""
     
-    init(email: String) {
+    init(phone: String, password: String, code: String) {
         super.init()
-        self.email = email
+        self.phone = phone
+        self.password = password
+        self.code = code
     }
     
     override func url() -> String {
-        return super.url() + "user/password/forget?email=\(email)"
+        return super.url() + "api/user-password"
+    }
+    
+    override func toBody() -> [String : Any] {
+        var dic = super.toBody()
+        dic["mobilePhone"] = phone
+        dic["password"] = password
+        dic["verifyCode"] = code
+        return dic
     }
 }

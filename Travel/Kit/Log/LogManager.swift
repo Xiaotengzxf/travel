@@ -21,11 +21,11 @@ class LogManager: NSObject {
     func setupLog() {
         #if DEBUG
         if let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
-            log.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: "\(filePath)/Jouz.log" as AnyObject)
+            log.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: "\(filePath)/travel.log" as AnyObject)
         }
         #else
             if let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
-                log.setup(level: .info, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: "\(filePath)/Jouz.log" as AnyObject)
+                log.setup(level: .info, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: "\(filePath)/travel.log" as AnyObject)
             }
         #endif
     }

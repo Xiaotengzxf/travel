@@ -37,7 +37,15 @@ class JSettingsViewController: UIViewController {
     */
 
     @IBAction func logOut(_ sender: Any) {
-        
+        UserDefaults.standard.removeObject(forKey: kPhone)
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        if let navigationController = storyboard.instantiateViewController(withIdentifier: "JRootNavigationController") as? JRootNavigationController {
+            self.view.window?.rootViewController = navigationController
+            self.navigationController?.viewControllers = []
+            let error = EMClient.shared()?.logout(true)
+            print("环信退出登录: \(error?.description ?? "成功")")
+            JUserManager.sharedInstance.logout()
+        }
     }
     
     @objc private func switchValueChanged(_ sender: Any) {

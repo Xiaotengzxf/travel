@@ -20,7 +20,7 @@ class JMyCollectTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var leftViewWidthLConstraint: NSLayoutConstraint!
-    
+    weak var delegate: JMyCollectTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +36,7 @@ class JMyCollectTableViewCell: UITableViewCell {
     @IBAction func tapLeftButton(_ sender: Any) {
         leftButton.isSelected = !leftButton.isSelected
         priceLabel.textColor = ZColorManager.sharedInstance.colorWithHexString(hex: leftButton.isSelected ? "FF3B30" :  "666666" )
+        delegate?.select(tag: tag, value: leftButton.isSelected)
     }
     
     // MARK: - Public
@@ -44,4 +45,8 @@ class JMyCollectTableViewCell: UITableViewCell {
         leftView.isHidden = !value
         leftViewWidthLConstraint.constant = value ? 44 : 11
     }
+}
+
+protocol JMyCollectTableViewCellDelegate: NSObjectProtocol {
+    func select(tag: Int, value: Bool)
 }

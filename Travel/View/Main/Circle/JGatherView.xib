@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEk-5R-KVk" customClass="JGatherView" customModule="Travel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="集合地点" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjf-KF-ZGv">
+                    <rect key="frame" x="12" y="21.5" width="65.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入集合地点" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vsm-en-vlC">
+                    <rect key="frame" x="88" y="15" width="275" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="U3H-uS-0X2"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入集合详细地点" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R3d-K1-ts6">
+                    <rect key="frame" x="88" y="63" width="272" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="HhM-tn-vKz"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Vsm-en-vlC" firstAttribute="leading" secondItem="QEk-5R-KVk" secondAttribute="leading" constant="88" id="I2w-fr-Pt2"/>
+                <constraint firstItem="Wpy-kk-lUn" firstAttribute="trailing" secondItem="R3d-K1-ts6" secondAttribute="trailing" constant="15" id="YTX-1S-wdg"/>
+                <constraint firstAttribute="trailing" secondItem="Vsm-en-vlC" secondAttribute="trailing" constant="12" id="Yvp-6i-5xA"/>
+                <constraint firstItem="Vsm-en-vlC" firstAttribute="top" secondItem="Wpy-kk-lUn" secondAttribute="top" constant="15" id="c8l-9N-WgU"/>
+                <constraint firstItem="R3d-K1-ts6" firstAttribute="leading" secondItem="Vsm-en-vlC" secondAttribute="leading" id="dnB-bx-3M8"/>
+                <constraint firstItem="Wpy-kk-lUn" firstAttribute="bottom" secondItem="R3d-K1-ts6" secondAttribute="bottom" constant="15" id="iqL-bE-jqm"/>
+                <constraint firstItem="Fjf-KF-ZGv" firstAttribute="centerY" secondItem="Vsm-en-vlC" secondAttribute="centerY" id="jNN-WF-6V2"/>
+                <constraint firstItem="Fjf-KF-ZGv" firstAttribute="leading" secondItem="QEk-5R-KVk" secondAttribute="leading" constant="12" id="v76-1e-mpA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Wpy-kk-lUn"/>
+            <connections>
+                <outlet property="locationDetailTextField" destination="R3d-K1-ts6" id="6ae-KC-T7N"/>
+                <outlet property="locationTextField" destination="Vsm-en-vlC" id="lbz-rZ-NLf"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="-196.10194902548727"/>
+        </view>
+    </objects>
+</document>

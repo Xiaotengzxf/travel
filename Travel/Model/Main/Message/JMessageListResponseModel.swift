@@ -17,6 +17,7 @@ class JMessageListResponseModel: Codable {
 class Message: Codable {
     var id: String?
     var userId: String?
+    var userIcon: String?
     var userName: String?
     var circleId: String?
     var circleName: String?

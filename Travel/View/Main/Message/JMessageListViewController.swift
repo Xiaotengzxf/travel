@@ -9,6 +9,8 @@
 import UIKit
 import EmptyDataSet_Swift
 import MJRefresh
+import Kingfisher
+import Toaster
 
 class JMessageListViewController: UIViewController {
 
@@ -24,7 +26,7 @@ class JMessageListViewController: UIViewController {
     private var keyboard : String?
     private var criteria : String?
     private var orderby: String?
-    private var arrData: [Message] = []
+    private var tableData: [Circle] = []
     private var emptyShow = 0
     
     override func viewDidLoad() {
@@ -45,7 +47,7 @@ class JMessageListViewController: UIViewController {
         
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             [weak self] in
-            self?.page = 1
+            self?.page = 0
             self?.downloadData()
         })
         tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
@@ -54,12 +56,12 @@ class JMessageListViewController: UIViewController {
             self?.downloadData()
         })
         tableView.mj_footer.isHidden = true
-        tableView.mj_header.beginRefreshing()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //searchBar.subviews.last?.subviews.forEach{print($0.frame)}
+        tableView.mj_header.beginRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,43 +81,56 @@ class JMessageListViewController: UIViewController {
     */
     
     private func downloadData() {
-        service.getMessageList(page: page,
-                               keyboard: keyboard,
-                               criteria: criteria,
-                               orderby: orderby) {[weak self] (result, message) in
+//        service.getMessageList(page: page,
+//                               keyboard: keyboard,
+//                               criteria: criteria,
+//                               orderby: orderby) {[weak self] (result, message) in
+//            self?.tableView.mj_header.endRefreshing()
+//            self?.tableView.mj_footer.endRefreshing()
+//            if let arr = result {
+//                self?.emptyShow = 0
+//                if arr.count > 0 {
+//                    if self!.page == 1 {
+//                        self?.arrData.removeAll()
+//                        self?.tableView.mj_footer.isHidden = arr.count >= 20
+//                    }
+//                    self?.arrData += arr
+//                    self?.tableView.reloadData()
+//                } else {
+//                    if self!.page == 1 {
+//                        self?.arrData.removeAll()
+//                        self?.emptyShow = 2
+//                    }
+//                    self?.tableView.reloadData()
+//                }
+//            } else {
+//                if let msg = message {
+//                    if msg == "\(kErrorNetworkOffline)" {
+//                        if self?.arrData.count == 0 {
+//                            self?.emptyShow = 1
+//                            self?.tableView.reloadData()
+//                        } else {
+//                            Toast(text: "网络故障，请检查网络").show()
+//                        }
+//                    } else {
+//                        Toast(text: msg).show()
+//                    }
+//                }
+//            }
+//        }
+        service.getCircleList {[weak self] (result, message) in
             self?.tableView.mj_header.endRefreshing()
             self?.tableView.mj_footer.endRefreshing()
-            if let arr = result {
-                self?.emptyShow = 0
-                if arr.count > 0 {
-                    if self!.page == 1 {
-                        self?.arrData.removeAll()
-                        self?.tableView.mj_footer.isHidden = arr.count >= 20
-                    }
-                    self?.arrData += arr
-                    self?.tableView.reloadData()
-                } else {
-                    if self!.page == 1 {
-                        self?.arrData.removeAll()
-                        self?.emptyShow = 2
-                    }
-                    self?.tableView.reloadData()
-                }
-            } else {
-                if let msg = message {
-                    if msg == "\(kErrorNetworkOffline)" {
-                        if self?.arrData.count == 0 {
-                            self?.emptyShow = 1
-                            self?.tableView.reloadData()
-                        } else {
-                            Toast(text: "网络故障，请检查网络").show()
-                        }
-                    } else {
-                        Toast(text: msg).show()
-                    }
-                }
+            self?.tableData.removeAll()
+            if let data = result {
+                self?.tableData = data
+            }
+            self?.tableView.reloadData()
+            if message != nil {
+                Toast(text: message!).show()
             }
         }
+        
     }
 
 }
@@ -123,19 +138,46 @@ class JMessageListViewController: UIViewController {
 extension JMessageListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrData.count
+        return tableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kCell, for: indexPath) as! JMessageListTableViewCell
-        let item = arrData[indexPath.row]
-        cell.titleLabel.text = item.title
-        cell.messageLabel.text = item.content
+        let item = tableData[indexPath.row]
+        cell.titleLabel.text = item.name
+        cell.messageLabel.text = item.description
+        if let imageIcon = item.imageUrl, imageIcon.hasPrefix("http") {
+            cell.iconImageView.kf.setImage(with: URL(string: imageIcon))
+        } else {
+            cell.iconImageView.image = UIImage(named: "icon_2")
+        }
+        
+        cell.numLabel.text = "\(1)"
+        //cell.timeLabel.text = Int(item.latestMessage.timestamp).toTime()
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let circle = tableData[indexPath.row]
+        if let id = circle.chatGroupId, id.count > 0 {
+            let userId = JUserManager.sharedInstance.user?.userId ?? ""
+            if circle.type == "audit" && circle.ownerUserId != userId {
+                let conversation = EaseMessageViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
+                conversation?.serverId = circle.id
+                conversation?.hidesBottomBarWhenPushed = true
+                conversation?.title = circle.name ?? "聊天"
+                self.navigationController?.pushViewController(conversation!, animated: true)
+            } else {
+                let conversation = EaseMessageViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
+                conversation?.serverId = circle.id
+                conversation?.hidesBottomBarWhenPushed = true
+                conversation?.title = circle.name ?? "聊天"
+                self.navigationController?.pushViewController(conversation!, animated: true)
+            }
+        }
+        
+        
     }
 }
 

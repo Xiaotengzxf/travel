@@ -14,13 +14,16 @@ class JBaseRequestModel: NSObject {
     
     internal func url() -> String {
         #if DEBUG
-            return "http://120.79.28.173:8080/travel/"
+            return kDEBUGUrl
         #else
-            return "http://120.79.28.173:8080/travel/"
+            return kDEBUGUrl
         #endif
     }
     
     internal func toHeader() -> [String : String] {
+        if let token = JUserManager.sharedInstance.user?.token {
+            return ["Authorization": token, "AppId" : AppId]
+        }
         return ["AppId" : AppId]
     }
     
