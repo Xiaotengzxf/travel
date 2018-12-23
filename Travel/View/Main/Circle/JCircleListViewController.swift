@@ -198,7 +198,7 @@ extension JCircleListViewController: UITableViewDataSource, UITableViewDelegate 
                 if circle.type == "audit" && circle.ownerUserId != userId {
                     service.circelJoin(circleId: id) {[weak self] (result, message) in
                         if result {
-                            let conversation = EaseMessageViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
+                            let conversation = JChatViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
                             conversation?.serverId = circle.id
                             self?.circleId = circle.id ?? ""
                             conversation?.hidesBottomBarWhenPushed = true
@@ -207,7 +207,7 @@ extension JCircleListViewController: UITableViewDataSource, UITableViewDelegate 
                         }
                     }
                 } else {
-                    let conversation = EaseMessageViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
+                    let conversation = JChatViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
                     conversation?.serverId = circle.id
                     self.circleId = circle.id ?? ""
                     conversation?.hidesBottomBarWhenPushed = true

@@ -9,14 +9,18 @@
 import UIKit
 
 class JDeleteMyFavoriteRequestModel: JBaseRequestModel {
-    private var id = ""
+    private var ids: [String] = []
     
-    init(id: String) {
+    init(ids: [String]) {
         super.init()
-        self.id = id
+        self.ids = ids
     }
     
     override func url() -> String {
-        return super.url() + "api/user-favorite/\(id)"
+        return super.url() + "api/user-favorite-delete-batch"
+    }
+    
+    override func toBody() -> [String : Any] {
+        return ["ids": ids]
     }
 }

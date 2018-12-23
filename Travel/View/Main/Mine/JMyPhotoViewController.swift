@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class JMyPhotoViewController: UIViewController {
 
@@ -14,15 +15,16 @@ class JMyPhotoViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let service = JMyPhotoModelService()
+    private var keys : [String] = []
+    private var list: [[MyPhotoModel]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         uploadButton.layer.borderColor = ZColorManager.sharedInstance.colorWithHexString(hex: "108EE9").cgColor
         uploadButton.layer.borderWidth = 0.5
-        service.getMyPhoto(page: 0, keyboard: nil, criteria: nil, orderby: nil) { (result, message) in
-            
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(handle(notification:)), name: Notification.Name("Photo"), object: nil)
+        refreshData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,34 +32,74 @@ class JMyPhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
-    */
+    
+    private func refreshData() {
+        JHUD.show(at: view)
+        service.getMyPhoto() {[weak self] (result, message) in
+            if self != nil {
+                JHUD.hide(for: self!.view)
+            }
+            if message != nil {
+                Toast(text: message!).show()
+            }
+            if result != nil {
+                self?.keys = result!.0
+                self?.list = result!.1
+                self?.collectionView.reloadData()
+            }
+        }
+    }
 
+    @IBAction func uploadPhotos(_ sender: Any) {
+        let picker = TZImagePickerController(maxImagesCount: 3, delegate: self)
+        picker?.allowPickingVideo = false
+        self.present(picker!, animated: true) {
+            
+        }
+    }
+    
+    @objc private func handle(notification: Notification) {
+        refreshData()
+    }
 }
 
 extension JMyPhotoViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return keys.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return list[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCell, for: indexPath)
         if let imageView = cell.viewWithTag(1) as? UIImageView {
             imageView.backgroundColor = ZColorManager.sharedInstance.colorWithHexString(hex: "F5F5F5")
+            let item = list[indexPath.section]
+            let value = item[indexPath.row]
+            if let url = value.imageUrl, url.hasPrefix("http") {
+                imageView.kf.setImage(with: URL(string: url))
+            } else {
+                imageView.image = nil
+            }
         }
+        
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        if let viewController = storyboard?.instantiateViewController(withIdentifier: "JMyPhotoDetailViewController") as? JMyPhotoDetailViewController {
+            viewController.model = list[indexPath.section][indexPath.row]
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -78,12 +120,42 @@ extension JMyPhotoViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath) as! HeaderView
-        headerView.label.text = "7月25"
+        if list.count > indexPath.section {
+            headerView.label.text = keys[indexPath.section]
+        }
         return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: screenWidth, height: 44)
+    }
+}
+
+extension JMyPhotoViewController: TZImagePickerControllerDelegate {
+    func imagePickerController(_ picker: TZImagePickerController!, didFinishPickingPhotos photos: [UIImage]!, sourceAssets assets: [Any]!, isSelectOriginalPhoto: Bool) {
+        if photos.count > 0 {
+            let count = photos.count
+            var tem = 0
+            for photo in photos {
+                if let data = UIImageJPEGRepresentation(photo, 0.2) {
+                    service.uploadHeaderIcon(imageData: data) {[weak self] (result, message) in
+                        if message != nil {
+                            self?.service.uploadMyPhoto(url: "http://120.79.28.173:8080/travel" + message!, callback: { (result, message) in
+                                tem += 1
+                                if count == tem {
+                                    DispatchQueue.main.async {
+                                        [weak self] in
+                                        self?.refreshData()
+                                    }
+                                }
+                            })
+                        } else {
+                            tem += 1
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

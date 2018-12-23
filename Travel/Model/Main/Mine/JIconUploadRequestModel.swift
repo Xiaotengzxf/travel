@@ -10,6 +10,6 @@ import UIKit
 
 class JIconUploadRequestModel: JBaseRequestModel {
     override func url() -> String {
-        return super.url() + "api/upload-image/"
+        return super.url() + "api/upload-image"
     }
 }

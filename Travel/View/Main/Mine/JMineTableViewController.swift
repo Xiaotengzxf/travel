@@ -37,7 +37,7 @@ class JMineTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        refreshUserInfo()
         
     }
     

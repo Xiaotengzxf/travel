@@ -55,6 +55,7 @@ class JAccountSettingsModelService: NSObject {
         let network = ZNetwork()
         network.upload(data: imageData, url: request.url(), queue: DispatchQueue.global()) {
             (result, url) in
+            print("上传图片回调结果：\(String(describing: url))")
             callback(result, url)
         }
     }

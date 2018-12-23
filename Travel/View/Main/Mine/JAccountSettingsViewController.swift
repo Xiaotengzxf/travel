@@ -51,7 +51,7 @@ class JAccountSettingsViewController: SCBaseViewController {
             JHUD.hide(for: self!.view)
             if result {
                 Toast(text: "修改成功").show()
-                self?.navigationController?.popViewController(animated: true)
+                self?.navigationController?.popToRootViewController(animated: true)
             } else {
                 if message != nil {
                     Toast(text: message!).show()
@@ -117,10 +117,16 @@ extension JAccountSettingsViewController: UITableViewDataSource, UITableViewDele
             cell.valueLabel.text = "请进行实名认证"
             cell.valueLabel.textColor = ZColorManager.sharedInstance.colorWithHexString(hex: "666666")
         default:
-            if let icon = JUserManager.sharedInstance.user?.userIcon, icon.count > 0 {
-                cell.iconImageView.kf.setImage(with: URL(string: icon)!)
-                imageUrl = icon
-            }else {
+            let userInfo = UserDefaults.standard.object(forKey: "loginUserInfo") as? String ?? ""
+            if let data = userInfo.data(using: .utf8) {
+                let model = try? JSONDecoder().decode(LoginUserInfoModel.self, from: data as Data)
+                if let icon = model?.data?.icon, icon.count > 0 {
+                    cell.iconImageView.kf.setImage(with: URL(string: icon)!)
+                    imageUrl = icon
+                } else {
+                    cell.iconImageView.image = UIImage(named: "icon_2")
+                }
+            } else {
                 cell.iconImageView.image = UIImage(named: "icon_2")
             }
         }
@@ -146,11 +152,7 @@ extension JAccountSettingsViewController: UITableViewDataSource, UITableViewDele
                             if result {
                                 cell.iconImageView.image = image
                                 if let jsonStr = url, jsonStr.count > 0 {
-                                    if let data = jsonStr.data(using: .utf8) {
-                                        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
-                                            self?.imageUrl = json?["data"] as? String
-                                        }
-                                    }
+                                    self?.imageUrl = "http://120.79.28.173:8080/travel" + jsonStr
                                 }
                             }
                         }

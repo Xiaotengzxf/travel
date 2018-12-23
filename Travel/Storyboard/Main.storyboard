@@ -4960,6 +4960,9 @@
                                 <state key="normal" title="上传照片">
                                     <color key="titleColor" red="0.062745098039215685" green="0.55686274509803924" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="uploadPhotos:" destination="Tkq-Xt-qgZ" eventType="touchUpInside" id="qBq-Ma-Mua"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gUT-wh-Ro8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
@@ -5013,11 +5016,48 @@
                     <connections>
                         <outlet property="collectionView" destination="gUT-wh-Ro8" id="A2h-nE-IJU"/>
                         <outlet property="uploadButton" destination="fs1-S8-sbL" id="0sM-OD-4aN"/>
+                        <segue destination="K5v-Sl-4PT" kind="show" id="VsQ-wu-ZuD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6D-FT-Cy3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7864.8000000000002" y="2097.3013493253375"/>
+        </scene>
+        <!--图片详情-->
+        <scene sceneID="3Iv-D8-9qZ">
+            <objects>
+                <viewController storyboardIdentifier="JMyPhotoDetailViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K5v-Sl-4PT" customClass="JMyPhotoDetailViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r9V-SO-qBU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qSt-V7-Sb0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qSt-V7-Sb0" firstAttribute="top" secondItem="pmS-93-LUf" secondAttribute="top" id="4Fb-Rv-V9m"/>
+                            <constraint firstItem="qSt-V7-Sb0" firstAttribute="leading" secondItem="pmS-93-LUf" secondAttribute="leading" id="XAk-CP-1ID"/>
+                            <constraint firstItem="pmS-93-LUf" firstAttribute="bottom" secondItem="qSt-V7-Sb0" secondAttribute="bottom" id="all-sl-saK"/>
+                            <constraint firstItem="pmS-93-LUf" firstAttribute="trailing" secondItem="qSt-V7-Sb0" secondAttribute="trailing" id="x15-ls-IJl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pmS-93-LUf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="图片详情" id="Ue3-Fk-ToL">
+                        <barButtonItem key="rightBarButtonItem" title="删除" id="0u3-ns-3QI">
+                            <connections>
+                                <action selector="deletePhoto:" destination="K5v-Sl-4PT" id="RCj-Ak-8fz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myImageView" destination="qSt-V7-Sb0" id="W3e-Ek-bV8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hog-vn-34D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8852" y="2096"/>
         </scene>
     </scenes>
     <resources>

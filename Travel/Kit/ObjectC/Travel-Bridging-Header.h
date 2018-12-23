@@ -13,6 +13,6 @@
 #import "WXApi.h"
 #import "WXApiManager.h"
 #import <AlipaySDK/AlipaySDK.h>
-
+#import <TZImagePickerController/TZImagePickerController.h>
 
 

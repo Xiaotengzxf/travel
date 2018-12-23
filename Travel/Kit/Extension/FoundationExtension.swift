@@ -73,7 +73,7 @@ extension Int {
         let str = dateFormatter.string(from: date)
         if str.count >= 19 {
             let start = str.index(str.startIndex, offsetBy: 0)
-            let end = str.index(str.startIndex, offsetBy: 10)
+            let end = str.index(str.startIndex, offsetBy: 9)
             return String(str[start...end])
         }
         return ""

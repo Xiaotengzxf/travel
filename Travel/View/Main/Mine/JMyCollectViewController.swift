@@ -105,7 +105,10 @@ class JMyCollectViewController: UIViewController {
     @IBAction func deleteCollection(_ sender: Any) {
         if deleteArray.count > 0 {
             JHUD.show(at: view)
-            let orderId = array[deleteArray[0]].id ?? ""
+            var orderId : [String] = []
+            for i in 0..<deleteArray.count {
+                orderId.append(array[deleteArray[i]].id ?? "")
+            }
             service.deleteFavorite(orderId: orderId) {[weak self] (result, message) in
                 if self != nil {
                     JHUD.hide(for: self!.view)

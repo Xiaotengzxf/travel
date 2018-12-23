@@ -87,7 +87,7 @@ extension JMyFanViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let fan = array[indexPath.row]
         if let chatId = fan.user?.chatId, chatId.count > 0 {
-            let controller = EaseMessageViewController(conversationChatter: chatId, conversationType: EMConversationTypeChat)
+            let controller = JChatViewController(conversationChatter: chatId, conversationType: EMConversationTypeChat)
             controller?.title = fan.user?.userName
             controller?.serverId = fan.userId
             self.navigationController?.pushViewController(controller!, animated: true)

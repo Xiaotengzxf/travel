@@ -30,7 +30,7 @@ class JFocusModelService: NSObject {
                 if error != nil {
                     let err = error! as NSError
                     if err.code == kErrorNetworkOffline {
-                        callback(nil, "\(kErrorNetworkOffline)")
+                        callback(nil, "网络异常，请检查网络")
                     } else {
                         callback(nil, "服务器异常，请稍后重试")
                     }
@@ -59,7 +59,7 @@ class JFocusModelService: NSObject {
                 if error != nil {
                     let err = error! as NSError
                     if err.code == kErrorNetworkOffline {
-                        callback(nil, "\(kErrorNetworkOffline)")
+                        callback(nil, "网络异常，请检查网络")
                     } else {
                         callback(nil, "服务器异常，请稍后重试")
                     }

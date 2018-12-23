@@ -22,6 +22,7 @@ PODS:
   - SDWebImage/Core (3.8.2)
   - Toaster (2.1.1)
   - TYAttributedLabel (2.6.6)
+  - TZImagePickerController (3.1.5)
   - XCGLogger (6.1.0):
     - XCGLogger/Core (= 6.1.0)
   - XCGLogger/Core (6.1.0):
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.8.2)
   - Toaster
   - TYAttributedLabel
+  - TZImagePickerController
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -63,6 +65,7 @@ SPEC REPOS:
     - SDWebImage
     - Toaster
     - TYAttributedLabel
+    - TZImagePickerController
     - XCGLogger
 
 SPEC CHECKSUMS:
@@ -82,8 +85,9 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
   TYAttributedLabel: cb8fc910d97eb5224936d4f692a78e042af691b2
+  TZImagePickerController: 6cc6e9c1a73bb8e62cfef98fd40af2d90634dcf5
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 6715c2789a1569957d6b7cd8a08755908118f50f
+PODFILE CHECKSUM: 1bbcb4d8dde79f03c106efa0cc118664414272df
 
 COCOAPODS: 1.5.3

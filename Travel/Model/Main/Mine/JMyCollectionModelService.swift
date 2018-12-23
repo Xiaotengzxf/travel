@@ -67,10 +67,10 @@ class JMyCollectionModelService: NSObject {
         }
     }
     
-    func deleteFavorite(orderId: String, callback: @escaping (Bool, String?)->())  {
-        let request = JDeleteMyFavoriteRequestModel(id: orderId)
+    func deleteFavorite(orderId: [String], callback: @escaping (Bool, String?)->())  {
+        let request = JDeleteMyFavoriteRequestModel(ids: orderId)
         let network = ZNetwork()
-        network.request(strUrl: request.url(), strMethod: "DELETE", parameters: nil, headers: request.toHeader()) {
+        network.request(strUrl: request.url(), strMethod: "DELETE", parameters: request.toBody(), headers: request.toHeader()) {
             (value, error) in
             if let response = value?.replacingOccurrences(of: "\n", with: "") {
                 if let data = response.data(using: .utf8) {

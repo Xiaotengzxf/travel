@@ -163,13 +163,13 @@ extension JMessageListViewController: UITableViewDataSource, UITableViewDelegate
         if let id = circle.chatGroupId, id.count > 0 {
             let userId = JUserManager.sharedInstance.user?.userId ?? ""
             if circle.type == "audit" && circle.ownerUserId != userId {
-                let conversation = EaseMessageViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
+                let conversation = JChatViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
                 conversation?.serverId = circle.id
                 conversation?.hidesBottomBarWhenPushed = true
                 conversation?.title = circle.name ?? "聊天"
                 self.navigationController?.pushViewController(conversation!, animated: true)
             } else {
-                let conversation = EaseMessageViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
+                let conversation = JChatViewController(conversationChatter: id, conversationType: EMConversationTypeGroupChat)
                 conversation?.serverId = circle.id
                 conversation?.hidesBottomBarWhenPushed = true
                 conversation?.title = circle.name ?? "聊天"

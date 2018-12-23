@@ -185,6 +185,7 @@ typedef enum : NSUInteger {
         [hView addSubview:button];
     }
     
+    // 取消键盘监听
 }
 
 - (void) pushToActions {
@@ -1702,7 +1703,7 @@ typedef enum : NSUInteger {
 {
     // Hide the keyboard
     [self.chatToolbar endEditing:YES];
-    
+    // 修改签到逻辑
     [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_MAKE1V1CALL object:@{@"chatter":self.conversation.conversationId, @"type":@(EMCallTypeVoice)}];
 }
 

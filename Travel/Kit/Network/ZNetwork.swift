@@ -79,25 +79,35 @@ class ZNetwork: NSObject {
     
     func upload(data: Data, url: URLConvertible, queue: DispatchQueue?, callback: @escaping (Bool, String?) -> ()) {
         Alamofire.upload(multipartFormData: { (mData) in
-            mData.append(data, withName: "file", fileName: String(Date().timeIntervalSince1970) + ".png", mimeType: "image/png")
+            mData.append(data, withName: "file", fileName: String(Date().timeIntervalSince1970) + ".jpeg", mimeType: "image/jpeg")
             mData.append("article".data(using: .utf8)!, withName: "type")
-            mData.append("travel".data(using: .utf8)!, withName: "AppId")
-        }, to: url, headers: ["AppId" : "travel", "type" : "article"], encodingCompletion: { (result) in
+            //mData.append("travel".data(using: .utf8)!, withName: "AppId")
+        }, to: url, headers: ["AppId" : "travel"], encodingCompletion: { (result) in
             switch result {
             case .success(let request, _, _):
                 request.responseData(queue: queue) { (response) in
                     if response.error != nil {
-                        print(response.error?.localizedDescription ?? "")
+                        print("上传图片失败：\(response.error?.localizedDescription ?? "")")
                         callback(false, nil)
                     } else {
                         if let data = response.result.value {
-                            let value = String(data: data, encoding: .utf8)
-                            callback(true, value)
+                            if let value = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String : Any] {
+                                if let d = value?["data"] as? String {
+                                    callback(true, d)
+                                } else {
+                                    callback(false, "图片上传失败")
+                                }
+                            } else {
+                                callback(false, "图片上传失败")
+                            }
+                        } else {
+                            callback(false, "图片上传失败")
                         }
                     }
                 }
             case .failure(let error):
-                print(error)
+                print("上传图片失败：\(error)")
+                callback(false, "图片上传失败")
             }
         })
     }
