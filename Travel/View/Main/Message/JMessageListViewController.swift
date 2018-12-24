@@ -16,7 +16,6 @@ class JMessageListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageALabel: UILabel!
     @IBOutlet weak var messageBLabel: UILabel!
@@ -31,16 +30,18 @@ class JMessageListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let array = searchBar.subviews.last?.subviews {
-            for view in array {
-                if let textfield = view as? UITextField {
-                    textfield.backgroundColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
-                    textfield.layer.cornerRadius = 18
-                    textfield.clipsToBounds = true
-                }
-            }
-        }
-        searchBar.setBackgroundImage(UIColor.creatImageWithColor(color: UIColor.white), for: .any, barMetrics: .default)
+        messageALabel.text = "户外运动"
+        messageBLabel.text = "一起走吧"
+//        if let array = searchBar.subviews.last?.subviews {
+//            for view in array {
+//                if let textfield = view as? UITextField {
+//                    textfield.backgroundColor = ZColorManager.sharedInstance.colorWithHexString(hex: "f5f5f5")
+//                    textfield.layer.cornerRadius = 18
+//                    textfield.clipsToBounds = true
+//                }
+//            }
+//        }
+//        searchBar.setBackgroundImage(UIColor.creatImageWithColor(color: UIColor.white), for: .any, barMetrics: .default)
         
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
@@ -153,6 +154,7 @@ extension JMessageListViewController: UITableViewDataSource, UITableViewDelegate
         }
         
         cell.numLabel.text = "\(1)"
+        cell.numLabel.isHidden = true
         //cell.timeLabel.text = Int(item.latestMessage.timestamp).toTime()
         return cell
     }

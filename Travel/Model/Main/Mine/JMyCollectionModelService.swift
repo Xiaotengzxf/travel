@@ -9,10 +9,10 @@
 import UIKit
 
 class JMyCollectionModelService: NSObject {
-    func getFavorite(page: Int, keyboard: String?, criteria: String?, orderby: String?, callback: @escaping ([ActivityB]?, String?)->())  {
-        let request = JMyFavoriteRequestModel(pageNum: page, criteria: criteria ?? "", keyword: keyboard ?? "", orderBy: orderby ?? "")
+    func getFavorite(callback: @escaping ([ActivityB]?, String?)->())  {
+        let request = JMyFavoriteRequestModel()
         let network = ZNetwork()
-        network.request(strUrl: request.url(), strMethod: "GET", parameters: request.toBody(), headers: request.toHeader()) {
+        network.request(strUrl: request.url(), strMethod: "GET", parameters: nil, headers: request.toHeader()) {
             (value, error) in
             if let response = value?.replacingOccurrences(of: "\n", with: "") {
                 if let data = response.data(using: .utf8) {

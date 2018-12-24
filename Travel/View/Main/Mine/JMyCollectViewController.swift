@@ -72,7 +72,7 @@ class JMyCollectViewController: UIViewController {
             }
         } else {
             JHUD.show(at: self.view)
-            service.getFavorite(page: 0, keyboard: nil, criteria: nil, orderby: nil) {[weak self] (result, message) in
+            service.getFavorite() {[weak self] (result, message) in
                 if self != nil {
                     JHUD.hide(for: self!.view)
                 }

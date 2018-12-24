@@ -61,7 +61,7 @@ class JCCreateCircleViewController: UIViewController {
     
     @objc private func valueChanged(_ sender: Any) {
         if let mSwitch = sender as? UISwitch {
-            audit = mSwitch.isOn ? "Audit" : "notAudit"
+            audit = mSwitch.isOn ? "audit" : "notAudit"
         }
     }
     
