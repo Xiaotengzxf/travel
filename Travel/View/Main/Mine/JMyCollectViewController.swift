@@ -114,8 +114,8 @@ class JMyCollectViewController: UIViewController {
                     JHUD.hide(for: self!.view)
                 }
                 if result {
-                    self?.deleteArray.removeAll()
                     self?.editCollection(self!.deleteBttuon)
+                    self?.deleteArray.removeAll()
                     self?.reloadData()
                 }
                 if message != nil {
@@ -150,10 +150,10 @@ extension JMyCollectViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell.iconImageView.image = nil
         }
-        cell.titleLabel.text = "【周四】\(activity?.city ?? "").\(activity?.district ?? "").\(activity?.title ?? "")"
-        cell.addressLabel.text = "\(activity?.city ?? "") \(activity?.district ?? "")"
+        cell.titleLabel.text = "【\(activity?.startTime?.weekday() ?? "")】\(activity?.title ?? "")"
+        cell.addressLabel.text = "\(activity?.province ?? "") \(activity?.city ?? "") \(activity?.district ?? "")"
         cell.priceLabel.text = "¥\(activity?.fee ?? 0)"
-        cell.timeLabel.text = activity?.startTime
+        cell.timeLabel.text = activity?.startTime?.dayAndweekday()
         cell.delegate = self
         cell.tag = indexPath.row
         return cell

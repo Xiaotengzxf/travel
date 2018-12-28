@@ -11,7 +11,7 @@ import UIKit
 class PopoverAnimation: NSObject,UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning {
     var isPresentation = false
     var presentedFrame = CGRect.zero
-    var popViewType:PopViewType?
+    var popViewType: PopViewType?
     /// 返回控制 Modal 管理的控制器
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController?{
@@ -61,15 +61,14 @@ class PopoverAnimation: NSObject,UIViewControllerTransitioningDelegate,UIViewCon
                     
                     }, completion: { (_) -> Void in
                         transitionContext.completeTransition(true)
-                })}
+                })
+                
+            }
         }else{
             let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
-            fromView.removeFromSuperview()
-            // 动画完成
-            transitionContext.completeTransition(true)
             
+            fromView.removeFromSuperview()
+            transitionContext.completeTransition(true)
         }
-        
     }
-
 }

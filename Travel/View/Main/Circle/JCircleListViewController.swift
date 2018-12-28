@@ -25,6 +25,7 @@ class JCircleListViewController: UIViewController {
     private var arrData: [Circle] = []
     private var emptyShow = 0
     private var popVc: PopViewController!
+    private var animationDelegate: PopoverAnimation!
     private var circleId = ""
     
     override func viewDidLoad() {
@@ -143,7 +144,7 @@ class JCircleListViewController: UIViewController {
     }
     
     private func modalPopView(type: PopViewType) {
-        let animationDelegate = PopoverAnimation()
+        animationDelegate = PopoverAnimation()
         popVc = PopViewController()
         popVc.popType = type
         popVc.transitioningDelegate = animationDelegate
@@ -251,7 +252,7 @@ extension JCircleListViewController: EmptyDataSetSource, EmptyDataSetDelegate {
 
 extension JCircleListViewController: DidSelectPopViewCellDelegate {
     func didSelectRowAtIndexPath(_ indexPath: IndexPath) {
-        popVc?.dismiss(animated: true, completion: {
+        popVc.dismiss(animated: true, completion: {
             
         })
         if indexPath.row == 0 {

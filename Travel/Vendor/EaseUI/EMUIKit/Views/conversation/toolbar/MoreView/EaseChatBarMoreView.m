@@ -341,7 +341,7 @@
             }
         } else if (self.type == EMChatToolbarTypeGroup) {
             if ([_delegate respondsToSelector:@selector(moreViewCommunicationAction:)]) {
-                [_delegate moreViewCommunicationAction:self];
+                [_delegate moreViewCommunicationAction:self]; // 实现签到逻辑
             }
         }
     }

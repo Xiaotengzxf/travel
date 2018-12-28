@@ -249,6 +249,7 @@
 		9AD0CF8B21CF8D370023CB56 /* JMyPhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0CF8A21CF8D370023CB56 /* JMyPhotoDetailViewController.swift */; };
 		9AD0CF8D21CF915A0023CB56 /* JMyPhotoDetailModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0CF8C21CF915A0023CB56 /* JMyPhotoDetailModelService.swift */; };
 		9AD0CF9021CFB9420023CB56 /* JChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0CF8F21CFB9420023CB56 /* JChatViewController.swift */; };
+		9AD0CFAA21D0DBDC0023CB56 /* JQianDaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0CFA921D0DBDC0023CB56 /* JQianDaoViewController.swift */; };
 		9AE37A27200F39EA0077680D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A25200F39EA0077680D /* Reachability.swift */; };
 		9AE37A28200F39EA0077680D /* ZNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A26200F39EA0077680D /* ZNetwork.swift */; };
 		9AE37A2F200F3E9E0077680D /* FoundationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE37A2E200F3E9E0077680D /* FoundationExtension.swift */; };
@@ -642,6 +643,7 @@
 		9AD0CF8C21CF915A0023CB56 /* JMyPhotoDetailModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMyPhotoDetailModelService.swift; sourceTree = "<group>"; };
 		9AD0CF8E21CFB2010023CB56 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AD0CF8F21CFB9420023CB56 /* JChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JChatViewController.swift; sourceTree = "<group>"; };
+		9AD0CFA921D0DBDC0023CB56 /* JQianDaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JQianDaoViewController.swift; sourceTree = "<group>"; };
 		9AE37A25200F39EA0077680D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9AE37A26200F39EA0077680D /* ZNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZNetwork.swift; sourceTree = "<group>"; };
 		9AE37A2E200F3E9E0077680D /* FoundationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtension.swift; sourceTree = "<group>"; };
@@ -1213,12 +1215,12 @@
 				9A404636219E9A5F000A6BE1 /* EaseLocationViewController.m */,
 				9A404637219E9A5F000A6BE1 /* EaseConversationListViewController.m */,
 				9A404638219E9A5F000A6BE1 /* EaseViewController.h */,
-				9A404639219E9A5F000A6BE1 /* EaseMessageViewController.h */,
 				9A40463A219E9A5F000A6BE1 /* EaseUsersListViewController.m */,
 				9A40463B219E9A5F000A6BE1 /* EaseConversationListViewController.h */,
 				9A40463C219E9A5F000A6BE1 /* EaseLocationViewController.h */,
 				9A40463D219E9A5F000A6BE1 /* EaseRefreshTableViewController.m */,
 				9A40463E219E9A5F000A6BE1 /* EaseUsersListViewController.h */,
+				9A404639219E9A5F000A6BE1 /* EaseMessageViewController.h */,
 				9A40463F219E9A5F000A6BE1 /* EaseMessageViewController.m */,
 				9A404640219E9A5F000A6BE1 /* EaseViewController.m */,
 			);
@@ -1522,6 +1524,7 @@
 				9AA6D710213C2A3A00E7C98F /* JMessageListViewController.swift */,
 				9AA6D714213C2B5000E7C98F /* JMessageListTableViewCell.swift */,
 				9AD0CF8F21CFB9420023CB56 /* JChatViewController.swift */,
+				9AD0CFA921D0DBDC0023CB56 /* JQianDaoViewController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2225,6 +2228,7 @@
 				9A40469C219E9A60000A6BE1 /* EaseViewController.m in Sources */,
 				9A404688219E9A60000A6BE1 /* EaseMessageModel.m in Sources */,
 				9A9B23D920A0837000024E18 /* JForgetPWDRequestModel.swift in Sources */,
+				9AD0CFAA21D0DBDC0023CB56 /* JQianDaoViewController.swift in Sources */,
 				8930E6F32153E41300294ED6 /* JMyOrderTableViewCell.swift in Sources */,
 				8930E6F72153F03800294ED6 /* JMyFanTableViewCell.swift in Sources */,
 				9A40469F219E9A60000A6BE1 /* EaseMessageTimeCell.m in Sources */,

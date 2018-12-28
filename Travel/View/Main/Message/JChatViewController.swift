@@ -36,5 +36,13 @@ class JChatViewController: EaseMessageViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func moreViewCommunicationAction(_ moreView: EaseChatBarMoreView!) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "JQianDaoViewController") as? JQianDaoViewController
+        viewController?.title = title
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: nil, action: nil)
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
 
 }

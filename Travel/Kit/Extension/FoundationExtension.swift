@@ -53,6 +53,48 @@ extension String {
         return false
     }
     
+    func dayAndweekday() -> String {
+        let dateFormatter = self + ":00"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = formatter.date(from: dateFormatter) ?? Date()
+        let weekdays:NSArray = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+        var calendar = Calendar.init(identifier: .gregorian)
+        let timeZone = TimeZone.init(identifier: "Asia/Shanghai")
+        calendar.timeZone = timeZone!
+        let theComponents = calendar.dateComponents([.weekday, .month, .day], from: date)
+        var index = theComponents.weekday! - 1
+        if index < 0 {
+            index = 0
+        } else if index > 6 {
+            index = 6
+        }
+        let week = weekdays[index]
+        let month = theComponents.month!
+        let day = theComponents.day!
+        return "\(month)/\(day) \(week)"
+    }
+    
+    func weekday() -> String {
+        let dateFormatter = self + ":00"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = formatter.date(from: dateFormatter) ?? Date()
+        let weekdays:NSArray = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+        var calendar = Calendar.init(identifier: .gregorian)
+        let timeZone = TimeZone.init(identifier: "Asia/Shanghai")
+        calendar.timeZone = timeZone!
+        let theComponents = calendar.dateComponents([.weekday, .month, .day], from: date)
+        var index = theComponents.weekday! - 1
+        if index < 0 {
+            index = 0
+        } else if index > 6 {
+            index = 6
+        }
+        let week = weekdays[index]
+        return "\(week)"
+    }
+    
 }
 
 extension Int {

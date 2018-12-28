@@ -71,7 +71,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
   @discussion 接收到消息的已读回执的回调,用户可以自定义处理
   @param viewController 当前消息视图
   @param messageModel 消息模型
-  @result
   */
 - (void)messageViewController:(EaseMessageViewController *)viewController
  didReceiveHasReadAckForModel:(id<IMessageModel>)messageModel;
@@ -82,7 +81,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @discussion 选中消息的回调,用户可以自定义处理
  @param viewController 当前消息视图
  @param messageModel 消息模型
- @result
  */
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController
         didSelectMessageModel:(id<IMessageModel>)messageModel;
@@ -93,7 +91,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @discussion 获取用户点击头像回调
  @param viewController 当前消息视图
  @param messageModel 消息模型
- @result
  */
 - (void)messageViewController:(EaseMessageViewController *)viewController
     didSelectAvatarMessageModel:(id<IMessageModel>)messageModel;
@@ -104,7 +101,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @discussion 选中消息的回调,用户可以自定义处理
  @param viewController 当前消息视图
  @param messageModel 消息模型
- @result
  */
 - (void)messageViewController:(EaseMessageViewController *)viewController
     didSelectCallMessageModel:(id<IMessageModel>)messageModel;
@@ -116,7 +112,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @param viewController 当前消息视图
  @param messageModel 消息模型
  @param index 选中底部功能按钮索引
- @result
  */
 - (void)messageViewController:(EaseMessageViewController *)viewController
             didSelectMoreView:(EaseChatBarMoreView *)moreView
@@ -129,7 +124,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @param viewController 当前消息视图
  @param recordView 录音视图
  @param type 录音按钮当前状态
- @result
  */
 - (void)messageViewController:(EaseMessageViewController *)viewController
           didSelectRecordView:(UIView *)recordView
@@ -140,7 +134,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @brief 获取要@的对象
  @discussion 用户输入了@，选择要@的对象
  @param selectedCallback 用于回调要@的对象的block
- @result
  */
 - (void)messageViewController:(EaseMessageViewController *)viewController
                selectAtTarget:(EaseSelectAtTargetCallback)selectedCallback;
@@ -155,10 +148,7 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
 /*!
  @method
  @brief 指定消息附件上传或者下载进度的监听者,默认self
- @discussion
  @param viewController 当前消息视图
- @param messageBodyType
- @result
  */
 - (id)messageViewController:(EaseMessageViewController *)viewController
                   progressDelegateForMessageBodyType:(EMMessageBodyType)messageBodyType;
@@ -166,12 +156,7 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
 /*!
  @method
  @brief 附件进度有更新
- @discussion
  @param viewController 当前消息视图
- @param progress
- @param messageModel
- @param messageBody
- @result
  */
 - (void)messageViewController:(EaseMessageViewController *)viewController
                updateProgress:(float)progress
@@ -181,9 +166,8 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
 /*!
  @method
  @brief 消息时间间隔描述
- @discussion
  @param viewController 当前消息视图
- @param NSDate 时间
+ @param date 时间
  @result 返回消息时间描述
  */
 - (NSString *)messageViewController:(EaseMessageViewController *)viewController
@@ -194,7 +178,7 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @brief 将EMMessage类型转换为符合<IMessageModel>协议的类型
  @discussion 将EMMessage类型转换为符合<IMessageModel>协议的类型,设置用户信息,消息显示用户昵称和头像
  @param viewController 当前消息视图
- @param EMMessage 聊天消息对象类型
+ @param message 聊天消息对象类型
  @result 返回<IMessageModel>协议的类型
  */
 - (id<IMessageModel>)messageViewController:(EaseMessageViewController *)viewController
@@ -206,7 +190,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @discussion 获取是否允许长按的回调,默认是NO
  @param viewController 当前消息视图
  @param indexPath 长按消息对应的indexPath
- @result
  */
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController
    canLongPressRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -217,7 +200,6 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @discussion 获取触发长按手势的回调,默认是NO
  @param viewController 当前消息视图
  @param indexPath 长按消息对应的indexPath
- @result
  */
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController
    didLongPressRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -227,18 +209,15 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @brief 是否标记为已读
  @discussion 是否标记为已读的回调
  @param viewController 当前消息视图
- @result
  */
 - (BOOL)messageViewControllerShouldMarkMessagesAsRead:(EaseMessageViewController *)viewController;
 
 /*!
  @method
  @brief 是否发送已读回执
- @discussion
  @param viewController 当前消息视图
  @param message 要发送已读回执的message
  @param read message是否已读
- @result
  */
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController
 shouldSendHasReadAckForMessage:(EMMessage *)message
@@ -304,6 +283,7 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
 
 @property (weak, nonatomic) id<EaseMessageViewControllerDelegate> delegate;
 @property (strong, nonatomic) NSString * serverId;
+@property (nonatomic, assign) NSInteger flagForShowCotnent;
 @property (weak, nonatomic) id<EaseMessageViewControllerDataSource> dataSource;
 
 /*!
